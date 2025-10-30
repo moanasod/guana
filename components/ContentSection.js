@@ -23,12 +23,11 @@ const CodeBlock = {
   },
 };
 
-const ContentSection = ({ content }) => {
+export default function ContentSection({ content }) {
   return (
     <ReactMarkdown components={CodeBlock} className="markdown-class">
       {content}
     </ReactMarkdown>
   );
-};
+}
 
-export default ContentSection;

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import Button from "../../components/Button";
+import Button from "./Button";
 import DatePicker from "react-datepicker";
 import TextareaAutosize from "react-textarea-autosize";
 import { useTheme } from "next-themes";
+import { Typography, Box, Stack } from "@mui/material";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const BlogEditor = ({ post, close, refresh }) => {
+export default function BlogEditor({ post, close, refresh }) {
   const { theme } = useTheme();
   const [currentTabs, setCurrentTabs] = useState("BLOGDETAILS");
   const [blogContent, setBlogContent] = useState(post.content);
@@ -42,24 +43,33 @@ const BlogEditor = ({ post, close, refresh }) => {
   };
 
   return (
-    <div
-      className={`fixed z-10 w-screen h-screen overflow-auto top-0 flex flex-col items-center ${
-        theme === "dark" ? "bg-black" : "bg-white"
-      }`}
+    <Box
+      sx={{
+        position: 'fixed',
+        zIndex: 10,
+        width: '100vw',
+        height: '100vh',
+        overflow: 'auto',
+        top: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        backgroundColor: theme === "dark" ? '#000000' : '#ffffff'
+      }}
     >
-      <div className="container my-20">
-        <div className="mt-10">
-          <div className="z-10 sticky top-12">
-            <div className="flex items-center justify-between">
-              <h1 className="text-4xl">{blogVariables.title}</h1>
-              <div className="flex items-center">
+      <Box sx={{ maxWidth: '1200px', marginY: '80px', paddingX: '16px' }}>
+        <Box sx={{ marginTop: '40px' }}>
+          <Box sx={{ zIndex: 10, position: 'sticky', top: '48px' }}>
+            <Stack direction="row" alignItems="center" justifyContent="space-between">
+              <Typography variant="h3" sx={{ fontSize: '2.25rem' }}>{blogVariables.title}</Typography>
+              <Stack direction="row" alignItems="center">
                 <Button onClick={savePost} type="primary">
                   Save
                 </Button>
                 <Button onClick={close}>Close</Button>
-              </div>
-            </div>
-            <div className="flex items-center">
+              </Stack>
+            </Stack>
+            <Stack direction="row" alignItems="center">
               <Button
                 onClick={() => setCurrentTabs("BLOGDETAILS")}
                 type={currentTabs === "BLOGDETAILS" && "primary"}
@@ -72,12 +82,12 @@ const BlogEditor = ({ post, close, refresh }) => {
               >
                 Content
               </Button>
-            </div>
-          </div>
-        </div>
+            </Stack>
+          </Box>
+        </Box>
         {currentTabs === "BLOGDETAILS" && (
-          <div className="mt-10">
-            <div className="mt-5 flex flex-col items-center">
+          <Stack spacing={3} sx={{ marginTop: '40px' }}>
+            <Box sx={{ marginTop: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <label className="w-full text-sx opacity-50">Date</label>
               <DatePicker
                 selected={new Date(blogVariables.date)}
@@ -89,8 +99,8 @@ const BlogEditor = ({ post, close, refresh }) => {
                   });
                 }}
               />
-            </div>
-            <div className="mt-5 flex flex-col items-center">
+            </Box>
+            <Box sx={{ marginTop: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <label className="w-full text-sx opacity-50">Title</label>
               <input
                 value={blogVariables.title}
@@ -100,9 +110,9 @@ const BlogEditor = ({ post, close, refresh }) => {
                 className="w-full mt-2 p-4 hover:border-blue-400 rounded-md shadow-lg border-2"
                 type="text"
               ></input>
-            </div>
+            </Box>
 
-            <div className="mt-5 flex flex-col items-center">
+            <Box sx={{ marginTop: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <label className="w-full text-sx opacity-50">Tagline</label>
               <input
                 value={blogVariables.tagline}
@@ -115,8 +125,8 @@ const BlogEditor = ({ post, close, refresh }) => {
                 className="w-full mt-2 p-4 hover:border-blue-400 rounded-md shadow-lg border-2"
                 type="text"
               ></input>
-            </div>
-            <div className="mt-5 flex flex-col items-center">
+            </Box>
+            <Box sx={{ marginTop: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <label className="w-full text-sx opacity-50">preview (SEO)</label>
               <textarea
                 value={blogVariables.preview}
@@ -129,8 +139,8 @@ const BlogEditor = ({ post, close, refresh }) => {
                 className="w-full mt-2 p-4 hover:border-blue-400 rounded-md shadow-lg border-2"
                 type="text"
               ></textarea>
-            </div>
-            <div className="mt-5 flex flex-col items-center">
+            </Box>
+            <Box sx={{ marginTop: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <label className="w-full text-sx opacity-50">Image</label>
               <input
                 value={blogVariables.image}
@@ -143,25 +153,24 @@ const BlogEditor = ({ post, close, refresh }) => {
                 className="w-full mt-2 p-4 hover:border-blue-400 rounded-md shadow-lg border-2"
                 type="text"
               ></input>
-            </div>
-          </div>
+            </Box>
+          </Stack>
         )}
 
         {currentTabs === "CONTENT" && (
-          <div className="mt-10">
-            <div className="flex flex-col items-center">
+          <Box sx={{ marginTop: '40px' }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <label className="w-full text-sx opacity-50">Content</label>
               <TextareaAutosize
                 className="w-full h-auto mt-5 p-4 border hover:border-blue-400 rounded-xl shadow-xl"
                 value={blogContent}
                 onChange={(e) => setBlogContent(e.target.value)}
               ></TextareaAutosize>
-            </div>
-          </div>
+            </Box>
+          </Box>
         )}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
-};
+}
 
-export default BlogEditor;

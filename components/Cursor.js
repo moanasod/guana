@@ -3,15 +3,15 @@ import CustomCursor from "custom-cursor-react";
 import "custom-cursor-react/dist/index.css";
 import { useTheme } from "next-themes";
 
-const Cursor = () => {
+export default function Cursor() {
   const theme = useTheme();
   const [mount, setMount] = useState();
 
   const getCusomColor = () => {
     if (theme.theme === "dark") {
-      return "#fff";
+      return "#78866B";
     } else if (theme.theme === "light") {
-      return "#000";
+      return "#F8F4E3";
     }
   };
 
@@ -37,6 +37,5 @@ const Cursor = () => {
       )}
     </>
   );
-};
+}
 
-export default Cursor;

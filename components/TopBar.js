@@ -2,11 +2,13 @@ import { Popover } from "@headlessui/react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import Button from "../Button";
+// import Button from "./Button";
+import { Typography, Box, Stack } from "@mui/material";
 // Local Data
-import data from "../../data/portfolio.json";
+import data from "../data/portfolio.json";
+import Button from "./Button";
 
-const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
+export default function TopBar({ handleWorkScroll, handleAboutScroll, handleServicesScroll, isBlog }) {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -19,30 +21,30 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
 
   return (
     <>
-      <Popover className="block tablet:hidden mt-5">
+      <Popover className="block tablet:hidden mt-5" >
         {({ open }) => (
           <>
-            <div className="flex items-center justify-between p-2 laptop:p-0">
-              <h1
+            <Stack direction="row" alignItems="center" justifyContent="space-between" className="p-2 laptop:p-0">
+              <Typography
+                variant="h6"
                 onClick={() => router.push("/")}
-                className="font-medium p-2 laptop:p-0 link"
               >
                 {name}.
-              </h1>
+              </Typography>
 
-              <div className="flex items-center">
+              <Stack direction="row" alignItems="center">
                 {data.darkMode && (
                   <Button
                     onClick={() =>
                       setTheme(theme === "dark" ? "light" : "dark")
                     }
                   >
-                    <img
+                    {/* <img
                       className="h-6"
                       src={`/images/${
                         theme === "dark" ? "moon.svg" : "sun.svg"
                       }`}
-                    ></img>
+                    ></img> */}
                   </Button>
                 )}
 
@@ -60,16 +62,17 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                     }`}
                   ></img>
                 </Popover.Button>
-              </div>
-            </div>
+              </Stack>
+            </Stack>
             <Popover.Panel
               className={`absolute right-0 z-10 w-11/12 p-4 ${
                 theme === "dark" ? "bg-slate-800" : "bg-white"
               } shadow-md rounded-md`}
             >
               {!isBlog ? (
-                <div className="grid grid-cols-1">
-                  <Button onClick={handleWorkScroll}>Work</Button>
+                <Stack spacing={1}>
+                  <Button onClick={handleWorkScroll}>{data.weddingDetails.title}</Button>
+                  <Button onClick={handleServicesScroll}>{data.travelInfo.title}</Button>
                   <Button onClick={handleAboutScroll}>About</Button>
                   {showBlog && (
                     <Button onClick={() => router.push("/blog")}>Blog</Button>
@@ -80,20 +83,20 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                         window.open("mailto:hello@chetanverma.com")
                       }
                     >
-                      Resume
+                      {data.sections[3].title}
                     </Button>
                   )}
 
                   <Button
                     onClick={() => window.open("mailto:hello@chetanverma.com")}
                   >
-                    Contact
+                    {data.sections[3].title}
                   </Button>
-                </div>
+                </Stack>
               ) : (
-                <div className="grid grid-cols-1">
+                <Stack spacing={1}>
                   <Button onClick={() => router.push("/")} classes="first:ml-1">
-                    Home
+                    {data.sections[0].title}
                   </Button>
                   {showBlog && (
                     <Button onClick={() => router.push("/blog")}>Blog</Button>
@@ -103,7 +106,7 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                       onClick={() => router.push("/resume")}
                       classes="first:ml-1"
                     >
-                      Resume
+                      {data.sections[3].title}
                     </Button>
                   )}
 
@@ -112,26 +115,31 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                   >
                     Contact
                   </Button>
-                </div>
+                </Stack>
               )}
             </Popover.Panel>
           </>
         )}
       </Popover>
-      <div
-        className={`mt-10 hidden flex-row items-center justify-between sticky ${
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="space-between"
+        sx={{ backgroundColor: 'transparent', backdropFilter: 'blur(5px)' }}
+        className={`mt-10 hidden sticky ${
           theme === "light" && "bg-white"
         } dark:text-white top-0 z-10 tablet:flex`}
       >
-        <h1
+        <Typography
+          variant="h6"
           onClick={() => router.push("/")}
           className="font-medium cursor-pointer mob:p-2 laptop:p-0"
         >
           {name}.
-        </h1>
+        </Typography>
         {!isBlog ? (
-          <div className="flex">
-            <Button onClick={handleWorkScroll}>Work</Button>
+          <Stack direction="row">
+            <Button onClick={handleWorkScroll}>{data.weddingDetails.title}</Button>
             <Button onClick={handleAboutScroll}>About</Button>
             {showBlog && (
               <Button onClick={() => router.push("/blog")}>Blog</Button>
@@ -158,9 +166,9 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                 ></img>
               </Button>
             )}
-          </div>
+          </Stack>
         ) : (
-          <div className="flex">
+          <Stack direction="row">
             <Button onClick={() => router.push("/")}>Home</Button>
             {showBlog && (
               <Button onClick={() => router.push("/blog")}>Blog</Button>
@@ -188,11 +196,10 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
                 ></img>
               </Button>
             )}
-          </div>
+          </Stack>
         )}
-      </div>
+      </Stack>
     </>
   );
-};
+}
 
-export default Header;

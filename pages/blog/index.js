@@ -1,13 +1,15 @@
 import Head from "next/head";
 import Router, { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { stagger } from "../../animations";
 import Button from "../../components/Button";
 import Cursor from "../../components/Cursor";
-import Header from "../../components/Header";
+import TopBar from "../../components/TopBar";
 import data from "../../data/portfolio.json";
 import { ISOToDate, useIsomorphicLayoutEffect } from "../../utils";
 import { getAllPosts } from "../../utils/api";
+import { Typography, Box, Grid, Stack } from "@mui/material";
 const Blog = ({ posts }) => {
   const showBlog = useRef(data.showBlog);
   const text = useRef();
@@ -67,39 +69,58 @@ const Blog = ({ posts }) => {
         <Head>
           <title>Blog</title>
         </Head>
-        <div
-          className={`container mx-auto mb-10 ${
-            data.showCursor && "cursor-none"
-          }`}
+        <Box
+          sx={{
+            maxWidth: '1200px',
+            marginX: 'auto',
+            marginBottom: '40px',
+            cursor: data.showCursor ? 'none' : 'default'
+          }}
         >
-          <Header isBlog={true}></Header>
-          <div className="mt-10">
-            <h1
+          <TopBar isBlog={true}></TopBar>
+          <Box sx={{ marginTop: '40px' }}>
+            <Typography
+              variant="h1"
               ref={text}
-              className="mx-auto mob:p-2 text-bold text-6xl laptop:text-8xl w-full"
+              sx={{
+                marginX: 'auto',
+                padding: { xs: '8px', sm: 0 },
+                fontWeight: 700,
+                fontSize: { xs: '3.75rem', lg: '6rem' },
+                width: '100%'
+              }}
             >
               Blog.
-            </h1>
-            <div className="mt-10 grid grid-cols-1 mob:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 justify-between gap-10">
+            </Typography>
+            <Grid container spacing={4} sx={{ marginTop: '40px' }}>
               {posts &&
                 posts.map((post) => (
-                  <div
-                    className="cursor-pointer relative"
-                    key={post.slug}
-                    onClick={() => Router.push(`/blog/${post.slug}`)}
-                  >
+                  <Grid item xs={12} sm={6} md={4} key={post.slug}>
+                    <Box
+                      sx={{ cursor: 'pointer', position: 'relative' }}
+                      onClick={() => Router.push(`/blog/${post.slug}`)}
+                    >
+                    <Box sx={{
+                      position: 'relative',
+                      width: '100%',
+                      height: '240px',
+                      borderRadius: '0.5rem',
+                      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+                      overflow: 'hidden'
+                    }}>
                     <img
                       className="w-full h-60 rounded-lg shadow-lg object-cover"
                       src={post.image}
                       alt={post.title}
                     ></img>
-                    <h2 className="mt-5 text-4xl">{post.title}</h2>
-                    <p className="mt-2 opacity-50 text-lg">{post.preview}</p>
-                    <span className="text-sm mt-5 opacity-25">
+                    </Box>
+                    <Typography variant="h4" sx={{ marginTop: '20px', fontSize: '2.25rem' }}>{post.title}</Typography>
+                    <Typography variant="body1" sx={{ marginTop: '8px', opacity: 0.5, fontSize: '1.125rem' }}>{post.preview}</Typography>
+                    <Typography component="span" sx={{ fontSize: '0.875rem', marginTop: '20px', opacity: 0.25, display: 'block' }}>
                       {ISOToDate(post.date)}
-                    </span>
+                    </Typography>
                     {process.env.NODE_ENV === "development" && mounted && (
-                      <div className="absolute top-0 right-0">
+                      <Box sx={{ position: 'absolute', top: 0, right: 0 }}>
                         <Button
                           onClick={(e) => {
                             deleteBlog(post.slug);
@@ -109,19 +130,20 @@ const Blog = ({ posts }) => {
                         >
                           Delete
                         </Button>
-                      </div>
+                      </Box>
                     )}
-                  </div>
+                  </Box>
+                  </Grid>
                 ))}
-            </div>
-          </div>
-        </div>
+            </Grid>
+          </Box>
+        </Box>
         {process.env.NODE_ENV === "development" && mounted && (
-          <div className="fixed bottom-6 right-6">
+          <Box sx={{ position: 'fixed', bottom: '24px', right: '24px' }}>
             <Button onClick={createBlog} type={"primary"}>
               Add New Post +{" "}
             </Button>
-          </div>
+          </Box>
         )}
       </>
     )
