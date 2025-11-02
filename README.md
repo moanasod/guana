@@ -2,10 +2,10 @@
 
 - Header
 - Work
-- Services
+- FAQ
 - About
 - Contact
-- Markdown Blog
+- Markdown FAQ
 
 
 ### How To Use

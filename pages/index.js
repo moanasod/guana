@@ -6,20 +6,24 @@ import Head from "next/head";
 import Button from "../components/Button";
 import Link from "next/link";
 import { Box } from "@mui/material";
+import { Stack } from "@mui/material";
 
 // Section Components
 import PageHeader from "../components/sections/PageHeader";
 import WeddingDetails from "../components/sections/WeddingDetails";
-import Services from "../components/sections/Services";
+import FAQ from "../components/sections/FAQ";
 import About from "../components/sections/About";
-
+import Itinerary from "../components/sections/Itinerary";
 // Local Data
 import data from "../data/portfolio.json";
 import TopBar from "../components/TopBar";
+import { getAllPosts } from "../utils/api";
 
-export default function Home() {
+export default function Home({ posts }) {
   // Ref
   const workRef = useRef();
+  const itineraryRef = useRef();
+  const FAQRef = useRef();
   const aboutRef = useRef();
   const textOne = useRef();
   const textTwo = useRef();
@@ -27,9 +31,27 @@ export default function Home() {
   const textFour = useRef();
 
   // Handling Scroll
+  const HEADER_OFFSET = 100;
+
+  const handleItineraryScroll = () => {
+    window.scrollTo({
+      top: itineraryRef.current.offsetTop,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   const handleWorkScroll = () => {
     window.scrollTo({
-      top: workRef.current.offsetTop,
+      top: workRef.current.offsetTop - HEADER_OFFSET,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const handleFAQScroll = () => {
+    window.scrollTo({
+      top: FAQRef.current.offsetTop - HEADER_OFFSET,
       left: 0,
       behavior: "smooth",
     });
@@ -37,7 +59,7 @@ export default function Home() {
 
   const handleAboutScroll = () => {
     window.scrollTo({
-      top: aboutRef.current.offsetTop,
+      top: aboutRef.current.offsetTop - HEADER_OFFSET,
       left: 0,
       behavior: "smooth",
     });
@@ -52,8 +74,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Box sx={{ position: 'relative', cursor: data.showCursor ? 'none' : 'default' }}>
-      {/* {data.showCursor && <Cursor />} */}
+    <Box sx={{ position: "relative", cursor: "default" }}>
       <Head>
         <title>{data.name}</title>
       </Head>
@@ -61,40 +82,50 @@ export default function Home() {
       <Box className="gradient-circle"></Box>
       <Box className="gradient-circle-bottom"></Box>
 
-      <Box sx={{ maxWidth: '1200px', marginX: 'auto', marginBottom: '40px' }}>
+      <Stack
+        sx={{ maxWidth: "1200px", marginX: "auto", marginBottom: "40px" }}
+        gap={2}
+      >
         <TopBar
           handleWorkScroll={handleWorkScroll}
-          handleAboutScroll={handleAboutScroll}
+          handleItineraryScroll={handleItineraryScroll}
+          handleFAQScroll={handleFAQScroll}
         />
-        
-        <PageHeader 
+
+        <PageHeader
           textRefs={{ textOne, textTwo, textThree, textFour }}
           data={data}
         />
-        
-        <WeddingDetails 
-          workRef={workRef}
-          data={data}
-        />
-        
-        <Services data={data} />
-        
+        <Stack gap={4}>
+          <Itinerary itineraryRef={itineraryRef} />
+
+          <WeddingDetails workRef={workRef} data={data} />
+
+          <FAQ posts={posts} FAQRef={FAQRef} />
+          <About aboutRef={aboutRef} data={data} />
+        </Stack>
+
         {/* This button should not go into production */}
         {process.env.NODE_ENV === "development" && (
-          <Box sx={{ position: 'fixed', bottom: '20px', right: '20px' }}>
+          <Box sx={{ position: "fixed", bottom: "20px", right: "20px" }}>
             <Link href="/edit">
               <Button type="primary">Edit Data</Button>
             </Link>
           </Box>
         )}
-        
-        <About 
-          aboutRef={aboutRef}
-          data={data}
-        />
-        
+
         <Footer />
-      </Box>
+      </Stack>
     </Box>
   );
+}
+
+export async function getStaticProps() {
+  const posts = getAllPosts(["slug", "title", "image", "preview", "date"]);
+
+  return {
+    props: {
+      posts: [...posts],
+    },
+  };
 }

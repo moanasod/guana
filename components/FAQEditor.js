@@ -7,11 +7,11 @@ import { Typography, Box, Stack } from "@mui/material";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function BlogEditor({ post, close, refresh }) {
+export default function FAQEditor({ post, close, refresh }) {
   const { theme } = useTheme();
   const [currentTabs, setCurrentTabs] = useState("BLOGDETAILS");
-  const [blogContent, setBlogContent] = useState(post.content);
-  const [blogVariables, setBlogVariables] = useState({
+  const [faqContent, setFAQContent] = useState(post.content);
+  const [faqVariables, setFAQVariables] = useState({
     date: post.date,
     title: post.title,
     tagline: post.tagline,
@@ -21,15 +21,15 @@ export default function BlogEditor({ post, close, refresh }) {
 
   const savePost = async () => {
     if (process.env.NODE_ENV === "development") {
-      await fetch("/api/blog/edit", {
+      await fetch("/api/faq/edit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           slug: post.slug,
-          content: blogContent,
-          variables: blogVariables,
+          content: faqContent,
+          variables: faqVariables,
         }),
       }).then((data) => {
         if (data.status === 200) {
@@ -61,7 +61,7 @@ export default function BlogEditor({ post, close, refresh }) {
         <Box sx={{ marginTop: '40px' }}>
           <Box sx={{ zIndex: 10, position: 'sticky', top: '48px' }}>
             <Stack direction="row" alignItems="center" justifyContent="space-between">
-              <Typography variant="h3" sx={{ fontSize: '2.25rem' }}>{blogVariables.title}</Typography>
+              <Typography variant="h3" sx={{ fontSize: '2.25rem' }}>{faqVariables.title}</Typography>
               <Stack direction="row" alignItems="center">
                 <Button onClick={savePost} type="primary">
                   Save
@@ -74,7 +74,7 @@ export default function BlogEditor({ post, close, refresh }) {
                 onClick={() => setCurrentTabs("BLOGDETAILS")}
                 type={currentTabs === "BLOGDETAILS" && "primary"}
               >
-                Blog Details
+                FAQ Details
               </Button>
               <Button
                 onClick={() => setCurrentTabs("CONTENT")}
@@ -90,11 +90,11 @@ export default function BlogEditor({ post, close, refresh }) {
             <Box sx={{ marginTop: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <label className="w-full text-sx opacity-50">Date</label>
               <DatePicker
-                selected={new Date(blogVariables.date)}
+                selected={new Date(faqVariables.date)}
                 className="w-full mt-2 p-4 hover:border-blue-400 rounded-md shadow-lg border-2"
                 onChange={(date) => {
-                  setBlogVariables({
-                    ...blogVariables,
+                  setFAQVariables({
+                    ...faqVariables,
                     date: date.toISOString(),
                   });
                 }}
@@ -103,9 +103,9 @@ export default function BlogEditor({ post, close, refresh }) {
             <Box sx={{ marginTop: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <label className="w-full text-sx opacity-50">Title</label>
               <input
-                value={blogVariables.title}
+                value={faqVariables.title}
                 onChange={(e) =>
-                  setBlogVariables({ ...blogVariables, title: e.target.value })
+                  setFAQVariables({ ...faqVariables, title: e.target.value })
                 }
                 className="w-full mt-2 p-4 hover:border-blue-400 rounded-md shadow-lg border-2"
                 type="text"
@@ -115,10 +115,10 @@ export default function BlogEditor({ post, close, refresh }) {
             <Box sx={{ marginTop: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <label className="w-full text-sx opacity-50">Tagline</label>
               <input
-                value={blogVariables.tagline}
+                value={faqVariables.tagline}
                 onChange={(e) =>
-                  setBlogVariables({
-                    ...blogVariables,
+                  setFAQVariables({
+                    ...faqVariables,
                     tagline: e.target.value,
                   })
                 }
@@ -129,10 +129,10 @@ export default function BlogEditor({ post, close, refresh }) {
             <Box sx={{ marginTop: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <label className="w-full text-sx opacity-50">preview (SEO)</label>
               <textarea
-                value={blogVariables.preview}
+                value={faqVariables.preview}
                 onChange={(e) =>
-                  setBlogVariables({
-                    ...blogVariables,
+                  setFAQVariables({
+                    ...faqVariables,
                     preview: e.target.value,
                   })
                 }
@@ -143,10 +143,10 @@ export default function BlogEditor({ post, close, refresh }) {
             <Box sx={{ marginTop: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <label className="w-full text-sx opacity-50">Image</label>
               <input
-                value={blogVariables.image}
+                value={faqVariables.image}
                 onChange={(e) =>
-                  setBlogVariables({
-                    ...blogVariables,
+                  setFAQVariables({
+                    ...faqVariables,
                     image: e.target.value,
                   })
                 }
@@ -163,8 +163,8 @@ export default function BlogEditor({ post, close, refresh }) {
               <label className="w-full text-sx opacity-50">Content</label>
               <TextareaAutosize
                 className="w-full h-auto mt-5 p-4 border hover:border-blue-400 rounded-xl shadow-xl"
-                value={blogContent}
-                onChange={(e) => setBlogContent(e.target.value)}
+                value={faqContent}
+                onChange={(e) => setFAQContent(e.target.value)}
               ></TextareaAutosize>
             </Box>
           </Box>

@@ -6,8 +6,8 @@ export default function About({ aboutRef, data }) {
     <Box 
       ref={aboutRef}
       sx={{ 
-        marginTop: { xs: '40px', lg: '160px' }, 
-        padding: { xs: '8px', lg: 0 } 
+        marginTop: { xs: '40px' }, 
+        padding: { xs: '16px', lg: 0 } 
       }}
     >
       <Typography 

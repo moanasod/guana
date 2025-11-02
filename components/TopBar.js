@@ -2,204 +2,190 @@ import { Popover } from "@headlessui/react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-// import Button from "./Button";
+import Image from "next/image";
 import { Typography, Box, Stack } from "@mui/material";
 // Local Data
 import data from "../data/portfolio.json";
 import Button from "./Button";
+import AppBar from "@mui/material/AppBar";
+import DarkModeToggle from "./DarkModeToggle";
 
-export default function TopBar({ handleWorkScroll, handleAboutScroll, handleServicesScroll, isBlog }) {
+export default function TopBar({
+  handleWorkScroll,
+  handleFAQScroll,
+  handleItineraryScroll,
+  isFAQ,
+}) {
   const router = useRouter();
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
+  const isDarkMode = theme === "dark";
   const [mounted, setMounted] = useState(false);
 
-  const { name, showBlog, showResume } = data;
+  const { name, showFAQ, showResume } = data;
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
+  const menuItems = [
+    {
+      label: "Itinerary",
+      onClick: handleItineraryScroll,
+    },
+    {
+      label: "Wedding Details",
+      onClick: handleWorkScroll,
+    },
+    // {
+    //   label: "FAQ",
+    //   onClick: handleFAQScroll,
+    // },
+
+    {
+      label: "FAQ",
+      onClick: () => router.push("/faq"),
+    },
+    // {
+    //   label: "Contact",
+    //   onClick: () => window.open("mailto:moana@moana.com"),
+    // },
+  ];
+
   return (
     <>
-      <Popover className="block tablet:hidden mt-5" >
+      {/* Mobile Navigation */}
+      <Popover>
         {({ open }) => (
           <>
-            <Stack direction="row" alignItems="center" justifyContent="space-between" className="p-2 laptop:p-0">
-              <Typography
-                variant="h6"
-                onClick={() => router.push("/")}
+            <AppBar
+              position="fixed"
+              sx={{
+                display: { xs: "flex", md: "none" },
+                backgroundColor: "transparent",
+                backdropFilter: "blur(10px)",
+                padding: "0.5rem 1rem",
+                mask: "linear-gradient(black, black, black, transparent)",
+                overflow: "visible",
+              }}
+            >
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="space-between"
               >
-                {name}.
-              </Typography>
+                <Typography
+                  variant="h6"
+                  onClick={() => router.push("/")}
+                  sx={{
+                    cursor: "pointer",
+                    fontWeight: 500,
+                    color: isDarkMode ?"white" : "secondary.dark" ,
+                  }}
+                >
+                  {name}.
+                </Typography>
 
-              <Stack direction="row" alignItems="center">
-                {data.darkMode && (
-                  <Button
-                    onClick={() =>
-                      setTheme(theme === "dark" ? "light" : "dark")
-                    }
-                  >
-                    {/* <img
-                      className="h-6"
+                <Stack direction="row" alignItems="center">
+                  {data.darkMode && <DarkModeToggle />}
+
+                  <Popover.Button>
+                    <Box
+                      component="img"
                       src={`/images/${
-                        theme === "dark" ? "moon.svg" : "sun.svg"
+                        !open
+                          ? theme === "dark"
+                            ? "menu-white.svg"
+                            : "menu.svg"
+                          : theme === "light"
+                          ? "cancel.svg"
+                          : "cancel-white.svg"
                       }`}
-                    ></img> */}
-                  </Button>
-                )}
-
-                <Popover.Button>
-                  <img
-                    className="h-5"
-                    src={`/images/${
-                      !open
-                        ? theme === "dark"
-                          ? "menu-white.svg"
-                          : "menu.svg"
-                        : theme === "light"
-                        ? "cancel.svg"
-                        : "cancel-white.svg"
-                    }`}
-                  ></img>
-                </Popover.Button>
+                      sx={{ width: 24, height: 24 }}
+                    />
+                  </Popover.Button>
+                </Stack>
               </Stack>
-            </Stack>
+            </AppBar>
+
             <Popover.Panel
-              className={`absolute right-0 z-10 w-11/12 p-4 ${
+              style={{
+                position: "fixed",
+                right: "1rem",
+                top: "5rem",
+                zIndex: 9999,
+                width: "90%",
+                maxWidth: "320px",
+              }}
+              className={`p-4 ${
                 theme === "dark" ? "bg-slate-800" : "bg-white"
               } shadow-md rounded-md`}
             >
-              {!isBlog ? (
+              {!isFAQ ? (
                 <Stack spacing={1}>
-                  <Button onClick={handleWorkScroll}>{data.weddingDetails.title}</Button>
-                  <Button onClick={handleServicesScroll}>{data.travelInfo.title}</Button>
-                  <Button onClick={handleAboutScroll}>About</Button>
-                  {showBlog && (
-                    <Button onClick={() => router.push("/blog")}>Blog</Button>
-                  )}
-                  {showResume && (
-                    <Button
-                      onClick={() =>
-                        window.open("mailto:hello@chetanverma.com")
-                      }
-                    >
-                      {data.sections[3].title}
+                  {menuItems.map((item) => (
+                    <Button key={item.label} onClick={item.onClick}>
+                      {item.label}
                     </Button>
-                  )}
-
-                  <Button
-                    onClick={() => window.open("mailto:hello@chetanverma.com")}
-                  >
-                    {data.sections[3].title}
-                  </Button>
+                  ))}
                 </Stack>
               ) : (
                 <Stack spacing={1}>
-                  <Button onClick={() => router.push("/")} classes="first:ml-1">
-                    {data.sections[0].title}
-                  </Button>
-                  {showBlog && (
-                    <Button onClick={() => router.push("/blog")}>Blog</Button>
-                  )}
-                  {showResume && (
-                    <Button
-                      onClick={() => router.push("/resume")}
-                      classes="first:ml-1"
-                    >
-                      {data.sections[3].title}
+                  {menuItems.map((item) => (
+                    <Button key={item.label} onClick={item.onClick}>
+                      {item.label}
                     </Button>
-                  )}
-
-                  <Button
-                    onClick={() => window.open("mailto:hello@chetanverma.com")}
-                  >
-                    Contact
-                  </Button>
+                  ))}
                 </Stack>
               )}
             </Popover.Panel>
           </>
         )}
       </Popover>
-      <Stack
-        direction="row"
-        alignItems="center"
-        justifyContent="space-between"
-        sx={{ backgroundColor: 'transparent', backdropFilter: 'blur(5px)' }}
-        className={`mt-10 hidden sticky ${
-          theme === "light" && "bg-white"
-        } dark:text-white top-0 z-10 tablet:flex`}
+
+      {/* Desktop Navigation */}
+      <AppBar
+        position="fixed"
+        sx={{
+          display: { xs: "none", md: "flex" },
+          flexDirection: "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          backgroundColor: "transparent",
+          backdropFilter: "blur(5px)",
+          mask: "linear-gradient(black, black, black, transparent)",
+          padding: "1rem 2rem",
+        }}
       >
         <Typography
           variant="h6"
           onClick={() => router.push("/")}
-          className="font-medium cursor-pointer mob:p-2 laptop:p-0"
+          sx={{
+            cursor: "pointer",
+            fontWeight: 500,
+            color: isDarkMode ? "primary.main" : "secondary.dark",
+          }}
         >
           {name}.
         </Typography>
-        {!isBlog ? (
-          <Stack direction="row">
-            <Button onClick={handleWorkScroll}>{data.weddingDetails.title}</Button>
-            <Button onClick={handleAboutScroll}>About</Button>
-            {showBlog && (
-              <Button onClick={() => router.push("/blog")}>Blog</Button>
-            )}
-            {showResume && (
-              <Button
-                onClick={() => router.push("/resume")}
-                classes="first:ml-1"
-              >
-                Resume
+        {!isFAQ ? (
+          <Stack direction="row" spacing={1}>
+            {menuItems.map((item) => (
+              <Button key={item.label} onClick={item.onClick}>
+                {item.label}
               </Button>
-            )}
-
-            <Button onClick={() => window.open("mailto:hello@chetanverma.com")}>
-              Contact
-            </Button>
-            {mounted && theme && data.darkMode && (
-              <Button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              >
-                <img
-                  className="h-6"
-                  src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-                ></img>
-              </Button>
-            )}
+            ))}
+            {mounted && theme && data.darkMode && <DarkModeToggle />}
           </Stack>
         ) : (
-          <Stack direction="row">
+          <Stack direction="row" spacing={1}>
             <Button onClick={() => router.push("/")}>Home</Button>
-            {showBlog && (
-              <Button onClick={() => router.push("/blog")}>Blog</Button>
+            {showFAQ && (
+              <Button onClick={() => router.push("/faq")}>FAQ</Button>
             )}
-            {showResume && (
-              <Button
-                onClick={() => router.push("/resume")}
-                classes="first:ml-1"
-              >
-                Resume
-              </Button>
-            )}
-
-            <Button onClick={() => window.open("mailto:hello@chetanverma.com")}>
-              Contact
-            </Button>
-
-            {mounted && theme && data.darkMode && (
-              <Button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              >
-                <img
-                  className="h-6"
-                  src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-                ></img>
-              </Button>
-            )}
+            {mounted && theme && data.darkMode && <DarkModeToggle />}
           </Stack>
         )}
-      </Stack>
+      </AppBar>
     </>
   );
 }
-

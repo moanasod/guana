@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 
 // Data
 import yourData from "../data/portfolio.json";
-import Cursor from "../components/Cursor";
 
 const Edit = () => {
   // states
@@ -60,19 +59,19 @@ const Edit = () => {
     setData({ ...data, projects: copyProjects });
   };
 
-  // Services Handler
+  // FAQ Handler
 
-  const editServices = (serviceIndex, editService) => {
-    let copyServices = data.services;
-    copyServices[serviceIndex] = { ...editService };
-    setData({ ...data, services: copyServices });
+  const editFAQ = (serviceIndex, editService) => {
+    let copyFAQ = data.FAQ;
+    copyFAQ[serviceIndex] = { ...editService };
+    setData({ ...data, FAQ: copyFAQ });
   };
 
   const addService = () => {
     setData({
       ...data,
-      services: [
-        ...data.services,
+      FAQ: [
+        ...data.FAQ,
         {
           id: uuidv4(),
           title: "New Service",
@@ -84,9 +83,9 @@ const Edit = () => {
   };
 
   const deleteService = (id) => {
-    const copyServices = data.services;
-    copyServices = copyServices.filter((service) => service.id !== id);
-    setData({ ...data, services: copyServices });
+    const copyFAQ = data.FAQ;
+    copyFAQ = copyFAQ.filter((service) => service.id !== id);
+    setData({ ...data, FAQ: copyFAQ });
   };
 
   // Socials Handler
@@ -148,9 +147,8 @@ const Edit = () => {
   };
 
   return (
-    <div className={`container mx-auto ${data.showCursor && "cursor-none"}`}>
-      <TopBar isBlog></TopBar>
-      {data.showCursor && <Cursor />}
+    <div>
+      <TopBar isFAQ></TopBar>
       <div className="mt-10">
         <div className={`${theme === "dark" ? "bg-transparent" : "bg-white"}`}>
           <div className="flex items-center justify-between">
@@ -176,11 +174,10 @@ const Edit = () => {
               Projects
             </Button>
             <Button
-              onClick={() => setCurrentTabs("SERVICES")}
-              type={currentTabs === "SERVICES" && "primary"}
+              onClick={() => setCurrentTabs("FAQ")}
+              type={currentTabs === "FAQ" && "primary"}
             >
-              {data.travelInfo.title}
-            </Button>
+FAQ            </Button>
             <Button
               onClick={() => setCurrentTabs("ABOUT")}
               type={currentTabs === "ABOUT" && "primary"}
@@ -266,18 +263,18 @@ const Edit = () => {
               ></input>
             </div>
             <div className="mt-5 flex items-center">
-              <label className="w-1/5 text-lg opacity-50">Blog</label>
+              <label className="w-1/5 text-lg opacity-50">FAQ</label>
               <div className="w-4/5 ml-10 flex items-center">
                 <Button
-                  onClick={() => setData({ ...data, showBlog: true })}
-                  type={data.showBlog && "primary"}
+                  onClick={() => setData({ ...data, showFAQ: true })}
+                  type={data.showFAQ && "primary"}
                 >
                   Yes
                 </Button>
                 <Button
-                  onClick={() => setData({ ...data, showBlog: false })}
+                  onClick={() => setData({ ...data, showFAQ: false })}
                   classes={
-                    !data.showBlog && "bg-red-500 text-white hover:bg-red-600"
+                    !data.showFAQ && "bg-red-500 text-white hover:bg-red-600"
                   }
                 >
                   No
@@ -327,14 +324,13 @@ const Edit = () => {
               <div className="w-4/5 ml-10 flex items-center">
                 <Button
                   onClick={() => setData({ ...data, showCursor: true })}
-                  type={data.showCursor && "primary"}
                 >
                   Yes
                 </Button>
                 <Button
                   onClick={() => setData({ ...data, showCursor: false })}
                   classes={
-                    !data.showCursor && "bg-red-500 text-white hover:bg-red-600"
+                  "bg-red-500 text-white hover:bg-red-600"
                   }
                 >
                   No
@@ -431,11 +427,11 @@ const Edit = () => {
             </div>
           </>
         )}
-        {/* SERVICES */}
-        {currentTabs === "SERVICES" && (
+        {/* FAQ */}
+        {currentTabs === "FAQ" && (
           <>
             <div className="mt-10">
-              {data.services.map((service, index) => (
+              {data.FAQ.map((service, index) => (
                 <div key={service.id}>
                   <div className="flex items-center justify-between">
                     <Typography variant="h5" className="text-2xl">{service.title}</Typography>
@@ -451,7 +447,7 @@ const Edit = () => {
                     <input
                       value={service.title}
                       onChange={(e) =>
-                        editServices(index, {
+                        editFAQ(index, {
                           ...service,
                           title: e.target.value,
                         })
@@ -467,7 +463,7 @@ const Edit = () => {
                     <textarea
                       value={service.description}
                       onChange={(e) =>
-                        editServices(index, {
+                        editFAQ(index, {
                           ...service,
                           description: e.target.value,
                         })

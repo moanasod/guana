@@ -1,32 +1,38 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, lighten } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#F8F4E3',
-      light: '#F8F4E3',
-      dark: '#78866B',
+      main: '#E6B8A2',
+      light: '#BCB4A3',
+      dark: '#b86830',
       contrastText: '#ffffff',
     },
+//     Grönt: #6d745C
+// Peach: #c46e58
+// Brunt: #b86830
+// Bright: #cba979
+// Grå: #BCB4A3
     secondary: {
       main: '#ffffff',
       light: '#f5f5f5',
-      dark: '#e5e5e5',
+      dark: '#636b2f',
       contrastText: '#000000',
     },
     background: {
-      default: '#F8F4E3',
-      paper: '#f9fafb',
+      default: '#F8F7F2',
+      // default: '#F8F4E3',
+      paper: '#BCB4A3',
     },
     text: {
-      primary: '#78866B',
+      primary: '#5e643c',
       secondary: 'rgba(0, 0, 0, 0.6)',
     },
   },
   
   typography: {
-    // Default font family for body text
     fontFamily: [
+      'Playfair Display',
     'libre-baskerville',
       '-apple-system',
       'BlinkMacSystemFont',
@@ -36,95 +42,6 @@ const theme = createTheme({
       'Arial',
       'sans-serif',
     ].join(','),
-    
-  //   // Headings use maglisto font
-  //   h1: {
-  //     fontFamily: ['maglisto', 'Georgia', 'serif'].join(','),
-  //     fontSize: '3rem',
-  //     fontWeight: 700,
-  //     lineHeight: 1.2,
-  //     '@media (min-width:768px)': {
-  //       fontSize: '4rem',
-  //     },
-  //     '@media (min-width:1024px)': {
-  //       fontSize: '6rem',
-  //     },
-  //   },
-    
-  //   h2: {
-  //     fontFamily: ['maglisto', 'Georgia', 'serif'].join(','),
-  //     fontSize: '1.875rem',
-  //     fontWeight: 700,
-  //     lineHeight: 1.3,
-  //     '@media (min-width:768px)': {
-  //       fontSize: '3rem',
-  //     },
-  //     '@media (min-width:1024px)': {
-  //       fontSize: '3.75rem',
-  //     },
-  //   },
-    
-  //   h3: {
-  //     fontFamily: ['maglisto', 'Georgia', 'serif'].join(','),
-  //     fontSize: '1.5rem',
-  //     fontWeight: 700,
-  //     '@media (min-width:768px)': {
-  //       fontSize: '2rem',
-  //     },
-  //   },
-    
-  //   h4: {
-  //     fontFamily: ['maglisto', 'Georgia', 'serif'].join(','),
-  //     fontSize: '1.25rem',
-  //     fontWeight: 700,
-  //     '@media (min-width:768px)': {
-  //       fontSize: '1.5rem',
-  //     },
-  //   },
-    
-  //   h5: {
-  //     fontFamily: ['maglisto', 'Georgia', 'serif'].join(','),
-  //     fontSize: '1.125rem',
-  //     fontWeight: 700,
-  //     '@media (min-width:768px)': {
-  //       fontSize: '1.5rem',
-  //     },
-  //   },
-    
-  //   h6: {
-  //     fontFamily: ['maglisto', 'Georgia', 'serif'].join(','),
-  //     fontSize: '1rem',
-  //     fontWeight: 600,
-  //     '@media (min-width:768px)': {
-  //       fontSize: '1.25rem',
-  //     },
-  //   },
-    
-  //   // Body text uses system fonts
-  //   body1: {
-  //     fontSize: '1rem',
-  //     lineHeight: 1.6,
-  //     '@media (min-width:768px)': {
-  //       fontSize: '1.125rem',
-  //     },
-  //   },
-    
-  //   body2: {
-  //     fontSize: '0.875rem',
-  //     lineHeight: 1.5,
-  //   },
-    
-  //   subtitle1: {
-  //     fontFamily: ['maglisto', 'Georgia', 'serif'].join(','),
-  //     fontSize: '1rem',
-  //     fontWeight: 500,
-  //   },
-    
-  //   subtitle2: {
-  //     fontFamily: ['maglisto', 'Georgia', 'serif'].join(','),
-  //     fontSize: '0.875rem',
-  //     fontWeight: 500,
-  //   },
   },
   
   breakpoints: {
@@ -137,7 +54,7 @@ const theme = createTheme({
     },
   },
   
-  spacing: 8, // Base spacing unit (8px)
+  spacing: 8, 
   
   shape: {
     borderRadius: 8,
@@ -154,6 +71,7 @@ const theme = createTheme({
           transition: 'all 0.3s ease-out',
           '&:hover': {
             transform: 'scale(1.05)',
+            // backgroundColor: lighten('#cba979', 0.1),
           },
           '&:active': {
             transform: 'scale(1)',

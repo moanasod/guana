@@ -5,15 +5,14 @@ import { Button as MuiButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 const StyledButton = styled(MuiButton, {
-  shouldForwardProp: (prop) => prop !== 'isPrimary' && prop !== 'darkMode' && prop !== 'showCursor'
-})(({ theme, isPrimary, darkMode, showCursor }) => ({
+  shouldForwardProp: (prop) => prop !== 'isPrimary' && prop !== 'darkMode'
+})(({ theme, isPrimary, darkMode }) => ({
   fontSize: '0.875rem',
   padding: '0.25rem 0.5rem',
   margin: '0.25rem',
   borderRadius: '0.5rem',
   textTransform: 'none',
   transition: 'all 0.3s ease-out',
-  cursor: showCursor ? 'none' : 'pointer',
   display: 'flex',
   alignItems: 'center',
   
@@ -44,7 +43,7 @@ const StyledButton = styled(MuiButton, {
     backgroundColor: 'transparent',
     color: darkMode === 'dark' ? '#ffffff' : '#000000',
     '&:hover': {
-      backgroundColor: darkMode === 'dark' ? 'rgba(71, 85, 105, 0.6)' : 'rgba(241, 245, 249, 1)',
+      backgroundColor: darkMode === 'dark' ? 'rgba(71, 85, 105, 0.6)' : '#BCB4A3',
       transform: 'scale(1.05)',
     },
   }),
@@ -66,7 +65,6 @@ export default function Button({ children, type, onClick, classes }) {
       type="button"
       isPrimary={type === "primary"}
       darkMode={theme}
-      showCursor={data.showCursor}
       className={`link ${classes || ''}`}
       disableRipple
     >

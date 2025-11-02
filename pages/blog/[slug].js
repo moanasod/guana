@@ -8,13 +8,11 @@ import Image from "next/image";
 import { useIsomorphicLayoutEffect } from "../../utils";
 import { stagger } from "../../animations";
 import Button from "../../components/Button";
-import BlogEditor from "../../components/BlogEditor";
+import FAQEditor from "../../components/FAQEditor";
 import { useRouter } from "next/router";
-import Cursor from "../../components/Cursor";
-import data from "../../data/portfolio.json";
 import { Typography, Box, Stack } from "@mui/material";
 
-const BlogPost = ({ post }) => {
+const FAQPost = ({ post }) => {
   const [showEditor, setShowEditor] = useState(false);
   const textOne = useRef();
   const textTwo = useRef();
@@ -27,35 +25,35 @@ const BlogPost = ({ post }) => {
   return (
     <>
       <Head>
-        <title>{"Blog - " + post.title}</title>
+        <title>{"FAQ - " + post.title}</title>
         <meta name="description" content={post.preview} />
       </Head>
-      {data.showCursor && <Cursor />}
-
       <Box
         sx={{ 
           maxWidth: '1200px', 
           marginX: 'auto', 
-          marginTop: '40px',
-          cursor: data.showCursor ? 'none' : 'default'
+          paddingTop: '50px', 
         }}
       >
-        <TopBar isBlog={true} />
+        <TopBar isFAQ={true} />
         <Stack spacing={2} sx={{ marginTop: '40px' }}>
           <Box sx={{ 
             position: 'relative', 
             width: '100%', 
-            height: '384px', 
+            // height: '384px', 
             borderRadius: '0.5rem',
-            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+            // boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
             overflow: 'hidden'
           }}>
-           <img
-            className="w-full h-96 rounded-lg shadow-lg object-cover"
-            src={post.image}
-            alt={post.title}
-          ></img>
+            <Box 
+              component="img"
+              src={post.image}
+              alt={post.title}
+              sx={{ width: 'auto', height: '100%' }}
+            />
           </Box>
+      
+       
           <Typography
             variant="h2"
             ref={textOne}
@@ -83,16 +81,9 @@ const BlogPost = ({ post }) => {
         <ContentSection content={post.content}></ContentSection>
         <Footer />
       </Box>
-      {process.env.NODE_ENV === "development" && (
-        <Box sx={{ position: 'fixed', bottom: '24px', right: '24px' }}>
-          <Button onClick={() => setShowEditor(true)} type={"primary"}>
-            Edit this blog
-          </Button>
-        </Box>
-      )}
-
+    
       {showEditor && (
-        <BlogEditor
+        <FAQEditor
           post={post}
           close={() => setShowEditor(false)}
           refresh={() => router.reload(window.location.pathname)}
@@ -137,4 +128,4 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
-export default BlogPost;
+export default FAQPost;

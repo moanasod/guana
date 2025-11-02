@@ -13,22 +13,24 @@ export default function ServiceCard({ name, description }) {
     <Box
       className="link"
       sx={{
-        padding: { xs: '8px', sm: '16px' },
-        borderRadius: '0.5rem',
-        transition: 'all 0.3s ease-out',
-        '&:hover': {
-          backgroundColor: mounted && theme === "dark" ? '#1e293b' : '#f8fafc',
-          transform: 'scale(1.05)'
-        }
+        padding: { xs: "8px", sm: "16px" },
+        borderRadius: "0.5rem",
+        transition: "all 0.3s ease-out",
+        "&:hover": {
+          backgroundColor: mounted && theme === "dark" ? "#1e293b" : "#f8fafc",
+          transform: "scale(1.05)",
+        },
       }}
     >
-      <Typography variant="h4" sx={{ fontSize: '1.875rem' }}>{name ? name : "Heading"}</Typography>
-      <Typography variant="body1" sx={{ marginTop: '20px', opacity: 0.4, fontSize: '1.25rem' }}>
-        {description
-          ? description
-          : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. "}
+      <Typography variant="h4" sx={{ fontSize: "1.875rem" }}>
+        {name}
+      </Typography>
+      <Typography
+        variant="body1"
+        sx={{ marginTop: "20px", opacity: 0.8, fontSize: "1.25rem" }}
+      >
+        {description}
       </Typography>
     </Box>
   );
 }
-

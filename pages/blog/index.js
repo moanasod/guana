@@ -4,14 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { stagger } from "../../animations";
 import Button from "../../components/Button";
-import Cursor from "../../components/Cursor";
 import TopBar from "../../components/TopBar";
 import data from "../../data/portfolio.json";
 import { ISOToDate, useIsomorphicLayoutEffect } from "../../utils";
 import { getAllPosts } from "../../utils/api";
 import { Typography, Box, Grid, Stack } from "@mui/material";
-const Blog = ({ posts }) => {
-  const showBlog = useRef(data.showBlog);
+const FAQ = ({ posts }) => {
+  const showFAQ = useRef(data.showFAQ);
   const text = useRef();
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
@@ -22,7 +21,7 @@ const Blog = ({ posts }) => {
       { y: 40, x: -10, transform: "scale(0.95) skew(10deg)" },
       { y: 0, x: 0, transform: "scale(1)" }
     );
-    if (showBlog.current) stagger([text.current], { y: 30 }, { y: 0 });
+    if (showFAQ.current) stagger([text.current], { y: 30 }, { y: 0 });
     else router.push("/");
   }, []);
 
@@ -30,9 +29,9 @@ const Blog = ({ posts }) => {
     setMounted(true);
   }, []);
 
-  const createBlog = () => {
+  const createFAQ = () => {
     if (process.env.NODE_ENV === "development") {
-      fetch("/api/blog", {
+      fetch("/api/faq", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,9 +44,9 @@ const Blog = ({ posts }) => {
     }
   };
 
-  const deleteBlog = (slug) => {
+  const deleteFAQ = (slug) => {
     if (process.env.NODE_ENV === "development") {
-      fetch("/api/blog", {
+      fetch("/api/faq", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -63,67 +62,85 @@ const Blog = ({ posts }) => {
     }
   };
   return (
-    showBlog.current && (
+    showFAQ.current && (
       <>
-        {data.showCursor && <Cursor />}
         <Head>
-          <title>Blog</title>
+          <title>FAQ</title>
         </Head>
         <Box
           sx={{
-            maxWidth: '1200px',
-            marginX: 'auto',
-            marginBottom: '40px',
-            cursor: data.showCursor ? 'none' : 'default'
+            maxWidth: "1200px",
+            marginX: "auto",
+            marginBottom: "40px",
+            paddingTop: "100px", // Header offset to prevent fixed TopBar from covering content
           }}
         >
-          <TopBar isBlog={true}></TopBar>
-          <Box sx={{ marginTop: '40px' }}>
+          <TopBar isFAQ={true}></TopBar>
+          <Box sx={{ marginTop: "40px" }}>
             <Typography
               variant="h1"
               ref={text}
               sx={{
-                marginX: 'auto',
-                padding: { xs: '8px', sm: 0 },
+                marginX: "auto",
+                padding: { xs: "8px", sm: 0 },
                 fontWeight: 700,
-                fontSize: { xs: '3.75rem', lg: '6rem' },
-                width: '100%'
+                fontSize: { xs: "3.75rem", lg: "6rem" },
+                width: "100%",
               }}
             >
-              Blog.
+              FAQs.
             </Typography>
-            <Grid container spacing={4} sx={{ marginTop: '40px' }}>
+            <Grid container spacing={4} sx={{ marginTop: "40px" }}>
               {posts &&
                 posts.map((post) => (
                   <Grid item xs={12} sm={6} md={4} key={post.slug}>
                     <Box
-                      sx={{ cursor: 'pointer', position: 'relative' }}
-                      onClick={() => Router.push(`/blog/${post.slug}`)}
+                      sx={{ cursor: "pointer", position: "relative" }}
+                      onClick={() => Router.push(`/faq/${post.slug}`)}
                     >
-                    <Box sx={{
-                      position: 'relative',
-                      width: '100%',
-                      height: '240px',
-                      borderRadius: '0.5rem',
-                      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-                      overflow: 'hidden'
-                    }}>
-                    <img
-                      className="w-full h-60 rounded-lg shadow-lg object-cover"
-                      src={post.image}
-                      alt={post.title}
-                    ></img>
-                    </Box>
-                    <Typography variant="h4" sx={{ marginTop: '20px', fontSize: '2.25rem' }}>{post.title}</Typography>
-                    <Typography variant="body1" sx={{ marginTop: '8px', opacity: 0.5, fontSize: '1.125rem' }}>{post.preview}</Typography>
-                    <Typography component="span" sx={{ fontSize: '0.875rem', marginTop: '20px', opacity: 0.25, display: 'block' }}>
-                      {ISOToDate(post.date)}
-                    </Typography>
-                    {process.env.NODE_ENV === "development" && mounted && (
+                      <Box
+                        sx={{
+                          position: "relative",
+                          width: "100%",
+                          height: "240px",
+                          borderRadius: "0.5rem",
+                          boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+                          overflow: "hidden",
+                        }}
+                      >
+                        <Box
+                          component="img"
+                          src={post.image}
+                          alt={post.title}
+                          sx={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                          }}
+                        />
+                      </Box>
+                      <Typography
+                        variant="h4"
+                        sx={{ marginTop: "20px", fontSize: "2.25rem" }}
+                      >
+                        {post.title}
+                      </Typography>
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          marginTop: "8px",
+                          opacity: 0.5,
+                          fontSize: "1.125rem",
+                        }}
+                      >
+                        {post.preview}
+                      </Typography>
+
+                      {/* {process.env.NODE_ENV === "development" && mounted && (
                       <Box sx={{ position: 'absolute', top: 0, right: 0 }}>
                         <Button
                           onClick={(e) => {
-                            deleteBlog(post.slug);
+                            deleteFAQ(post.slug);
                             e.stopPropagation();
                           }}
                           type={"primary"}
@@ -131,16 +148,16 @@ const Blog = ({ posts }) => {
                           Delete
                         </Button>
                       </Box>
-                    )}
-                  </Box>
+                    )} */}
+                    </Box>
                   </Grid>
                 ))}
             </Grid>
           </Box>
         </Box>
         {process.env.NODE_ENV === "development" && mounted && (
-          <Box sx={{ position: 'fixed', bottom: '24px', right: '24px' }}>
-            <Button onClick={createBlog} type={"primary"}>
+          <Box sx={{ position: "fixed", bottom: "24px", right: "24px" }}>
+            <Button onClick={createFAQ} type={"primary"}>
               Add New Post +{" "}
             </Button>
           </Box>
@@ -167,4 +184,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Blog;
+export default FAQ;
