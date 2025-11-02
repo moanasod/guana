@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import PageContainer from "../components/PageContainer";
 import data from "../data/portfolio.json";
+import { getAssetPath } from "../utils/getAssetPath";
 
 // Reusable Components
 function SectionHeading({ children, variant = "h5", sx = {} }) {
@@ -133,9 +134,9 @@ export default function WhereToStay() {
   return (
     <PageContainer title={`Where to Stay - ${data.name}`} isFAQ={true}>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <Box
+         <Box
           component="img"
-          src={`/images/taliciDoodle.svg`}
+          src={getAssetPath("/images/taliciDoodle.svg")}
           alt="Toggle theme"
           sx={{
             width: { xs: "100%", md: "70%" },

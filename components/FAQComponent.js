@@ -2,6 +2,7 @@ import React from "react";
 import Router from "next/router";
 import { Typography, Box, Grid } from "@mui/material";
 import Button from "./Button";
+import { getAssetPath } from "../utils/getAssetPath";
 
 export default function FAQComponent({ posts, mounted, onDelete }) {
   return (
@@ -25,7 +26,7 @@ export default function FAQComponent({ posts, mounted, onDelete }) {
               >
                 <Box
                   component="img"
-                  src={post.image || "/images/dancing.svg"}
+                  src={getAssetPath(post.image || "/images/dancing.svg")}
                   alt={post.title}
                   sx={{
                     width: "auto",

@@ -2,6 +2,7 @@ import React from "react";
 import { useTheme } from "next-themes";
 import { Box } from "@mui/material";
 import Button from "./Button";
+import { getAssetPath } from "../utils/getAssetPath";
 
 export default function DarkModeToggle() {
   const { theme, setTheme } = useTheme();
@@ -15,7 +16,7 @@ export default function DarkModeToggle() {
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Box
           component="img"
-          src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
+          src={getAssetPath(`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`)}
           alt="Toggle theme"
           sx={{ width: 24, height: 24 }}
         />

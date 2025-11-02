@@ -2,6 +2,7 @@ import React from "react";
 import { Typography, Box, Stack } from "@mui/material";
 import Button from "../Button";
 import HangingTags from "../HangingTags";
+import { getAssetPath } from "../../utils/getAssetPath";
 
 export default function PageHeader({ textRefs, data }) {
   return (
@@ -50,7 +51,7 @@ export default function PageHeader({ textRefs, data }) {
         {/* <Button variant="h4"> RSVP</Button> */}
         <Box
           component="img"
-          src={`/images/dancing.svg`}
+          src={getAssetPath("/images/dancing.svg")}
           alt="Toggle theme"
           sx={{ width: "50%", height: "auto" }}
         />
