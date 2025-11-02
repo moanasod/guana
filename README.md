@@ -1,4 +1,4 @@
-# Wedding Website - Montenegro 2025
+# Wedding Website - Montenegro 2025 🇲🇪
 
 A beautiful Next.js wedding website for Moana & Gustav's wedding in Montenegro.
 
