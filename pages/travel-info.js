@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { stagger } from "../animations";
 import { useIsomorphicLayoutEffect } from "../utils";
-import { Typography, Box, Stack } from "@mui/material";
+import { Typography, Box, Stack, Link } from "@mui/material";
 import PageContainer from "../components/PageContainer";
 import data from "../data/portfolio.json";
 
@@ -41,7 +41,7 @@ export default function TravelInfo() {
             What airports to fly into (from Stockholm Arlanda)
           </Typography>
           <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
-            We recommend you fly into the closest airport to the venue, <strong>Podgorica Airport (TGD)</strong> - about 40 minutes from the venue, Talici Hill.
+            We recommend you fly into the closest airport to the venue, <strong>Podgorica Airport (TGD)</strong> - about 40 minutes from the venue, Talići Hill.
           </Typography>
         </Box>
 
@@ -116,7 +116,7 @@ export default function TravelInfo() {
 
         <Box>
           <Typography variant="h4" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
-            How to book / urge to book soon!
+            How to book
           </Typography>
           <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
             Flight and accommodation availability will become more limited as we approach the wedding date - we recommend you book as soon as you&apos;ve RSVP&apos;d.
@@ -138,6 +138,35 @@ export default function TravelInfo() {
           </Typography>
           <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
             <strong>At Tivat Airport:</strong> Sixt
+          </Typography>
+        </Box>
+
+        <Box>
+          <Typography variant="h4" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+            Book a taxi?
+          </Typography>
+          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
+            If you prefer to travel independently, please use one of the official taxi companies listed below.
+          </Typography>
+          
+          <Typography variant="h5" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+            From Podgorica Airport (≈ 40 minutes)
+          </Typography>
+          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '0.5rem' }}>
+            <strong>Tesla Taxi</strong> <Link href="tel:+38269057073" sx={{ color: 'primary.dark', textDecoration: 'underline' }}>+382 69 057 073</Link> – approx. €40–50
+          </Typography>
+          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
+            <strong>E Taxi</strong> <Link href="tel:+38267197890" sx={{ color: 'primary.dark', textDecoration: 'underline' }}>+382 67 197 890</Link> – approx. €40–50
+          </Typography>
+
+          <Typography variant="h5" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+            From Tivat Airport (≈ 1 hour 15 minutes)
+          </Typography>
+          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '0.5rem' }}>
+            <strong>Lider Taxi</strong> <Link href="tel:+38268119775" sx={{ color: 'primary.dark', textDecoration: 'underline' }}>+382 68 119 775</Link> – approx. €55–70
+          </Typography>
+          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
+            <strong>City Taxi Tivat</strong> <Link href="tel:+38269019711" sx={{ color: 'primary.dark', textDecoration: 'underline' }}>+382 69 019 711</Link> – approx. €55–70
           </Typography>
         </Box>
       </Stack>

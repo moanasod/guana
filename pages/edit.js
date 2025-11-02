@@ -152,7 +152,9 @@ const Edit = () => {
       <div className="mt-10">
         <div className={`${theme === "dark" ? "bg-transparent" : "bg-white"}`}>
           <div className="flex items-center justify-between">
-            <Typography variant="h3" className="text-4xl">Dashboard</Typography>
+            <Typography variant="h3" className="text-4xl">
+              Dashboard
+            </Typography>
             <div className="flex items-center">
               <Button onClick={saveData} type="primary">
                 Save
@@ -177,7 +179,8 @@ const Edit = () => {
               onClick={() => setCurrentTabs("FAQ")}
               type={currentTabs === "FAQ" && "primary"}
             >
-FAQ            </Button>
+              FAQ{" "}
+            </Button>
             <Button
               onClick={() => setCurrentTabs("ABOUT")}
               type={currentTabs === "ABOUT" && "primary"}
@@ -322,16 +325,12 @@ FAQ            </Button>
             <div className="mt-5 flex items-center">
               <label className="w-1/5 text-lg opacity-50">Custom Cursor</label>
               <div className="w-4/5 ml-10 flex items-center">
-                <Button
-                  onClick={() => setData({ ...data, showCursor: true })}
-                >
+                <Button onClick={() => setData({ ...data, showCursor: true })}>
                   Yes
                 </Button>
                 <Button
                   onClick={() => setData({ ...data, showCursor: false })}
-                  classes={
-                  "bg-red-500 text-white hover:bg-red-600"
-                  }
+                  classes={"bg-red-500 text-white hover:bg-red-600"}
                 >
                   No
                 </Button>
@@ -346,7 +345,9 @@ FAQ            </Button>
               {data.projects.map((project, index) => (
                 <div className="mt-10" key={project.id}>
                   <div className="flex items-center justify-between">
-                    <Typography variant="h5" className="text-2xl">{project.title}</Typography>
+                    <Typography variant="h5" className="text-2xl">
+                      {project.title}
+                    </Typography>
                     <Button
                       onClick={() => deleteProject(project.id)}
                       type="primary"
@@ -434,7 +435,9 @@ FAQ            </Button>
               {data.FAQ.map((service, index) => (
                 <div key={service.id}>
                   <div className="flex items-center justify-between">
-                    <Typography variant="h5" className="text-2xl">{service.title}</Typography>
+                    <Typography variant="h5" className="text-2xl">
+                      {service.title}
+                    </Typography>
                     <Button
                       onClick={() => deleteService(service.id)}
                       type="primary"
@@ -484,7 +487,9 @@ FAQ            </Button>
         )}
         {currentTabs === "ABOUT" && (
           <div className="mt-10">
-            <Typography variant="h5" className="text-2xl">About</Typography>
+            <Typography variant="h5" className="text-2xl">
+              About
+            </Typography>
             <textarea
               className="w-full h-96 mt-10 p-2 rounded-md shadow-md border"
               value={data.aboutpara}
@@ -498,7 +503,9 @@ FAQ            </Button>
               <>
                 <div key={social.id}>
                   <div className="flex items-center justify-between">
-                    <Typography variant="h5" className="text-2xl">{social.title}</Typography>
+                    <Typography variant="h5" className="text-2xl">
+                      {social.title}
+                    </Typography>
                     <Button
                       onClick={() => deleteSocials(social.id)}
                       type="primary"
@@ -582,7 +589,9 @@ FAQ            </Button>
               {data.resume.experiences.map((experiences, index) => (
                 <div className="mt-5" key={experiences.id}>
                   <div className="flex items-center justify-between">
-                    <Typography variant="h6" className="text-2xl">{experiences.position}</Typography>
+                    <Typography variant="h6" className="text-2xl">
+                      {experiences.position}
+                    </Typography>
                     <Button
                       // onClick={() => deleteProject(project.id)}
                       type="primary"

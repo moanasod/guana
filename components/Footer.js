@@ -28,7 +28,7 @@ export default function Footer({}) {
           padding: { xs: "8px", lg: 0 },
         }}
       >
-        Made With ❤
+        You&apos;ve read the entire page! Yay! 🎉
       </Typography>
     </>
   );

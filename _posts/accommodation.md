@@ -3,16 +3,15 @@ title: Accommodation
 tagline: Where to stay during the wedding weekend
 preview: >-
    Stay nearby in Sutomore or Vrelo Brca. We recommend Love Live Hotel or Apart Hotel Sea Fort, both within 10 minutes of the venue. Book through Booking.com for flexibility.
-image: /images/weddingTimeline.png
+image: /images/car.png
+exampleQuestion: "How do I book my accommodation?"
 ---
 
-# Accommodation
-
-## How do I book?
+## "How do I book my accomodation?"
 
 We recommend booking through **Booking.com** for flexibility. Search for hotels or villas near **Vrelo Brca, Sutomore, Montenegro**.
 
-## When should I book?
+## "When should I book?"
 
 Flights and hotels fill quickly in May — we recommend booking as soon as you've RSVP'd.
 

@@ -5,7 +5,7 @@ const theme = createTheme({
     primary: {
       main: '#E6B8A2',
       light: '#BCB4A3',
-      dark: '#b86830',
+      dark: '#722f37',
       contrastText: '#ffffff',
     },
 //     Grönt: #6d745C
@@ -13,6 +13,7 @@ const theme = createTheme({
 // Brunt: #b86830
 // Bright: #cba979
 // Grå: #BCB4A3
+// Rött: #722f37
     secondary: {
       main: '#ffffff',
       light: '#f5f5f5',

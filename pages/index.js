@@ -121,7 +121,7 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = getAllPosts(["slug", "title", "image", "preview", "date"]);
+  const posts = getAllPosts(["slug", "title", "image", "preview", "exampleQuestion", "date"]);
 
   return {
     props: {

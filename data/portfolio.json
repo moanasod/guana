@@ -58,12 +58,19 @@
     {
       "id": "3",
       "title": "The Venue",
-      "description": "Talici Hill, Montenegro",
+      "description": "Talići Hill, Montenegro",
       "imageSrc": "https://www.wedinspire.com/wp-content/uploads/2022/11/2022.talici-hill-montenegro-wedding-venue-events-mice-14-1400x934-1.jpg",
       "url": "/the-venue"
     },
     {
       "id": "4",
+      "title": "Dress Code",
+      "description": "Style inspiration and what to wear",
+      "imageSrc": "https://images.squarespace-cdn.com/content/v1/5f90a0d90565905e22971c80/7519f444-d99b-49ae-bbb2-361b2e6d0b85/IMG_6934.jpeg",
+      "url": "/dress-code"
+    },
+    {
+      "id": "5",
       "title": "Extend Your Stay",
       "description": "Make the most of your trip to Montenegro",
       "imageSrc": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdeih43ym53wif.cloudfront.net%2Fkotor-bay-montenegro-shutterstock_259595084_5310e91dab.jpeg&f=1&nofb=1&ipt=d5cf5f152591f87149e195226cc40fc6325b43142802854529b928f216ce63b5",

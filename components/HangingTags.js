@@ -6,7 +6,7 @@ import CheckroomIcon from "@mui/icons-material/Checkroom";
 
 const tags = [
   { icon: <EventIcon />, label: "WHEN", value: "8-10 May 2026" },
-  { icon: <LocationOnIcon />, label: "WHERE", value: "Montenegro" },
+  { icon: <LocationOnIcon />, label: "WHERE", value: "Talići Hill, Montenegro" },
   { icon: <CheckroomIcon />, label: "ATTIRE", value: "Cocktail" },
 ];
 
@@ -85,15 +85,15 @@ const HangingTags = () => {
                 top: { xs: 6, md: 10 },
                 left: "50%",
                 transform: "translateX(-50%)",
-                width: { xs: 12, md: 18 },
-                height: { xs: 12, md: 18 },
-                backgroundColor: "#fff",
+                width: { xs: 12, md: 16 },
+                height: { xs: 12, md: 16 },
+                backgroundColor: "background.default",
                 border: "3px solid #333",
                 borderRadius: "50%",
               }}
             />
             {/* Tag content */}
-            <SvgIcon sx={{ fontSize: { xs: 20, md: 30 }, mb: 1 }}>{tag.icon}</SvgIcon>
+            <SvgIcon sx={{ fontSize: { xs: 20, md: 30 }, mt: 1.5 }}>{tag.icon}</SvgIcon>
             <Typography 
               variant="caption" 
               sx={{ 
@@ -106,7 +106,7 @@ const HangingTags = () => {
             </Typography>
             <Typography
               variant="subtitle1"
-              sx={{ fontWeight: 700, mt: 0.5, color: "#000", fontSize: { xs: "0.8rem", md: "1rem" } }}
+              sx={{ fontWeight: 700, mt: 0.5, fontSize: { xs: "0.8rem", md: "1rem" } }}
             >
               {tag.value}
             </Typography>
