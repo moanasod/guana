@@ -1,37 +1,31 @@
 import { useEffect, useRef, useState } from "react";
 import { stagger } from "../animations";
 import { useIsomorphicLayoutEffect } from "../utils";
-import { Typography, Box, Stack, Link, Divider } from "@mui/material";
+import { Typography, Box, Stack, Divider } from "@mui/material";
 import PageContainer from "../components/PageContainer";
 import data from "../data/portfolio.json";
+import ImageGrid from "../components/ImageGrid";
 
 import {
   SectionHeading,
   BodyText,
+  ListItem,
+  List,
   ExternalLink,
+  ContentSection,
+  SubSection,
 } from "../components/typography";
 
-
-function ListItem({ children }) {
-  return (
-    <Typography
-      component="li"
-      variant="body1"
-      sx={{
-        fontSize: "1.125rem",
-        lineHeight: 1.8,
-        marginBottom: "0.75rem",
-        display: "list-item",
-      }}
-    >
-      {children}
-    </Typography>
-  );
-}
-
-function ContentSection({ children, sx = {} }) {
-  return <Box sx={{ marginBottom: "2rem", ...sx }}>{children}</Box>;
-}
+const montenegroImages = [
+  { img: 'https://www.wedinspire.com/wp-content/uploads/2022/11/2022.talici-hill-montenegro-wedding-venue-events-mice-14-1400x934-1.jpg', title: 'Old Town Kotor' },
+  { img: 'https://www.wedinspire.com/wp-content/uploads/2025/02/Property-Photos-1-1400x1050.jpg', title: 'Perast' },
+  { img: 'https://www.wedinspire.com/wp-content/uploads/2024/12/Talici-Hill-Rustic-Villas-Montenegro.-Luxury-Events-Space-Weddings-Tourist-Rental-3-2-1400x1050.jpg', title: 'Durmitor National Park' },
+  { img: 'https://www.wedinspire.com/wp-content/uploads/2025/02/Property-Photos-15-1400x933.jpg', title: 'Skadar Lake' },
+  { img: 'https://www.wedinspire.com/wp-content/uploads/2022/10/2022.talici-hill-montenegro-wedding-venue-events-mice-1-1400x934.jpg', title: 'Petrovac Beach' },
+  { img: 'https://www.wedinspire.com/wp-content/uploads/2024/12/Talici-Hill-Rustic-Villas-Montenegro.-Luxury-Events-Space-Weddings-Tourist-Rental-4-1400x1050.jpg', title: 'Ostrog Monastery' },
+  { img: 'https://www.wedinspire.com/wp-content/uploads/2022/10/2022.talici-hill-montenegro-wedding-venue-events-mice-15-1400x934.jpg', title: 'Ostrog Monastery' },
+  { img: 'https://www.wedinspire.com/wp-content/uploads/2024/12/Talici-Hill-Rustic-Villas-Montenegro.-Luxury-Events-Space-Weddings-Tourist-Rental-5-1400x1050.jpg', title: 'Ostrog Monastery' },
+];
 
 export default function TheVenue() {
   const textRef = useRef();
@@ -51,21 +45,23 @@ export default function TheVenue() {
 
   return (
     <PageContainer title={`The Venue - ${data.name}`} isFAQ={true}>
+      <ImageGrid images={montenegroImages} maxHeight={350} />
       <Typography
         ref={textRef}
         variant="h2"
         sx={{
           fontSize: { xs: "2rem", md: "3rem" },
           fontWeight: 600,
-          marginBottom: "2rem",
+          marginY: "2rem",
+
         }}
       >
         The Venue
       </Typography>
 
-      <Stack spacing={4} sx={{ marginTop: "3rem" }}>
+      <Stack spacing={4} sx={{ marginTop: "2rem" }}>
         <ContentSection>
-          <SectionHeading>Intro</SectionHeading>
+ 
           <BodyText>
             Talići Hill sits quietly above the coast, surrounded by olive trees,
             with an impressive view of the Adriatic Sea. It&apos;s a 321 year
@@ -86,7 +82,7 @@ export default function TheVenue() {
             Montenegro
           </BodyText>
           <BodyText sx={{ marginBottom: "1rem" }}>
-            <ExternalLink href="https://maps.app.goo.gl/YourGoogleMapsLink">
+            <ExternalLink href="https://maps.app.goo.gl/zKpjJsVbuiBifxHi6">
               View on Google Maps
             </ExternalLink>
           </BodyText>
@@ -146,10 +142,7 @@ export default function TheVenue() {
           <BodyText sx={{ marginBottom: "1rem" }}>
             To help us take good care of the villa, please note:
           </BodyText>
-          <Box
-            component="ul"
-            sx={{ marginLeft: "1.5rem", paddingLeft: "1rem" }}
-          >
+          <List>
             <ListItem>
               Smoking is not allowed inside the villa. Fine: €250.
             </ListItem>
@@ -164,77 +157,71 @@ export default function TheVenue() {
             <ListItem>
               Only guests staying in the villa may sleep there.
             </ListItem>
-          </Box>
+          </List>
         </ContentSection>
 
-        <Box>
-          <BodyText sx={{ fontStyle: "italic" }}>
-            We can&apos;t wait to share this beautiful place with you and
-            celebrate together as the sun sets over the Adriatic!
-          </BodyText>
-        </Box>
+        <BodyText sx={{ fontStyle: "italic", marginTop: "1rem" }}>
+          We can&apos;t wait to share this beautiful place with you and
+          celebrate together as the sun sets over the Adriatic!
+        </BodyText>
 
         <Divider />
 
-        <ContentSection>
+        <Box>
           <SectionHeading variant="h4" sx={{ marginBottom: "2rem" }}>
             Practical tips
           </SectionHeading>
 
-          <ContentSection>
-            <SectionHeading>Currency</SectionHeading>
-            <BodyText>
-              Montenegro uses the Euro (€). Most hotels and restaurants accept
-              cards, but smaller shops and taxis often prefer cash. ATMs are
-              widely available.
-            </BodyText>
-          </ContentSection>
+          <Stack spacing={3}>
+            <SubSection title="Currency">
+              <BodyText>
+                Montenegro uses the Euro (€). Most hotels and restaurants accept
+                cards, but smaller shops and taxis often prefer cash. ATMs are
+                widely available.
+              </BodyText>
+            </SubSection>
 
-          <ContentSection>
-            <SectionHeading>Weather</SectionHeading>
-            <BodyText>
-              Early May is mild and comfortable, with daytime temperatures
-              around 20–24°C and cooler evenings around 14–16°C. Expect mostly
-              sunny days with a small chance of light rain. A light jacket or
-              wrap for the evenings is recommended.
-            </BodyText>
-          </ContentSection>
+            <SubSection title="Weather">
+              <BodyText>
+                Early May is mild and comfortable, with daytime temperatures
+                around 20–24°C and cooler evenings around 14–16°C. Expect mostly
+                sunny days with a small chance of light rain. A light jacket or
+                wrap for the evenings is recommended.
+              </BodyText>
+            </SubSection>
 
-          <ContentSection>
-            <SectionHeading>Language</SectionHeading>
-            <BodyText>
-              The local language is Montenegrin, but English is widely spoken in
-              hotels, restaurants, and taxis.
-            </BodyText>
-          </ContentSection>
+            <SubSection title="Language">
+              <BodyText>
+                The local language is Montenegrin, but English is widely spoken in
+                hotels, restaurants, and taxis.
+              </BodyText>
+            </SubSection>
 
-          <ContentSection>
-            <SectionHeading>Electricity</SectionHeading>
-            <BodyText>
-              Standard European sockets (Type C and F, 230V). No adapter needed
-              for EU plugs. UK and US travelers will need an adapter.
-            </BodyText>
-          </ContentSection>
+            <SubSection title="Electricity">
+              <BodyText>
+                Standard European sockets (Type C and F, 230V). No adapter needed
+                for EU plugs.
+              </BodyText>
+            </SubSection>
 
-          <ContentSection>
-            <SectionHeading>Emergency number</SectionHeading>
-            <BodyText>
-              For emergencies in Montenegro, call <strong>112</strong>{" "}
-              (English-speaking operators are available).
-            </BodyText>
-          </ContentSection>
+            <SubSection title="Emergency number">
+              <BodyText>
+                For emergencies in Montenegro, call <strong>112</strong>{" "}
+                (English-speaking operators are available).
+              </BodyText>
+            </SubSection>
 
-          <Box>
-            <SectionHeading>Local taxi</SectionHeading>
-            <BodyText sx={{ marginBottom: "0.5rem" }}>
-              <strong>Green Taxi</strong>{" "}
-              <ExternalLink href="tel:+38269888801">
-                +382 69 888 801
-              </ExternalLink>
-            </BodyText>
-            <BodyText>Operates in the Sutomore and Bar area.</BodyText>
-          </Box>
-        </ContentSection>
+            <SubSection title="Local taxi">
+              <BodyText sx={{ marginBottom: "0.5rem" }}>
+                <strong>Green Taxi</strong>{" "}
+                <ExternalLink href="tel:+38269888801">
+                  +382 69 888 801
+                </ExternalLink>
+              </BodyText>
+              <BodyText>Operates in the Sutomore and Bar area.</BodyText>
+            </SubSection>
+          </Stack>
+        </Box>
       </Stack>
     </PageContainer>
   );

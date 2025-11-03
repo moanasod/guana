@@ -137,32 +137,14 @@ const FAQ = ({ posts }) => {
                         {post.preview}
                       </Typography>
 
-                      {/* {process.env.NODE_ENV === "development" && mounted && (
-                      <Box sx={{ position: 'absolute', top: 0, right: 0 }}>
-                        <Button
-                          onClick={(e) => {
-                            deleteFAQ(post.slug);
-                            e.stopPropagation();
-                          }}
-                          type={"primary"}
-                        >
-                          Delete
-                        </Button>
-                      </Box>
-                    )} */}
+                
                     </Box>
                   </Grid>
                 ))}
             </Grid>
           </Box>
         </Box>
-        {process.env.NODE_ENV === "development" && mounted && (
-          <Box sx={{ position: "fixed", bottom: "24px", right: "24px" }}>
-            <Button onClick={createFAQ} type={"primary"}>
-              Add New Post +{" "}
-            </Button>
-          </Box>
-        )}
+     
       </>
     
   );

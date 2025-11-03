@@ -50,7 +50,7 @@ export default function About({ aboutRef }) {
           paddingBottom: "40px",
         }}
       >
-        <SectionHeading sx={{ margin: "2rem", color: "white" }}>Checklist.</SectionHeading>
+        <SectionHeading sx={{ margin: "1rem", color: "white" }}>Checklist.</SectionHeading>
         <Typography
           variant="h6"
           sx={{

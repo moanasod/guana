@@ -2,7 +2,7 @@
 title: Accommodation
 tagline: Where to stay during the wedding weekend
 preview: >-
-   Stay nearby in Sutomore or Bar. Most hotels are 5–15 minutes from the venue. Book through Booking.com for flexibility and find recommended options on our Where to Stay page.
+  Stay nearby in Sutomore or Bar. Most hotels are 5–15 minutes from the venue. Book through Booking.com for flexibility and find recommended options on our Where to Stay page.
 image: /images/car.png
 exampleQuestion: "How do I book my accommodation?"
 ---
@@ -48,12 +48,8 @@ Read more on our [Venue](/the-venue) page.
 
 ---
 
-
----
-
 ## Can I stay longer than the wedding weekend?
 
 Yes, you're welcome to extend your stay in Montenegro before or after the wedding. Montenegro is a stunning country, with a deep history and great variation of cities, beaches, mountains, and forests.
 
 Read more on our [Extend Your Stay](/extend-your-stay) page.
-

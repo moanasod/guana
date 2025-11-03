@@ -1,47 +1,18 @@
-import React, { useState, Suspense } from "react";
+import React from "react";
 import { Typography, Box, Grid } from "@mui/material";
 import FAQCard from "../FAQCard";
 import { useRouter } from "next/router";
 import Button from "../Button";
 import { SectionHeading } from "../typography";
-import Spinner from "../Spinner";
 
 export default function FAQ({ posts, FAQRef }) {
   const router = useRouter();
-  const [loading, setLoading] = useState(false);
-
-  const handleNavigation = (path) => {
-    setLoading(true);
-    router.push(path);
-  };
-
-  if (loading) {
-    return (
-      <Box
-        ref={FAQRef}
-        sx={{
-          padding: { xs: "8px", lg: 0 },
-          width: "100%",
-        }}
-      >
-        <SectionHeading>FAQ.</SectionHeading>
-        <Spinner />
-      </Box>
-    );
-  }
 
   return (
-    <Box
-      ref={FAQRef}
-      sx={{
-        width: "100%",
-      }}
-    >
-      <SectionHeading>
-        FAQ.
-      </SectionHeading>
+    <Box ref={FAQRef} sx={{ paddingX: { xs: "1rem", lg: 0 } }}>
+      <SectionHeading >FAQ.</SectionHeading>
 
-      <Box sx={{ flexGrow: 1, marginTop: "2rem", paddingX: { xs: '3rem', lg: 0 } }}>
+      <Box sx={{ flexGrow: 1, marginTop: "2rem" }}>
         <Grid
           container
           spacing={3}
@@ -59,10 +30,9 @@ export default function FAQ({ posts, FAQRef }) {
                 size={{ md: 6, xs: 12 }}
                 key={post.slug || index}
                 sx={{ display: "flex", cursor: "pointer" }}
-                onClick={() => handleNavigation(`/faq#${post.slug}`)}
+                onClick={() => router.push(`/faq#${post.slug}`)}
               >
                 <FAQCard
-                disabled={loading}
                   name={post.title}
                   description={post.preview}
                   image={post.image}
@@ -70,7 +40,7 @@ export default function FAQ({ posts, FAQRef }) {
                 />
               </Grid>
             ))}
-          <Button onClick={() => handleNavigation("/faq")} type={"outline"}>
+          <Button onClick={() => router.push("/faq")} type={"outline"}>
             <Typography variant="h4" color="secondary.dark">
               View All FAQs
             </Typography>
