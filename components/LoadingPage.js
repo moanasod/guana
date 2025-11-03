@@ -1,21 +1,23 @@
-import { Box } from "@mui/material";
-import Spinner from "./Spinner";
+import { Box, CircularProgress } from "@mui/material";
 
-/**
- * Full-page loading component for Suspense fallback
- */
 export default function LoadingPage() {
   return (
     <Box
       sx={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "100vh",
-        width: "100%",
+        backgroundColor: "rgba(0, 0, 0, 0.4)",
+        backdropFilter: "blur(8px)",
+        zIndex: 10000,
       }}
     >
-      <Spinner size={80} />
+      <CircularProgress size={80} sx={{ color: "primary.main" }} />
     </Box>
   );
 }

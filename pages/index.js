@@ -3,10 +3,7 @@ import { useIsomorphicLayoutEffect } from "../utils";
 import { stagger } from "../animations";
 import Footer from "../components/Footer";
 import Head from "next/head";
-import Button from "../components/Button";
-import Link from "next/link";
-import { Box } from "@mui/material";
-import { Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 
 // Section Components
 import PageHeader from "../components/sections/PageHeader";
@@ -17,6 +14,7 @@ import Itinerary from "../components/sections/Itinerary";
 // Local Data
 import data from "../data/portfolio.json";
 import TopBar from "../components/TopBar";
+import BackToTop from "../components/BackToTop";
 import { getAllPosts } from "../utils/api";
 
 export default function Home({ posts }) {
@@ -105,17 +103,10 @@ export default function Home({ posts }) {
           <About aboutRef={aboutRef} data={data} />
         </Stack>
 
-        {/* This button should not go into production */}
-        {process.env.NODE_ENV === "development" && (
-          <Box sx={{ position: "fixed", bottom: "20px", right: "20px" }}>
-            <Link href="/edit">
-              <Button type="primary">Edit Data</Button>
-            </Link>
-          </Box>
-        )}
-
         <Footer />
       </Stack>
+      
+      <BackToTop />
     </Box>
   );
 }

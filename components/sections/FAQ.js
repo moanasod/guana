@@ -34,8 +34,6 @@ export default function FAQ({ posts, FAQRef }) {
     <Box
       ref={FAQRef}
       sx={{
-        // marginTop: { xs: '40px', lg: '120px' },
-        padding: { xs: "8px", lg: 0 },
         width: "100%",
       }}
     >
@@ -43,7 +41,7 @@ export default function FAQ({ posts, FAQRef }) {
         FAQ.
       </SectionHeading>
 
-      <Box sx={{ flexGrow: 1, marginTop: "2rem" }}>
+      <Box sx={{ flexGrow: 1, marginTop: "2rem", paddingX: { xs: '3rem', lg: 0 } }}>
         <Grid
           container
           spacing={3}

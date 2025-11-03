@@ -28,7 +28,6 @@ const StyledButton = styled(MuiButton, {
     transform: 'scale(1)',
   },
 
-  // Primary button styles
   ...(isPrimary && {
     backgroundColor: darkMode === 'dark' ? '#ffffff' : '#000000',
     color: darkMode === 'dark' ? '#000000' : '#ffffff',
@@ -38,7 +37,6 @@ const StyledButton = styled(MuiButton, {
     },
   }),
 
-  // Default button styles
   ...(!isPrimary && {
     backgroundColor: 'transparent',
     color: darkMode === 'dark' ? '#ffffff' : '#000000',

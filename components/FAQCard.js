@@ -104,7 +104,7 @@ export default function FAQCard({
               },
             }}
           >
-            View More
+            View More FAQs
           </Button>
         </Box>
       )}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, SvgIcon } from "@mui/material";
+import { Box, Typography, SvgIcon, alpha } from "@mui/material";
 import EventIcon from "@mui/icons-material/Event";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
@@ -65,7 +65,7 @@ const HangingTags = () => {
             key={i}
             sx={{
               position: "relative",
-              backgroundColor: "#e1cc96",
+              backgroundColor: alpha("#BAC095", 0.8),
               width: { xs: 80, sm: 120, md: 150 },
               height: { xs: 80, sm: 120, md: 150 },
               borderRadius: 2,
@@ -79,7 +79,7 @@ const HangingTags = () => {
                 i === 1
                   ? { xs: "40px", md: "50px", lg: "50px" }
                   : { xs: "20px", md: "30px", lg: "35px" },
-              animation: "sway 3s ease-in-out infinite alternate",
+              animation: "sway 2s ease-in-out infinite alternate",
               "@keyframes sway": {
                 "0%, 100%": { transform: "rotate(0deg)" },
                 "50%": { transform: "rotate(2deg)" },
@@ -95,16 +95,19 @@ const HangingTags = () => {
                 transform: "translateX(-50%)",
                 width: { xs: 10, md: 14 },
                 height: { xs: 10, md: 14 },
-                backgroundColor: "primary.light",
+                backgroundColor: "black",
                 borderRadius: "50%",
               }}
             />
             {/* Tag content */}
-            <SvgIcon sx={{ fontSize: { xs: 20, md: 30 }, mt: 1.5 }}>
+            <SvgIcon
+              sx={{ fontSize: { xs: 20, md: 30 }, mt: 1.5, color: "black" }}
+            >
               {tag.icon}
             </SvgIcon>
             <Typography
               variant="caption"
+              color="black"
               sx={{
                 letterSpacing: 1,
                 fontSize: { md: "0.75rem" },
@@ -115,6 +118,7 @@ const HangingTags = () => {
             </Typography>
             <Typography
               variant="subtitle1"
+              color="black"
               sx={{
                 fontWeight: 700,
                 mt: 0.5,

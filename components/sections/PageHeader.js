@@ -33,18 +33,18 @@ export default function PageHeader({ textRefs, data }) {
           </Typography>
           <Typography
             sx={{ fontSize: { xs: "2rem", md: "2.3rem" } }}
-            ref={textRefs.textTwo}
+                      ref={textRefs.textTwo}
           >
             {data.headerTaglineTwo}
           </Typography>
           <Typography
-            sx={{ fontSize: { xs: "2.25rem", md: "2.75rem" } }}
+            sx={{ fontSize: { xs: "2rem", md: "2.3rem" } }}
             ref={textRefs.textThree}
           >
             {data.headerTaglineThree}
           </Typography>
           <Typography
-            sx={{ fontSize: { xs: "2.25rem", md: "2.75rem" } }}
+            sx={{ fontSize: { xs: "2rem", md: "2.3rem" } }}
             ref={textRefs.textFour}
           >
             {data.headerTaglineFour}

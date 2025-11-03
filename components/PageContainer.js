@@ -1,10 +1,9 @@
 import Footer from "../components/Footer";
 import Head from "next/head";
-import Button from "../components/Button";
-import Link from "next/link";
 import { Box, Stack } from "@mui/material";
 import data from "../data/portfolio.json";
 import TopBar from "../components/TopBar";
+import BackToTop from "../components/BackToTop";
 
 export default function PageContainer({
   children,
@@ -37,14 +36,7 @@ export default function PageContainer({
         <Footer />
       </Stack>
 
-      {/* This button should not go into production */}
-      {process.env.NODE_ENV === "development" && (
-        <Box sx={{ position: "fixed", bottom: "20px", right: "20px" }}>
-          <Link href="/edit">
-            <Button type="primary">Edit Data</Button>
-          </Link>
-        </Box>
-      )}
+      <BackToTop />
     </Box>
   );
 }
