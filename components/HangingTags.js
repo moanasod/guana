@@ -1,8 +1,9 @@
 import React from "react";
-import { Box, Typography, SvgIcon, alpha } from "@mui/material";
+import { Box, Typography, SvgIcon } from "@mui/material";
 import EventIcon from "@mui/icons-material/Event";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
+import { alpha } from "@mui/material/styles";
 
 const tags = [
   { icon: <EventIcon />, label: "WHEN", value: "8-10 May 2026" },
@@ -65,7 +66,7 @@ const HangingTags = () => {
             key={i}
             sx={{
               position: "relative",
-              backgroundColor: alpha("#BAC095", 0.8),
+              backgroundColor: theme => alpha(theme.palette.primary.light, 0.5),
               width: { xs: 80, sm: 120, md: 150 },
               height: { xs: 80, sm: 120, md: 150 },
               borderRadius: 2,

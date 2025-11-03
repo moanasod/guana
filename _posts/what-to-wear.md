@@ -1,38 +1,55 @@
 ---
-title: What to Wear
+title: What to Wear & Weather
 tagline: Dress code and weather information
 preview: >-
-   Expect warm, sunny days (around **22–26°C) and cooler evenings (**15–18°C). Rain may come unexpectedly as well. 
-
+   Cocktail attire for the wedding. Expect warm days (20–24°C) and cooler evenings (12–14°C). The venue has pebbles, grass and stone paths, so comfortable shoes are a must. Bring a jacket for the evening.
 image: /images/dancing.png
-exampleQuestion: "What's the weather like in May?"
+exampleQuestion: "What's the dress code?"
 ---
 
-# What to Wear
+## What's the dress code?
 
-## "What's the dress code?"
+- **Welcome Dinner:** Relaxed evening wear
+- **Wedding Ceremony & Reception:** Cocktail / warm spring attire
+- **Farewell Brunch:** Comfortable clothes
 
-- **Welcome Dinner:** [to be confirmed]
-- **Wedding Ceremony & Reception:** Cocktail
-- **Farewell Brunch:** [to be confirmed]
+We've also created a **Pinterest board** with outfit ideas and our colour palette for inspiration.
 
-The wedding will be outdoors, so wear comfortable shoes and light fabrics. Bring a wrap or jacket for cooler evenings.
+The wedding will be outdoors, so bring a jacket for cooler evenings. We'll move inside during the after-party at midnight.
 
-## "What's the weather like in May?"
+Read more on our [What to Wear](/dress-code) page.
 
-Expect warm, sunny days (around **22–26°C) and cooler evenings (**15–18°C).
+---
 
-Pack light layers and swimwear if you plan to enjoy the pool or sea!
+## Footwear
 
-## "What should I bring?"
+The venue has pebbles, grass and stone paths, so choose comfortable shoes.
 
-- **Comfortable shoes** for pebbles, grass, and stone paths
-- **Light fabrics** for warm days
-- **A wrap or light jacket** for cooler evenings
-- **Swimwear** for the pool or beach
+---
+
+## Colours
+
+Feel free to wear any colours you love, just avoid all-white.
+
+---
+
+## Evening layer
+
+Bring a light shawl or jacket for when the sun sets.
+
+---
+
+## What's the weather like in May?
+
+Around **20–24°C** during the day and **12–14°C** at night, warm and mild - ideal for outdoor celebrations.
+
+---
+
+## What should I bring?
+
+- **Comfortable shoes** for pebbles, grass and stone paths
+- **A wrap or jacket** for evenings
 - **Sunscreen** and sunglasses
-
----
 
 The most important thing is that you're comfortable and ready to celebrate!
 

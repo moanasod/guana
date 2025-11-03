@@ -3,31 +3,24 @@ import { createTheme, lighten } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#E6B8A2',
-      light: '#BCB4A3',
-      dark: '#722f37',
-      contrastText: '#ffffff',
+      main: '#E6B8A2',        // Terracotta - warm accent for buttons, headers
+      light: '#BAC095',       // Sage Green - alternating sections
+      dark: '#6E7052',        // Dark Olive Green - darker accents
+      contrastText: '#F4F1EC', // Soft Cream for contrast
     },
-//     Grönt: #6d745C
-// Peach: #c46e58
-// Brunt: #b86830
-// Bright: #cba979
-// Grå: #BCB4A3
-// Rött: #722f37
     secondary: {
-      main: '#ffffff',
-      light: '#f5f5f5',
-      dark: '#636b2f',
-      contrastText: '#000000',
+      main: '#A5A47B',        // Sage Green - main neutral
+      light: '#F4F1EC',       // Soft Cream
+      dark: '#6E7052',        // Dark Olive Green
+      contrastText: '#474747', // Charcoal Gray
     },
     background: {
-      default: '#faf6f0',
-      // default: '#F8F4E3',
-      paper: '#BCB4A3',
+      default: '#F4F1EC',     // Soft Cream - main background
+      paper: '#A5A47B',       // Sage Green - paper/card backgrounds
     },
     text: {
-      primary: '#5e643c',
-      secondary: 'rgba(0, 0, 0, 0.6)',
+      primary: '#6E7052',     // Dark Olive Green - body text
+      secondary: '#474747',   // Charcoal Gray - secondary text
     },
   },
   
@@ -171,24 +164,24 @@ export const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#ffffff',
-      light: '#f5f5f5',
-      dark: '#e5e5e5',
-      contrastText: '#000000',
+      main: '#C19381',        // Terracotta - maintains warmth in dark mode
+      light: '#A5A47B',       // Sage Green
+      dark: '#6E7052',        // Dark Olive Green
+      contrastText: '#F4F1EC', // Soft Cream
     },
     secondary: {
-      main: '#000000',
-      light: '#1a1a1a',
-      dark: '#000000',
-      contrastText: '#ffffff',
+      main: '#6E7052',        // Dark Olive Green
+      light: '#A5A47B',       // Sage Green
+      dark: '#474747',        // Charcoal Gray
+      contrastText: '#F4F1EC', // Soft Cream
     },
     background: {
-      default: '#000000',
-      paper: '#1e293b',
+      default: '#2A2A2A',     // Very dark gray (darker than charcoal)
+      paper: '#474747',       // Charcoal Gray - for cards/paper
     },
     text: {
-      primary: '#ffffff',
-      secondary: 'rgba(255, 255, 255, 0.7)',
+      primary: '#F4F1EC',     // Soft Cream - main text in dark mode
+      secondary: '#A5A47B',   // Sage Green - secondary text
     },
   },
   typography: {

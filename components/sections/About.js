@@ -10,6 +10,7 @@ import {
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 import { useTheme } from "next-themes";
+import { SectionHeading } from "../typography";
 
 function CheckboxItem({ label, defaultChecked }) {
   return (
@@ -49,15 +50,7 @@ export default function About({ aboutRef }) {
           paddingBottom: "40px",
         }}
       >
-        <Typography
-          variant="h4"
-          sx={{
-            margin: { xs: 0, md: "40px" },
-            color: "white",
-          }}
-        >
-          Checklist.
-        </Typography>
+        <SectionHeading sx={{ margin: "2rem", color: "white" }}>Checklist.</SectionHeading>
         <Typography
           variant="h6"
           sx={{
