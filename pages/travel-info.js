@@ -1,8 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { stagger } from "../animations";
 import { useIsomorphicLayoutEffect } from "../utils";
-import { Typography, Box, Stack, Link } from "@mui/material";
+import { Typography, Stack } from "@mui/material";
 import PageContainer from "../components/PageContainer";
+import { 
+  SectionHeading, 
+  SubHeading, 
+  BodyText, 
+  ExternalLink, 
+  ContentSection 
+} from "../components/typography";
 import data from "../data/portfolio.json";
 
 export default function TravelInfo() {
@@ -36,139 +43,139 @@ export default function TravelInfo() {
       </Typography>
 
       <Stack spacing={4} sx={{ marginTop: '3rem' }}>
-        <Box>
-          <Typography variant="h4" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+        <ContentSection>
+          <SectionHeading>
             What airports to fly into (from Stockholm Arlanda)
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
+          </SectionHeading>
+          <BodyText>
             We recommend you fly into the closest airport to the venue, <strong>Podgorica Airport (TGD)</strong> - about 40 minutes from the venue, Talići Hill.
-          </Typography>
-        </Box>
+          </BodyText>
+        </ContentSection>
 
-        <Box>
-          <Typography variant="h5" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+        <ContentSection>
+          <SubHeading>
             For those arriving on Friday the 8th we suggest:
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '0.75rem' }}>
+          </SubHeading>
+          <BodyText sx={{ marginBottom: '0.75rem' }}>
             <strong>Ryanair:</strong> Departs 07:40, arrives 12:45 (1 stop in Gdańsk)
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
+          </BodyText>
+          <BodyText>
             <strong>LOT Polish Airlines:</strong> Departs 07:40, arrives 12:40 (1 stop in Warsaw)
-          </Typography>
-        </Box>
+          </BodyText>
+        </ContentSection>
 
-        <Box>
-          <Typography variant="h5" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+        <ContentSection>
+          <SubHeading>
             For those arriving on Saturday the 9th (wedding day) we recommend:
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
+          </SubHeading>
+          <BodyText>
             <strong>Air Serbia:</strong> Departs 09:55, arrives 14:30 (1 stop in Belgrade)
-          </Typography>
-        </Box>
+          </BodyText>
+        </ContentSection>
 
-        <Box>
-          <Typography variant="h4" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+        <ContentSection>
+          <SectionHeading>
             Other airport alternatives
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
+          </SectionHeading>
+          <BodyText>
             <strong>Tivat Airport (TIV)</strong> is another good option — about 1 h 15 min from the venue.
-          </Typography>
-        </Box>
+          </BodyText>
+        </ContentSection>
 
-        <Box>
-          <Typography variant="h5" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+        <ContentSection>
+          <SubHeading>
             If arriving via Tivat on Friday the 8th:
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
+          </SubHeading>
+          <BodyText>
             <strong>Turkish Airlines:</strong> Departs 11:10, arrives 17:40 (1 stop in Istanbul)
-          </Typography>
-        </Box>
+          </BodyText>
+        </ContentSection>
 
-        <Box>
-          <Typography variant="h5" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+        <ContentSection>
+          <SubHeading>
             If arriving via Tivat on Saturday the 9th:
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
+          </SubHeading>
+          <BodyText>
             <strong>Air Serbia:</strong> Departs 09:55, arrives 14:35 (1 stop in Belgrade)
-          </Typography>
-        </Box>
+          </BodyText>
+        </ContentSection>
 
-        <Box>
-          <Typography variant="h4" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+        <ContentSection>
+          <SectionHeading>
             Transfer to the location
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '1rem' }}>
+          </SectionHeading>
+          <BodyText sx={{ marginBottom: '1rem' }}>
             If you arrive on the 8th of May, we will arrange shuttle transportation from Podgorica Airport to the venue. Look for a person holding a sign: <strong>&quot;Moana and Gustav Wedding Shuttle&quot;</strong>.
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
+          </BodyText>
+          <BodyText>
             If you arrive at Podgorica Airport on the 9th, we will also arrange shuttle transportation for hotel-guests - please provide your flight details as soon as you&apos;ve booked them so we can coordinate pickups.
-          </Typography>
-        </Box>
+          </BodyText>
+        </ContentSection>
 
-        <Box>
-          <Typography variant="h4" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+        <ContentSection>
+          <SectionHeading>
             Visa and entry requirements
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
+          </SectionHeading>
+          <BodyText>
             Citizens of the European Union do not need a visa to travel to Montenegro. With a valid ID card they may stay up to 30 days; with a passport up to 90 days. The same applies to citizens of New Zealand. Please check your country&apos;s specific requirements before booking your travel.
-          </Typography>
-        </Box>
+          </BodyText>
+        </ContentSection>
 
-        <Box>
-          <Typography variant="h4" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+        <ContentSection>
+          <SectionHeading>
             How to book
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
+          </SectionHeading>
+          <BodyText>
             Flight and accommodation availability will become more limited as we approach the wedding date - we recommend you book as soon as you&apos;ve RSVP&apos;d.
-          </Typography>
-        </Box>
+          </BodyText>
+        </ContentSection>
 
-        <Box>
-          <Typography variant="h4" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+        <ContentSection>
+          <SectionHeading>
             Book a car?
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '1rem' }}>
+          </SectionHeading>
+          <BodyText sx={{ marginBottom: '1rem' }}>
             If you prefer more freedom, rental cars are available at both Tivat and Podgorica airports. Driving to the venue gives you the flexibility to explore the coast and surrounding countryside at your leisure.
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '0.5rem' }}>
+          </BodyText>
+          <BodyText sx={{ marginBottom: '0.5rem' }}>
             Here are trusted car-rental companies in each location:
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '0.5rem' }}>
+          </BodyText>
+          <BodyText sx={{ marginBottom: '0.5rem' }}>
             <strong>At Podgorica Airport:</strong> MTL Rent a Car - family-owned, meets you at airport arrivals.
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
+          </BodyText>
+          <BodyText>
             <strong>At Tivat Airport:</strong> Sixt
-          </Typography>
-        </Box>
+          </BodyText>
+        </ContentSection>
 
-        <Box>
-          <Typography variant="h4" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+        <ContentSection>
+          <SectionHeading>
             Book a taxi?
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
+          </SectionHeading>
+          <BodyText sx={{ marginBottom: '1.5rem' }}>
             If you prefer to travel independently, please use one of the official taxi companies listed below.
-          </Typography>
+          </BodyText>
           
-          <Typography variant="h5" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+          <SubHeading>
             From Podgorica Airport (≈ 40 minutes)
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '0.5rem' }}>
-            <strong>Tesla Taxi</strong> <Link href="tel:+38269057073" sx={{ color: 'primary.dark', textDecoration: 'underline' }}>+382 69 057 073</Link> – approx. €40–50
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-            <strong>E Taxi</strong> <Link href="tel:+38267197890" sx={{ color: 'primary.dark', textDecoration: 'underline' }}>+382 67 197 890</Link> – approx. €40–50
-          </Typography>
+          </SubHeading>
+          <BodyText sx={{ marginBottom: '0.5rem' }}>
+            <strong>Tesla Taxi</strong> <ExternalLink href="tel:+38269057073">+382 69 057 073</ExternalLink> – approx. €40–50
+          </BodyText>
+          <BodyText sx={{ marginBottom: '1.5rem' }}>
+            <strong>E Taxi</strong> <ExternalLink href="tel:+38267197890">+382 67 197 890</ExternalLink> – approx. €40–50
+          </BodyText>
 
-          <Typography variant="h5" sx={{ marginBottom: '1rem', fontWeight: 500 }}>
+          <SubHeading>
             From Tivat Airport (≈ 1 hour 15 minutes)
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '0.5rem' }}>
-            <strong>Lider Taxi</strong> <Link href="tel:+38268119775" sx={{ color: 'primary.dark', textDecoration: 'underline' }}>+382 68 119 775</Link> – approx. €55–70
-          </Typography>
-          <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.8 }}>
-            <strong>City Taxi Tivat</strong> <Link href="tel:+38269019711" sx={{ color: 'primary.dark', textDecoration: 'underline' }}>+382 69 019 711</Link> – approx. €55–70
-          </Typography>
-        </Box>
+          </SubHeading>
+          <BodyText sx={{ marginBottom: '0.5rem' }}>
+            <strong>Lider Taxi</strong> <ExternalLink href="tel:+38268119775">+382 68 119 775</ExternalLink> – approx. €55–70
+          </BodyText>
+          <BodyText>
+            <strong>City Taxi Tivat</strong> <ExternalLink href="tel:+38269019711">+382 69 019 711</ExternalLink> – approx. €55–70
+          </BodyText>
+        </ContentSection>
       </Stack>
     </PageContainer>
   );

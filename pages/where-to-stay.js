@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { stagger } from "../animations";
 import { useIsomorphicLayoutEffect } from "../utils";
+import { getAssetPath } from "../utils/getAssetPath";
 import {
   Typography,
   Box,
@@ -67,7 +68,7 @@ function HotelCard({ name, stars, description, links, distance, src }) {
         {src && (
           <Box
             component="img"
-            src={src}
+            src={getAssetPath(src)}
             alt={name}
             sx={{
               width: "100%",
@@ -134,7 +135,7 @@ export default function WhereToStay() {
   return (
     <PageContainer title={`Where to Stay - ${data.name}`} isFAQ={true}>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
-         <Box
+        <Box
           component="img"
           src={getAssetPath("/images/taliciDoodle.svg")}
           alt="Toggle theme"
@@ -213,7 +214,10 @@ export default function WhereToStay() {
                 stars="4★"
                 description="A small seaside hotel with seven suites and one double room, most with sea views. Guests can enjoy a private beach, sunbeds, and a pool."
                 links={[
-                  { label: "Google Maps", url: "https://maps.app.goo.gl/YrQeU4qqJp1Nor1YA" },
+                  {
+                    label: "Google Maps",
+                    url: "https://maps.app.goo.gl/YrQeU4qqJp1Nor1YA",
+                  },
                   { label: "Website", url: "https://lovelivehotel.com/" },
                   { label: "Booking.com", url: "#" },
                 ]}
@@ -221,31 +225,46 @@ export default function WhereToStay() {
 
               <HotelCard
                 name="Sea Fort Apart Hotel"
-                src={'https://cf.bstatic.com/xdata/images/hotel/max500/32935476.jpg?k=84410f9893cbc0f840fee663f75cc61b25cb87fc5ae525ed2ace3d2d893a7880&o=&hp=1'}
+                src={
+                  "https://cf.bstatic.com/xdata/images/hotel/max500/32935476.jpg?k=84410f9893cbc0f840fee663f75cc61b25cb87fc5ae525ed2ace3d2d893a7880&o=&hp=1"
+                }
                 stars="4★"
                 description="Modern beachfront aparthotel offering bright apartments with kitchenettes, balconies, and sea views, ideal for guests wanting independence and proximity to cafés and beaches."
                 links={[
-                  { label: "Google Maps", url: "https://maps.app.goo.gl/Dy57sWwU15Kv3ZzF9" },
-                  { label: "Instagram", url: "https://www.instagram.com/sea_fort/" },
+                  {
+                    label: "Google Maps",
+                    url: "https://maps.app.goo.gl/Dy57sWwU15Kv3ZzF9",
+                  },
+                  {
+                    label: "Instagram",
+                    url: "https://www.instagram.com/sea_fort/",
+                  },
                 ]}
               />
 
               <HotelCard
                 name="Hotel Del Medio"
                 stars="4★"
-                src={'https://static.tildacdn.com/tild3837-6630-4635-a366-666131393734/IMG_4783.jpeg'}
+                src={
+                  "https://static.tildacdn.com/tild3837-6630-4635-a366-666131393734/IMG_4783.jpeg"
+                }
                 description="Stylish hotel combining comfort with convenient beach access and a rooftop terrace."
                 links={[
                   { label: "Google Maps", url: "#" },
                   { label: "Website", url: "#" },
-                  { label: "Booking.com", url: "https://www.booking.com/hotel/me/porto-sole.en-gb.html" },
+                  {
+                    label: "Booking.com",
+                    url: "https://www.booking.com/hotel/me/porto-sole.en-gb.html",
+                  },
                 ]}
               />
 
               <HotelCard
                 name="Hotel Kaligrosh"
                 stars="3★"
-                src={'https://cf.bstatic.com/xdata/images/hotel/max1024x768/690445033.jpg?k=7737f0ba77b701e77ba427e8f40242879e0bb6690861298e6c269eebe7ac742c&o='}
+                src={
+                  "https://cf.bstatic.com/xdata/images/hotel/max1024x768/690445033.jpg?k=7737f0ba77b701e77ba427e8f40242879e0bb6690861298e6c269eebe7ac742c&o="
+                }
                 description="A simple, clean option with friendly service and good access to Sutomore Beach."
                 links={[
                   { label: "Google Maps", url: "#" },
@@ -255,37 +274,56 @@ export default function WhereToStay() {
 
               <HotelCard
                 name="Hotel Porto Sole"
-                src={'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/63/24/aa/porto-sole.jpg?w=900&h=500&s=1'}
+                src={
+                  "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/63/24/aa/porto-sole.jpg?w=900&h=500&s=1"
+                }
                 stars="3★"
                 description="Comfortable stay close to the seafront promenade, with a pool and breakfast service."
                 links={[
                   { label: "Google Maps", url: "#" },
                   { label: "Website", url: "#" },
-                  { label: "Booking.com", url: "https://www.booking.com/hotel/me/porto-sole.en-gb.html" },
+                  {
+                    label: "Booking.com",
+                    url: "https://www.booking.com/hotel/me/porto-sole.en-gb.html",
+                  },
                 ]}
               />
 
               <HotelCard
                 name="Hotel G-Star"
                 stars="3★"
-                src={'https://gstarhotel.com/media/home2.jpg'}
+                src={"https://gstarhotel.com/media/home2.jpg"}
                 description="Modern and recently renovated hotel near the center of Sutomore."
                 links={[
-                  { label: "Google Maps", url: "https://maps.app.goo.gl/KHxLceRLDDTqoZ549" },
+                  {
+                    label: "Google Maps",
+                    url: "https://maps.app.goo.gl/KHxLceRLDDTqoZ549",
+                  },
                   { label: "Website", url: "https://gstarhotel.com/" },
-                  { label: "Booking.com", url: "https://www.booking.com/hotel/me/sirena-marta.en-gb.html" },
+                  {
+                    label: "Booking.com",
+                    url: "https://www.booking.com/hotel/me/sirena-marta.en-gb.html",
+                  },
                 ]}
               />
 
               <HotelCard
                 name="Hotel Sirena Marta"
-                src={'https://sirenamarta.me/wp-content/uploads/2019/06/sutomore01-400x400.jpg'}
+                src={
+                  "https://sirenamarta.me/wp-content/uploads/2019/06/sutomore01-400x400.jpg"
+                }
                 stars="3★"
                 description="Cozy family-run hotel near the beach, with a garden terrace and restaurant."
                 links={[
-                  { label: "Google Maps", url: "https://maps.app.goo.gl/BDrNRsqJSkJV5kV3A" },
+                  {
+                    label: "Google Maps",
+                    url: "https://maps.app.goo.gl/BDrNRsqJSkJV5kV3A",
+                  },
                   { label: "Website", url: "https://sirenamarta.me/" },
-                  { label: "Booking.com", url: "https://www.booking.com/hotel/me/sirena-marta.en-gb.html" },
+                  {
+                    label: "Booking.com",
+                    url: "https://www.booking.com/hotel/me/sirena-marta.en-gb.html",
+                  },
                 ]}
               />
             </Grid>
@@ -306,41 +344,59 @@ export default function WhereToStay() {
             </BodyText>
 
             <Grid container spacing={3}>
-                <HotelCard
-                  name="Hotel Princess"
-                  src={'https://tripx-images.imgix.net/TSPRO/hotelimages/c888f536cb0a483889fdffca4c03e5ae.jpg'}
-                  stars="4★"
-                  description="Elegant seafront hotel with a pool, spa, and direct access to Bar's promenade."
-                  links={[
-                    { label: "Google Maps", url: "https://maps.app.goo.gl/P7WgjhQ4BnmmjEcy8" },
-                    { label: "Website", url: "https://www.hotelprincess.me/" },
-                    { label: "Booking.com", url: "#" },
-                  ]}
-                />
-            
-                <HotelCard
-                  name="Hotel Agape"
-                  stars="4★"
-                  src={'https://cf.bstatic.com/xdata/images/hotel/max1024x768/481272451.jpg?k=e0b70fdc8b43203df69644940a3e4657a54bf0305c62c86e867227ad5985b83c&o='}
-                  description="Modern hotel in central Bar with bright rooms, a restaurant, and convenient parking."
-                  links={[
-                    { label: "Google Maps", url: "https://maps.app.goo.gl/P7WgjhQ4BnmmjEcy8" },
-                    { label: "Website", url: "https://hotelagape.me/" },
-                    { label: "Booking.com", url: "https://www.booking.com/hotel/me/agape-bar.en-gb.html" },
-                  ]}
-                />
-            
-                <HotelCard
-                  name="Hotel Pharos"
-                  stars="3★"
-                  src={'https://cf.bstatic.com/xdata/images/hotel/max1024x768/374157846.jpg?k=facf714d65003cb6c1afaadbbc556901c382f1c70d3cc58787e4dbd1eafead7c&o=&hp=1'}
-                  description="Comfortable and affordable option in a quiet area, close to the city center and beach."
-                  links={[
-                    { label: "Google Maps", url: "https://maps.app.goo.gl/1XEWSsiqWq4uWq8D7" },
-                    { label: "Website", url: "https://pharos-hotel.com/" },
-                    { label: "Booking.com", url: "http://Booking.com" },
-                  ]}
-                />
+              <HotelCard
+                name="Hotel Princess"
+                src={
+                  "https://tripx-images.imgix.net/TSPRO/hotelimages/c888f536cb0a483889fdffca4c03e5ae.jpg"
+                }
+                stars="4★"
+                description="Elegant seafront hotel with a pool, spa, and direct access to Bar's promenade."
+                links={[
+                  {
+                    label: "Google Maps",
+                    url: "https://maps.app.goo.gl/P7WgjhQ4BnmmjEcy8",
+                  },
+                  { label: "Website", url: "https://www.hotelprincess.me/" },
+                  { label: "Booking.com", url: "#" },
+                ]}
+              />
+
+              <HotelCard
+                name="Hotel Agape"
+                stars="4★"
+                src={
+                  "https://cf.bstatic.com/xdata/images/hotel/max1024x768/481272451.jpg?k=e0b70fdc8b43203df69644940a3e4657a54bf0305c62c86e867227ad5985b83c&o="
+                }
+                description="Modern hotel in central Bar with bright rooms, a restaurant, and convenient parking."
+                links={[
+                  {
+                    label: "Google Maps",
+                    url: "https://maps.app.goo.gl/P7WgjhQ4BnmmjEcy8",
+                  },
+                  { label: "Website", url: "https://hotelagape.me/" },
+                  {
+                    label: "Booking.com",
+                    url: "https://www.booking.com/hotel/me/agape-bar.en-gb.html",
+                  },
+                ]}
+              />
+
+              <HotelCard
+                name="Hotel Pharos"
+                stars="3★"
+                src={
+                  "https://cf.bstatic.com/xdata/images/hotel/max1024x768/374157846.jpg?k=facf714d65003cb6c1afaadbbc556901c382f1c70d3cc58787e4dbd1eafead7c&o=&hp=1"
+                }
+                description="Comfortable and affordable option in a quiet area, close to the city center and beach."
+                links={[
+                  {
+                    label: "Google Maps",
+                    url: "https://maps.app.goo.gl/1XEWSsiqWq4uWq8D7",
+                  },
+                  { label: "Website", url: "https://pharos-hotel.com/" },
+                  { label: "Booking.com", url: "http://Booking.com" },
+                ]}
+              />
             </Grid>
           </Box>
 

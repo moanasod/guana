@@ -10,16 +10,20 @@ export default function PageHeader({ textRefs, data }) {
       <Stack
         sx={{
           marginTop: { xs: "40px", lg: "80px" },
-          paddingLeft: { xs: "2rem", md: "0rem" },
           display: "flex",
           justifyContent: "center",
+          alignItems: "center",
         }}
-        direction="row"
+        direction={{ xs: "column", md: "row" }}
         gap={2}
       >
         <Stack
           spacing={1}
-          sx={{ marginTop: "20px", px: { xs: "0.5rem", md: "0rem" } }}
+          sx={{
+            marginTop: "20px",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
         >
           <Typography
             sx={{ fontSize: { xs: "2.25rem", md: "2.75rem" } }}
@@ -28,7 +32,7 @@ export default function PageHeader({ textRefs, data }) {
             {data.headerTaglineOne}
           </Typography>
           <Typography
-            sx={{ fontSize: { xs: "2.25rem", md: "2.75rem" } }}
+            sx={{ fontSize: { xs: "2rem", md: "2.3rem" } }}
             ref={textRefs.textTwo}
           >
             {data.headerTaglineTwo}
@@ -56,7 +60,7 @@ export default function PageHeader({ textRefs, data }) {
           sx={{ width: "50%", height: "auto" }}
         />
       </Stack>
-     <HangingTags />
-      </>
+      <HangingTags />
+    </>
   );
 }

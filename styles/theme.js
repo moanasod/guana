@@ -32,17 +32,7 @@ const theme = createTheme({
   },
   
   typography: {
-    fontFamily: [
-      'Playfair Display',
-    'libre-baskerville',
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-    ].join(','),
+    fontFamily: '"Playfair Display", "Georgia", "Times New Roman", serif',
   },
   
   breakpoints: {
@@ -200,6 +190,9 @@ export const darkTheme = createTheme({
       primary: '#ffffff',
       secondary: 'rgba(255, 255, 255, 0.7)',
     },
+  },
+  typography: {
+    fontFamily: '"Playfair Display", "Georgia", "Times New Roman", serif',
   },
 });
 

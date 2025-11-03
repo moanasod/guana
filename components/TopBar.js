@@ -4,11 +4,11 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Typography, Box, Stack } from "@mui/material";
-// Local Data
 import data from "../data/portfolio.json";
 import Button from "./Button";
 import AppBar from "@mui/material/AppBar";
 import DarkModeToggle from "./DarkModeToggle";
+import { getAssetPath } from "../utils/getAssetPath";
 
 export default function TopBar({
   handleWorkScroll,
@@ -21,7 +21,7 @@ export default function TopBar({
   const isDarkMode = theme === "dark";
   const [mounted, setMounted] = useState(false);
 
-  const { name, showFAQ, showResume } = data;
+  const { name } = data;
 
   useEffect(() => {
     setMounted(true);
@@ -79,7 +79,7 @@ export default function TopBar({
                   sx={{
                     cursor: "pointer",
                     fontWeight: 500,
-                    color: isDarkMode ?"white" : "secondary.dark" ,
+                    color: isDarkMode ? "white" : "secondary.dark",
                   }}
                 >
                   {name}.
@@ -91,15 +91,17 @@ export default function TopBar({
                   <Popover.Button>
                     <Box
                       component="img"
-                      src={`/images/${
-                        !open
-                          ? theme === "dark"
-                            ? "menu-white.svg"
-                            : "menu.svg"
-                          : theme === "light"
-                          ? "cancel.svg"
-                          : "cancel-white.svg"
-                      }`}
+                      src={getAssetPath(
+                        `/images/${
+                          !open
+                            ? isDarkMode
+                              ? "menu-white.svg"
+                              : "menu.svg"
+                            : isDarkMode
+                            ? "cancel-white.svg"
+                            : "cancel.svg"
+                        }`
+                      )}
                       sx={{ width: 24, height: 24 }}
                     />
                   </Popover.Button>
@@ -130,11 +132,8 @@ export default function TopBar({
                 </Stack>
               ) : (
                 <Stack spacing={1}>
-                  {menuItems.map((item) => (
-                    <Button key={item.label} onClick={item.onClick}>
-                      {item.label}
-                    </Button>
-                  ))}
+                  <Button onClick={() => router.push("/")}>Home</Button>
+                  <Button onClick={() => router.push("/faq")}>FAQ</Button>
                 </Stack>
               )}
             </Popover.Panel>
@@ -179,9 +178,7 @@ export default function TopBar({
         ) : (
           <Stack direction="row" spacing={1}>
             <Button onClick={() => router.push("/")}>Home</Button>
-            {showFAQ && (
-              <Button onClick={() => router.push("/faq")}>FAQ</Button>
-            )}
+            <Button onClick={() => router.push("/faq")}>FAQ</Button>
             {mounted && theme && data.darkMode && <DarkModeToggle />}
           </Stack>
         )}

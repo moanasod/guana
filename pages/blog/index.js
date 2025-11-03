@@ -9,6 +9,8 @@ import data from "../../data/portfolio.json";
 import { ISOToDate, useIsomorphicLayoutEffect } from "../../utils";
 import { getAllPosts } from "../../utils/api";
 import { Typography, Box, Grid, Stack } from "@mui/material";
+import { getAssetPath } from "../../utils/getAssetPath";
+
 const FAQ = ({ posts }) => {
   const showFAQ = useRef(data.showFAQ);
   const text = useRef();
@@ -72,10 +74,10 @@ const FAQ = ({ posts }) => {
             maxWidth: "1200px",
             marginX: "auto",
             marginBottom: "40px",
-            paddingTop: "100px", // Header offset to prevent fixed TopBar from covering content
+            paddingTop: "100px", 
           }}
         >
-          <TopBar isFAQ={true}></TopBar>
+          <TopBar isFAQ={true}/>
           <Box sx={{ marginTop: "40px" }}>
             <Typography
               variant="h1"
@@ -110,7 +112,7 @@ const FAQ = ({ posts }) => {
                       >
                         <Box
                           component="img"
-                          src={post.image}
+                          src={getAssetPath(post.image)}
                           alt={post.title}
                           sx={{
                             width: "100%",

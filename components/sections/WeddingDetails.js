@@ -1,8 +1,9 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { Typography, Box, Grid } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import WorkCard from "../WorkCard";
-import { Stack } from "@mui/material";
+import { getAssetPath } from "../../utils/getAssetPath";
+import { SectionHeading } from "../typography";
 
 const weddingDetails = [
   {
@@ -24,11 +25,11 @@ export default function WeddingDetails({ workRef, data }) {
         padding: { xs: "8px", lg: 0 },
       }}
     >
-      <Typography variant="h4">{data.weddingDetails.title}</Typography>
+      <SectionHeading>{data.weddingDetails.title}</SectionHeading>
       <Stack direction="column" gap={2}>
         {data.projects.map((project) => (
           <WorkCard
-            img={project.imageSrc}
+            img={getAssetPath(project.imageSrc)}
             name={project.title}
             description={project.description}
             key={project.id}

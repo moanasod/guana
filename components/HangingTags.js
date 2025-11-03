@@ -1,13 +1,21 @@
 import React from "react";
 import { Box, Typography, SvgIcon } from "@mui/material";
-import EventIcon from '@mui/icons-material/Event';
+import EventIcon from "@mui/icons-material/Event";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import CheckroomIcon from "@mui/icons-material/Checkroom";
+import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 
 const tags = [
   { icon: <EventIcon />, label: "WHEN", value: "8-10 May 2026" },
-  { icon: <LocationOnIcon />, label: "WHERE", value: "Talići Hill, Montenegro" },
-  { icon: <CheckroomIcon />, label: "ATTIRE", value: "Cocktail" },
+  {
+    icon: <LocationOnIcon />,
+    label: "WHERE",
+    value: "Talići Hill, Montenegro",
+  },
+  {
+    icon: <CardGiftcardIcon />,
+    label: "GIFTS",
+    value: "No, the gift is you coming",
+  },
 ];
 
 const HangingTags = () => {
@@ -16,8 +24,6 @@ const HangingTags = () => {
       sx={{
         position: "relative",
         width: "100%",
-        mx: "auto",
-        py: 4.5,
         overflow: "visible",
       }}
     >
@@ -59,18 +65,20 @@ const HangingTags = () => {
             key={i}
             sx={{
               position: "relative",
-              backgroundColor: "#e1cc96", 
-              width: { xs: 100, sm: 120, md: 150 },
-              height: { xs: 100, sm: 120, md: 150 },
+              backgroundColor: "#e1cc96",
+              width: { xs: 80, sm: 120, md: 150 },
+              height: { xs: 80, sm: 120, md: 150 },
               borderRadius: 2,
-              clipPath:
-                "polygon(50% 0%, 100% 25%, 100% 100%, 0% 100%, 0% 25%)",
+              clipPath: "polygon(50% 0%, 100% 25%, 100% 100%, 0% 100%, 0% 25%)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
               textAlign: "center",
-              marginTop: i === 1 ? { xs: "0px", md: "20px", lg: "20px" } : { xs: "-20px", md: "0px", lg: "5px" },
+              marginTop:
+                i === 1
+                  ? { xs: "40px", md: "50px", lg: "50px" }
+                  : { xs: "20px", md: "30px", lg: "35px" },
               animation: "sway 3s ease-in-out infinite alternate",
               "@keyframes sway": {
                 "0%, 100%": { transform: "rotate(0deg)" },
@@ -85,28 +93,33 @@ const HangingTags = () => {
                 top: { xs: 6, md: 10 },
                 left: "50%",
                 transform: "translateX(-50%)",
-                width: { xs: 12, md: 16 },
-                height: { xs: 12, md: 16 },
-                backgroundColor: "background.default",
-                border: "3px solid #333",
+                width: { xs: 10, md: 14 },
+                height: { xs: 10, md: 14 },
+                backgroundColor: "primary.light",
                 borderRadius: "50%",
               }}
             />
             {/* Tag content */}
-            <SvgIcon sx={{ fontSize: { xs: 20, md: 30 }, mt: 1.5 }}>{tag.icon}</SvgIcon>
-            <Typography 
-              variant="caption" 
-              sx={{ 
-                letterSpacing: 1, 
-                fontSize: { xs: "0.65rem", md: "0.75rem" },
-                display: { xs: 'none', md: 'block' }
+            <SvgIcon sx={{ fontSize: { xs: 20, md: 30 }, mt: 1.5 }}>
+              {tag.icon}
+            </SvgIcon>
+            <Typography
+              variant="caption"
+              sx={{
+                letterSpacing: 1,
+                fontSize: { md: "0.75rem" },
+                display: { xs: "none", md: "block" },
               }}
             >
               {tag.label}
             </Typography>
             <Typography
               variant="subtitle1"
-              sx={{ fontWeight: 700, mt: 0.5, fontSize: { xs: "0.8rem", md: "1rem" } }}
+              sx={{
+                fontWeight: 700,
+                mt: 0.5,
+                fontSize: { xs: "0.6rem", md: "1rem" },
+              }}
             >
               {tag.value}
             </Typography>

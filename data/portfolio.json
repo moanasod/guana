@@ -1,7 +1,7 @@
 {
   "name": "Moana & Gustav",
   "headerTaglineOne": "Hej kompisar 👋",
-  "headerTaglineTwo": "Welcome to our wedding",
+  "headerTaglineTwo": "We're getting married",
   "headerTaglineThree": "in Montenegro",
   "headerTaglineFour": "8-10 May 2026",
   "showFAQ": true,
@@ -66,7 +66,7 @@
       "id": "4",
       "title": "Dress Code",
       "description": "Style inspiration and what to wear",
-      "imageSrc": "https://images.squarespace-cdn.com/content/v1/5f90a0d90565905e22971c80/7519f444-d99b-49ae-bbb2-361b2e6d0b85/IMG_6934.jpeg",
+      "imageSrc": "/images/guestDresses.png",
       "url": "/dress-code"
     },
     {

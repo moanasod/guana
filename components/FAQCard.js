@@ -2,15 +2,22 @@ import { Box, Card, Typography } from "@mui/material";
 import Button from "./Button";
 import { useState } from "react";
 import { useTheme } from "next-themes";
+import { getAssetPath } from "../utils/getAssetPath";
 
-export default function FAQCard({ name, description, image, exampleQuestion, disabled }) {
+export default function FAQCard({
+  name,
+  description,
+  image,
+  exampleQuestion,
+  disabled,
+}) {
   const [isHovered, setIsHovered] = useState(false);
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
 
   return (
     <Card
-    disabled={disabled}
+      disabled={disabled}
       sx={{
         position: "relative",
         padding: "16px",
@@ -23,7 +30,7 @@ export default function FAQCard({ name, description, image, exampleQuestion, dis
         transition: "all 0.3s ease",
         "&:hover": {
           boxShadow: "0 8px 24px rgba(0,0,0,0.12)",
-        }
+        },
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -41,7 +48,7 @@ export default function FAQCard({ name, description, image, exampleQuestion, dis
         >
           <Box
             component="img"
-            src={image}
+            src={getAssetPath(image)}
             alt={name}
             sx={{
               width: "auto",
@@ -53,12 +60,20 @@ export default function FAQCard({ name, description, image, exampleQuestion, dis
           />
         </Box>
       )}
-      <Typography variant="h4" sx={{ fontSize: "1.875rem", marginBottom: "12px" }}>
+      <Typography
+        variant="h4"
+        sx={{ fontSize: "1.875rem", marginBottom: "12px" }}
+      >
         {exampleQuestion}
       </Typography>
       <Typography
         variant="body1"
-        sx={{ marginTop: "8px", opacity: 0.8, fontSize: "1.25rem", flexGrow: 1 }}
+        sx={{
+          marginTop: "8px",
+          opacity: 0.8,
+          fontSize: "1.25rem",
+          flexGrow: 1,
+        }}
       >
         {description}
       </Typography>
@@ -84,7 +99,7 @@ export default function FAQCard({ name, description, image, exampleQuestion, dis
               backgroundColor: "primary.main",
               "&:hover": {
                 backgroundColor: "primary.dark",
-              }
+              },
             }}
           >
             View More

@@ -6,26 +6,31 @@ import { Box, Stack } from "@mui/material";
 import data from "../data/portfolio.json";
 import TopBar from "../components/TopBar";
 
-export default function PageContainer({ children, title, isFAQ = false, paddingTop = "100px" }) {
+export default function PageContainer({
+  children,
+  title,
+  isFAQ = false,
+  paddingTop = "100px",
+}) {
   return (
     <Box sx={{ position: "relative", cursor: "default", minHeight: "100vh" }}>
       <Head>
         <title>{title || data.name}</title>
       </Head>
-      
+
       <TopBar isFAQ={isFAQ} />
 
-      <Box className="gradient-circle"></Box>
-      <Box className="gradient-circle-bottom"></Box>
+      <Box className="gradient-circle"/>
+      <Box className="gradient-circle-bottom"/>
 
-      <Stack 
-        sx={{ 
-          maxWidth: '1200px', 
-          marginX: 'auto', 
-          marginBottom: '40px',
-          marginTop: '50px',
+      <Stack
+        sx={{
+          maxWidth: "1200px",
+          marginX: "auto",
+          marginBottom: "40px",
+          marginTop: "50px",
           paddingTop: paddingTop,
-          padding: { xs: '1rem', md: '2rem' }
+          padding: { xs: '1rem', md: '2rem' },
         }}
       >
         {children}

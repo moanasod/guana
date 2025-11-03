@@ -4,6 +4,7 @@ import { useIsomorphicLayoutEffect } from "../utils";
 import { Typography, Box, Stack } from "@mui/material";
 import PageContainer from "../components/PageContainer";
 import data from "../data/portfolio.json";
+import { getAssetPath } from "../utils/getAssetPath";
 
 function PinterestBoard({ boardUrl }) {
   useEffect(() => {
@@ -30,23 +31,13 @@ function PinterestBoard({ boardUrl }) {
   }, []);
 
   return (
-    <Box
-      sx={{
-        maxWidth: "100%",
-        overflow: "hidden",
-        borderRadius: "16px",
-        alignSelf: "center",
-        justifySelf: "center",
-      }}
-    >
-      <a
-        data-pin-do="embedBoard"
-        data-pin-board-width="1200"
-        data-pin-scale-height="500"
-        data-pin-scale-width="115"
-        href={boardUrl}
-      />
-    </Box>
+    <a
+      data-pin-do="embedBoard"
+      data-pin-board-width="1200"
+      data-pin-scale-height="500"
+      data-pin-scale-width="115"
+      href={boardUrl}
+    />
   );
 }
 
@@ -72,14 +63,14 @@ export default function DressCode() {
     <PageContainer title={`Dress Code - ${data.name}`} isFAQ={true}>
       <Box
         component="img"
-        src={`https://images.squarespace-cdn.com/content/v1/5f90a0d90565905e22971c80/7519f444-d99b-49ae-bbb2-361b2e6d0b85/IMG_6934.jpeg`}
+        src={getAssetPath("/images/guestDresses.png")}
         alt="Dress Code"
-        sx={{ 
-          width: { xs: "100%", md: "60%" }, 
-          height: "auto", 
+        sx={{
+          width: { xs: "100%", md: "60%" },
+          height: "auto",
           alignSelf: "center",
           borderRadius: "8px",
-          marginBottom: "2rem"
+          marginBottom: "2rem",
         }}
       />
 
@@ -101,22 +92,26 @@ export default function DressCode() {
             variant="body1"
             sx={{ fontSize: "1.125rem", lineHeight: 1.8, marginBottom: "1rem" }}
           >
-            We&apos;ve put together a Pinterest board to give you inspiration for what to wear to our wedding. 
-            The dress code is <strong>cocktail attire</strong>, think elegant but comfortable for an outdoor 
-            celebration in Montenegro.
+            We&apos;ve put together a Pinterest board to give you inspiration
+            for what to wear to our wedding. The dress code is{" "}
+            <strong>cocktail attire</strong>, think elegant but comfortable for
+            an outdoor celebration in Montenegro.
           </Typography>
           <Typography
             variant="body1"
             sx={{ fontSize: "1.125rem", lineHeight: 1.8, marginBottom: "1rem" }}
           >
-            Since the ceremony will take place outdoors on a hillside, we recommend comfortable shoes 
-            (wedges or block heels work great!). Bring a light wrap or jacket for cooler evening temperatures.
+            Since the ceremony will take place outdoors, we recommend
+            comfortable shoes (wedges or block heels work great!). Bring a light
+            wrap or jacket for cooler evening temperatures.
           </Typography>
           <Typography
             variant="body1"
             sx={{ fontSize: "1.125rem", lineHeight: 1.8, marginBottom: "2rem" }}
           >
-            Browse our board below for outfit ideas and color palette inspiration! 👇
+            Browse our board below for outfit ideas and color palette
+            inspiration! 👇 This will be updated as we get closer to the
+            wedding. <strong>Colors are encouraged!</strong>
           </Typography>
         </Box>
 
@@ -127,7 +122,7 @@ export default function DressCode() {
           >
             Style Inspiration
           </Typography>
-          
+
           {mounted && (
             <PinterestBoard boardUrl="https://se.pinterest.com/moanasodergren/wedding-dress-code/" />
           )}
@@ -140,50 +135,51 @@ export default function DressCode() {
           >
             💡 What to Keep in Mind
           </Typography>
-          <Box component="ul" sx={{ marginLeft: "1.5rem", paddingLeft: "1rem" }}>
+          <Box
+            component="ul"
+            sx={{ marginLeft: "1.5rem", paddingLeft: "1rem" }}
+          >
             <Typography
               component="li"
               variant="body1"
               sx={{ fontSize: "1rem", lineHeight: 1.8, display: "list-item" }}
             >
-              <strong>Weather:</strong> Expect warm, sunny days (22–26°C / 72–79°F) and cooler evenings (15–18°C / 59–64°F)
+              <strong>Weather:</strong> Expect warm, sunny days (22–26°C) and cooler evenings (15–18°C)
             </Typography>
             <Typography
               component="li"
               variant="body1"
               sx={{ fontSize: "1rem", lineHeight: 1.8, display: "list-item" }}
             >
-              <strong>Footwear:</strong> The venue has pebbles, grass, and stone paths — choose comfortable, stable shoes
+              <strong>Footwear:</strong> The venue has pebbles, grass, and stone
+              paths — choose comfortable shoes + you need them for dancing!
             </Typography>
             <Typography
               component="li"
               variant="body1"
               sx={{ fontSize: "1rem", lineHeight: 1.8, display: "list-item" }}
             >
-              <strong>Colors:</strong> Feel free to wear any colors you love! We&apos;d only ask to avoid all-white
+              <strong>Colors:</strong> Feel free to wear any colors you love!
+              We&apos;d only ask to avoid all-white
             </Typography>
             <Typography
               component="li"
               variant="body1"
               sx={{ fontSize: "1rem", lineHeight: 1.8, display: "list-item" }}
             >
-              <strong>Sun Protection:</strong> Bring sunglasses and sunscreen for the daytime ceremony
-            </Typography>
-            <Typography
-              component="li"
-              variant="body1"
-              sx={{ fontSize: "1rem", lineHeight: 1.8, display: "list-item" }}
-            >
-              <strong>Evening Layer:</strong> A light shawl, jacket, or pashmina for when the sun sets
+              <strong>Evening Layer:</strong> A light shawl, jacket, or pashmina
+              for when the sun sets
             </Typography>
           </Box>
         </Box>
 
-        <Box sx={{ 
-          padding: "24px", 
-          borderRadius: "12px", 
-          border: "2px solid",
-        }}>
+        <Box
+          sx={{
+            padding: "24px",
+            borderRadius: "12px",
+            border: "2px solid",
+          }}
+        >
           <Typography
             variant="h6"
             sx={{ marginBottom: "1rem", fontWeight: 600 }}
@@ -194,12 +190,12 @@ export default function DressCode() {
             variant="body1"
             sx={{ fontSize: "1rem", lineHeight: 1.8 }}
           >
-            If you&apos;re unsure about what to wear or have specific questions, feel free to reach out! 
-            We want you to feel comfortable and look amazing at our celebration. 💕
+            If you&apos;re unsure about what to wear or have specific questions,
+            feel free to reach out! We want you to feel comfortable and look
+            amazing at our celebration. 💕
           </Typography>
         </Box>
       </Stack>
     </PageContainer>
   );
 }
-

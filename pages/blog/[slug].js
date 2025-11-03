@@ -11,6 +11,7 @@ import Button from "../../components/Button";
 import FAQEditor from "../../components/FAQEditor";
 import { useRouter } from "next/router";
 import { Typography, Box, Stack } from "@mui/material";
+import { getAssetPath } from "../../utils/getAssetPath";
 
 const FAQPost = ({ post }) => {
   const [showEditor, setShowEditor] = useState(false);
@@ -29,38 +30,39 @@ const FAQPost = ({ post }) => {
         <meta name="description" content={post.preview} />
       </Head>
       <Box
-        sx={{ 
-          maxWidth: '1200px', 
-          marginX: 'auto', 
-          paddingTop: '50px', 
+        sx={{
+          maxWidth: "1200px",
+          marginX: "auto",
+          paddingTop: "50px",
         }}
       >
         <TopBar isFAQ={true} />
-        <Stack spacing={2} sx={{ marginTop: '40px' }}>
-          <Box sx={{ 
-            position: 'relative', 
-            width: '100%', 
-            // height: '384px', 
-            borderRadius: '0.5rem',
-            // boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
-            overflow: 'hidden'
-          }}>
-            <Box 
+        <Stack spacing={2} sx={{ marginTop: "40px" }}>
+          <Box
+            sx={{
+              position: "relative",
+              width: "100%",
+              // height: '384px',
+              borderRadius: "0.5rem",
+              // boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+              overflow: "hidden",
+            }}
+          >
+            <Box
               component="img"
-              src={post.image}
+              src={getAssetPath(post.image)}
               alt={post.title}
-              sx={{ width: 'auto', height: '100%' }}
+              sx={{ width: "auto", height: "100%" }}
             />
           </Box>
-      
-       
+
           <Typography
             variant="h2"
             ref={textOne}
-            sx={{ 
-              marginTop: '40px',
-              fontSize: { xs: '1.5rem', sm: '2.25rem', lg: '3.75rem' },
-              fontWeight: 700
+            sx={{
+              marginTop: "40px",
+              fontSize: { xs: "1.5rem", sm: "2.25rem", lg: "3.75rem" },
+              fontWeight: 700,
             }}
           >
             {post.title}
@@ -68,11 +70,11 @@ const FAQPost = ({ post }) => {
           <Typography
             variant="h5"
             ref={textTwo}
-            sx={{ 
-              marginTop: '8px', 
-              maxWidth: '800px',
-              fontSize: '1.25rem',
-              opacity: 0.5
+            sx={{
+              marginTop: "8px",
+              maxWidth: "800px",
+              fontSize: "1.25rem",
+              opacity: 0.5,
             }}
           >
             {post.tagline}
@@ -81,7 +83,7 @@ const FAQPost = ({ post }) => {
         <ContentSection content={post.content}></ContentSection>
         <Footer />
       </Box>
-    
+
       {showEditor && (
         <FAQEditor
           post={post}

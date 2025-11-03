@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Typography, Box, Grid, CircularProgress } from "@mui/material";
+import { Typography, Box, Grid } from "@mui/material";
 import FAQCard from "../FAQCard";
 import { useRouter } from "next/router";
 import Button from "../Button";
+import { SectionHeading } from "../typography";
 
 export default function FAQ({ posts, FAQRef }) {
   const router = useRouter();
@@ -40,9 +41,9 @@ export default function FAQ({ posts, FAQRef }) {
         width: "100%",
       }}
     >
-      <Typography variant="h4" sx={{ marginBottom: "1rem" }}>
+      <SectionHeading>
         FAQ.
-      </Typography>
+      </SectionHeading>
 
       <Box sx={{ flexGrow: 1, marginTop: "2rem" }}>
         <Grid

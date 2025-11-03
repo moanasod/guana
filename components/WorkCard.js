@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Box, Stack } from "@mui/material";
-import Image from "next/image";
+import { getAssetPath } from "../utils/getAssetPath";
 
 export default function WorkCard({ img, name, description, onClick }) {
   return (
@@ -48,7 +48,7 @@ export default function WorkCard({ img, name, description, onClick }) {
       >
         <Box
           component="img"
-          src={img}
+          src={getAssetPath(img)}
           alt={name}
           sx={{
             position: "absolute",
@@ -61,7 +61,6 @@ export default function WorkCard({ img, name, description, onClick }) {
             zIndex: 0,
           }}
         />
-
 
         <Stack
           sx={{

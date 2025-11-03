@@ -1,6 +1,7 @@
 import React from "react";
 import { useTheme } from "next-themes";
-import { Typography, Box, Grid } from "@mui/material";
+import { Typography, Box } from "@mui/material";
+import { SectionHeading, SubHeading } from "../typography";
 
 
 
@@ -25,10 +26,10 @@ export default function Itinerary({ itineraryRef }) {
       }}
     >
       <Box sx={{ maxWidth: "1200px", marginX: "auto" }}>
-        <Typography variant="h4" sx={{ marginBottom: "2rem" }}>
+        <SectionHeading sx={{ marginBottom: "2rem" }}>
           Itinerary
-        </Typography>
-        <Typography variant="h6" sx={{ marginBottom: "2rem" }}>More to come... Here is a quick overview</Typography>
+        </SectionHeading>
+        <SubHeading sx={{ marginBottom: "2rem" }}>More to come... Here is a quick overview</SubHeading>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           <Box
             component="img"
