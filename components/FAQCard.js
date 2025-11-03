@@ -44,6 +44,8 @@ export default function FAQCard({
             marginBottom: "16px",
             borderRadius: "0.5rem",
             overflow: "hidden",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <Box

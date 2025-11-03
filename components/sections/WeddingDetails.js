@@ -2,18 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { Box, Stack } from "@mui/material";
 import WorkCard from "../WorkCard";
-import { getAssetPath } from "../../utils/getAssetPath";
 import { SectionHeading } from "../typography";
-
-const weddingDetails = [
-  {
-    title: "",
-    description: "Wedding Details",
-    imageSrc:
-      "https://images.unsplash.com/photo-1487837647815-bbc1f30cd0d2?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8Njl8fHBhc3RlbHxlbnwwfHwwfA%3D%3D&auto=format&fit=crop&w=400&q=60",
-    url: "/",
-  },
-];
 
 export default function WeddingDetails({ workRef, data }) {
   const router = useRouter();
@@ -29,7 +18,7 @@ export default function WeddingDetails({ workRef, data }) {
       <Stack direction="column" gap={2}>
         {data.projects.map((project) => (
           <WorkCard
-            img={getAssetPath(project.imageSrc)}
+            img={project.imageSrc}
             name={project.title}
             description={project.description}
             key={project.id}

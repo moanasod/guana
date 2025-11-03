@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { Typography, Box, Grid } from "@mui/material";
 import FAQCard from "../FAQCard";
 import { useRouter } from "next/router";
 import Button from "../Button";
 import { SectionHeading } from "../typography";
+import Spinner from "../Spinner";
 
 export default function FAQ({ posts, FAQRef }) {
   const router = useRouter();
@@ -14,23 +15,20 @@ export default function FAQ({ posts, FAQRef }) {
     router.push(path);
   };
 
-  // if (loading) {
-  //   return (
-  //     <Box
-  //       ref={FAQRef}
-  //       sx={{
-  //         padding: { xs: "8px", lg: 0 },
-  //         width: "100%",
-  //         display: "flex",
-  //         justifyContent: "center",
-  //         alignItems: "center",
-  //         minHeight: "400px",
-  //       }}
-  //     >
-  //       <CircularProgress size={60} />
-  //     </Box>
-  //   );
-  // }
+  if (loading) {
+    return (
+      <Box
+        ref={FAQRef}
+        sx={{
+          padding: { xs: "8px", lg: 0 },
+          width: "100%",
+        }}
+      >
+        <SectionHeading>FAQ.</SectionHeading>
+        <Spinner />
+      </Box>
+    );
+  }
 
   return (
     <Box
