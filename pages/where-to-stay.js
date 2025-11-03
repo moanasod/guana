@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { stagger } from "../animations";
 import { useIsomorphicLayoutEffect } from "../utils";
 import { getAssetPath } from "../utils/getAssetPath";
+import { SectionHeading, BodyText, ExternalLink } from "../components/typography";
+
 import {
   Typography,
   Box,
@@ -13,45 +15,7 @@ import {
 } from "@mui/material";
 import PageContainer from "../components/PageContainer";
 import data from "../data/portfolio.json";
-import { getAssetPath } from "../utils/getAssetPath";
 
-// Reusable Components
-function SectionHeading({ children, variant = "h5", sx = {} }) {
-  const defaultSx = {
-    marginBottom: "1rem",
-    fontWeight: 500,
-    ...sx,
-  };
-  return (
-    <Typography variant={variant} sx={defaultSx}>
-      {children}
-    </Typography>
-  );
-}
-
-function BodyText({ children, sx = {} }) {
-  return (
-    <Typography
-      variant="body1"
-      sx={{ fontSize: "1.125rem", lineHeight: 1.8, ...sx }}
-    >
-      {children}
-    </Typography>
-  );
-}
-
-function ExternalLink({ href, children }) {
-  return (
-    <Link
-      href={href}
-      target="_blank"
-      rel="noopener"
-      sx={{ color: "primary.dark", textDecoration: "underline" }}
-    >
-      {children}
-    </Link>
-  );
-}
 
 function HotelCard({ name, stars, description, links, distance, src }) {
   return (
@@ -159,7 +123,7 @@ export default function WhereToStay() {
 
         <Stack spacing={4} sx={{ marginTop: "1rem" }}>
           <Box>
-            <BodyText sx={{ marginBottom: "1rem" }}>
+            <BodyText >
               Talići Hill sits above the small village of{" "}
               <strong>Vrelo Brca</strong>, surrounded by the Adriatic
               coast&apos;s hills and sea views. There are plenty of hotels and
@@ -178,7 +142,7 @@ export default function WhereToStay() {
           <Divider />
 
           <Box>
-            <SectionHeading variant="h4">How to Book</SectionHeading>
+            <SectionHeading>How to Book</SectionHeading>
             <BodyText>
               Our wedding planners have prepared a list of recommended
               accommodation options at various price points near Talići Hill,
@@ -195,7 +159,7 @@ export default function WhereToStay() {
           <Divider />
 
           <Box>
-            <SectionHeading variant="h4">
+            <SectionHeading>
               Sutomore (2.5 km / 5–10 minutes from the venue)
             </SectionHeading>
             <BodyText sx={{ marginBottom: "2rem" }}>
@@ -332,7 +296,7 @@ export default function WhereToStay() {
           <Divider />
 
           <Box>
-            <SectionHeading variant="h4">
+            <SectionHeading>
               Bar (7.5 km / 15 minutes from the venue)
             </SectionHeading>
             <BodyText sx={{ marginBottom: "2rem" }}>
@@ -403,7 +367,7 @@ export default function WhereToStay() {
           <Divider />
 
           <Box>
-            <SectionHeading variant="h4">Transfers</SectionHeading>
+            <SectionHeading>Transfers</SectionHeading>
             <BodyText sx={{ marginBottom: "1rem" }}>
               Transfers to and from the venue will be arranged through a local
               taxi company. Guests staying in Sutomore or Bar can also ask our
@@ -411,7 +375,7 @@ export default function WhereToStay() {
             </BodyText>
             <BodyText sx={{ marginBottom: "1rem" }}>
               A taxi from Sutomore to Talići Hill typically costs around{" "}
-              <strong>€10</strong> and takes 8–10 minutes.
+              <strong>€5-10</strong> and takes 5–10 minutes.
             </BodyText>
             <BodyText>
               Taxis can be booked via <strong>Green Taxi</strong>

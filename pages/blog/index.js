@@ -12,7 +12,6 @@ import { Typography, Box, Grid, Stack } from "@mui/material";
 import { getAssetPath } from "../../utils/getAssetPath";
 
 const FAQ = ({ posts }) => {
-  const showFAQ = useRef(data.showFAQ);
   const text = useRef();
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
@@ -64,7 +63,7 @@ const FAQ = ({ posts }) => {
     }
   };
   return (
-    showFAQ.current && (
+
       <>
         <Head>
           <title>FAQ</title>
@@ -165,7 +164,7 @@ const FAQ = ({ posts }) => {
           </Box>
         )}
       </>
-    )
+    
   );
 };
 
