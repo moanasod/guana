@@ -1,34 +1,42 @@
-# 🚀 GitHub Pages Deployment Guide
+# 🚀 GitHub Pages Deployment Guide with Custom Domain
 
-## Quick Setup (5 minutes)
+## Deployment to guana.info
 
-### Step 1: Configure Next.js for your GitHub repository
+### Step 1: Configure GitHub Pages
 
-Your repository name is `guana`. Choose one deployment option:
-
-#### Option A: Deploy to subdomain (username.github.io/guana)
-Uncomment these lines in `next.config.js`:
-```js
-basePath: '/guana',
-assetPrefix: '/guana',
-```
-
-#### Option B: Deploy to root domain (username.github.io)
-Leave `next.config.js` as is (no basePath needed).
-
-### Step 2: Enable GitHub Pages
-
-1. Go to your GitHub repository: `https://github.com/YOUR_USERNAME/guana`
+1. Go to your GitHub repository: `https://github.com/moanasod/guana`
 2. Click `Settings` → `Pages`
 3. Under "Build and deployment":
    - **Source:** Select `GitHub Actions`
-4. Save!
+4. Under "Custom domain":
+   - Enter: `guana.info`
+   - Click "Save"
+   - Enable "Enforce HTTPS" (may take a few minutes to become available)
+
+### Step 2: Configure DNS at your domain registrar
+
+Add the following DNS records:
+
+**A Records** (for apex domain):
+```
+Type: A    Host: @    Value: 185.199.108.153
+Type: A    Host: @    Value: 185.199.109.153
+Type: A    Host: @    Value: 185.199.110.153
+Type: A    Host: @    Value: 185.199.111.153
+```
+
+**CNAME Record** (for www subdomain):
+```
+Type: CNAME    Host: www    Value: moanasod.github.io
+```
+
+> **Note:** DNS changes can take up to 24-48 hours to propagate, but usually happen within a few minutes.
 
 ### Step 3: Deploy
 
 ```bash
 git add .
-git commit -m "Configure for GitHub Pages deployment"
+git commit -m "Deploy to guana.info"
 git push origin main
 ```
 
@@ -37,8 +45,8 @@ That's it! 🎉
 ### Step 4: View your site
 
 After a few minutes, your site will be live at:
-- **Option A (subdomain):** `https://YOUR_USERNAME.github.io/guana`
-- **Option B (root):** `https://YOUR_USERNAME.github.io`
+- **Primary:** `https://guana.info`
+- **www redirect:** `https://www.guana.info` → redirects to `https://guana.info`
 
 ## 🔄 Updating the Site
 
@@ -56,15 +64,27 @@ git push origin main
 ### Build fails on GitHub Actions
 
 Check the Actions tab in your repository to see the error logs:
-`https://github.com/YOUR_USERNAME/guana/actions`
+`https://github.com/moanasod/guana/actions`
+
+### Site not loading or appears frozen
+
+1. **Clear browser cache:** Hard refresh with `Ctrl+Shift+R` (Windows/Linux) or `Cmd+Shift+R` (Mac)
+2. **Check DNS propagation:** Visit [https://dnschecker.org](https://dnschecker.org) and enter `guana.info`
+3. **Verify CNAME file:** Make sure `public/CNAME` contains only `guana.info`
+4. **Check GitHub Pages settings:** Ensure custom domain is set to `guana.info` with HTTPS enabled
 
 ### Images not loading
 
-Make sure `images: { unoptimized: true }` is set in `next.config.js` (already configured).
+- Images are configured for static export (already set up)
+- External image URLs should work without any issues
+- Local images in `/public/images/` are accessible via `getAssetPath()`
 
-### 404 errors on page refresh
+### Custom domain not working
 
-If using Option A (subdomain), make sure `basePath` and `assetPrefix` are uncommented in `next.config.js`.
+1. Wait 24-48 hours for DNS propagation (usually faster)
+2. Verify DNS records are correct at your domain registrar
+3. Check GitHub Pages custom domain setting
+4. Ensure HTTPS is enforced in GitHub Pages settings
 
 ### API routes not working
 

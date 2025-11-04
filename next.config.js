@@ -5,11 +5,9 @@ const nextConfig = {
     loader: "custom",
     loaderFile: "./imageLoader.js",
   },
-  basePath: '/guana',
-  assetPrefix: '/guana',
-  // Only use basePath in production (for GitHub Pages)
-  // basePath: process.env.NODE_ENV === "production" ? "/guana" : "",
-  // assetPrefix: process.env.NODE_ENV === "production" ? "/guana" : "",
+  // For custom domain (guana.info), serve from root - no basePath needed
+  basePath: "",
+  assetPrefix: "",
 };
 
 module.exports = nextConfig;

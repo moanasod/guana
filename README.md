@@ -24,49 +24,41 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - `yarn lint` - Run linter
 - `yarn export` - Export static site for deployment
 
-## 📦 Deploying to GitHub Pages
+## 📦 Deploying to GitHub Pages with Custom Domain
 
-### Option 1: Automatic Deployment (Recommended)
+This repository is configured with GitHub Actions for automatic deployment to **guana.info**.
 
-This repository is configured with GitHub Actions for automatic deployment.
+### Setup Steps:
 
 1. **Enable GitHub Pages:**
    - Go to your repository on GitHub
    - Navigate to `Settings` → `Pages`
    - Under "Build and deployment", set:
      - Source: `GitHub Actions`
+   - Under "Custom domain", enter: `guana.info`
+   - Enable "Enforce HTTPS"
 
-2. **Configure for subdomain (if needed):**
-   - If deploying to `username.github.io/guana`, uncomment these lines in `next.config.js`:
-     ```js
-     basePath: '/guana',
-     assetPrefix: '/guana',
-     ```
+2. **Configure DNS (if not already done):**
+   - Add these DNS records at your domain registrar:
+     - Type `A` → Points to: `185.199.108.153`
+     - Type `A` → Points to: `185.199.109.153`
+     - Type `A` → Points to: `185.199.110.153`
+     - Type `A` → Points to: `185.199.111.153`
+     - Type `CNAME` → Name: `www` → Points to: `moanasod.github.io`
 
-3. **Push to main branch:**
+3. **Deploy:**
    ```bash
    git add .
-   git commit -m "Deploy to GitHub Pages"
+   git commit -m "Deploy to guana.info"
    git push origin main
    ```
 
-The site will automatically build and deploy! 🎉
+The site will automatically build and deploy to **guana.info**! 🎉
 
-### Option 2: Manual Deployment
+## 🌐 Live Site
 
-1. **Build the static site:**
-   ```bash
-   yarn build
-   ```
-
-2. **Deploy the `out` folder:**
-   - The static files will be in the `out` directory
-   - Upload these to your GitHub Pages branch (`gh-pages`)
-
-## 🌐 Deployment URLs
-
-- **Custom domain:** `username.github.io` (if deploying to root)
-- **Repository subdomain:** `username.github.io/guana` (if deploying to subdomain)
+- **Production:** [https://guana.info](https://guana.info)
+- **Development:** [http://localhost:3000](http://localhost:3000)
 
 ## 📝 Important Notes
 

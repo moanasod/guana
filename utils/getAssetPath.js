@@ -1,4 +1,4 @@
-// Helper function to get the correct asset path with basePath
+// Helper function to get the correct asset path
 export function getAssetPath(path) {
   // If path is empty or undefined, return it as is
   if (!path) return path;
@@ -8,13 +8,7 @@ export function getAssetPath(path) {
     return path;
   }
   
-  // If path already has the basePath, return it as is (prevent double application)
-  const basePath = process.env.NODE_ENV === 'production' ? '/guana' : '';
-  if (basePath && path.startsWith(basePath)) {
-    return path;
-  }
-  
-  // Add basePath to local assets
-  return `${basePath}${path}`;
+  // For custom domain (guana.info), no basePath needed - just return the path
+  return path;
 }
 
