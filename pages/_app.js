@@ -69,7 +69,7 @@ const App = ({ Component, pageProps }) => {
   }, [router]);
 
   return (
-    <NextThemeProvider>
+    <NextThemeProvider defaultTheme="light" attribute="class">
       <MuiThemeWrapper>
         <Suspense fallback={<LoadingPage />}>
           <Component {...pageProps} />
