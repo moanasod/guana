@@ -1,6 +1,7 @@
 import { Box, Card, Grid, Typography } from "@mui/material";
 import { getAssetPath } from "../utils/getAssetPath";
 import { BodyText, ExternalLink } from "./typography";
+import ImageGrid from "./ImageGrid";
 
 export default function HotelCard({
   name,
@@ -9,9 +10,11 @@ export default function HotelCard({
   links,
   distance,
   src,
+  isLarge = false,
+  images,
 }) {
   return (
-    <Grid item size={{ md: 6, xs: 12 }} sx={{ display: "flex" }}>
+    <Grid item size={{ md: isLarge ? 12 : 6, xs: 12 }} sx={{ display: "flex" }}>
       <Card
         sx={{
           height: "100%",
@@ -21,6 +24,7 @@ export default function HotelCard({
           padding: "1rem",
         }}
       >
+        {images && <ImageGrid images={images} maxHeight={350} />}
         {src && (
           <Box
             component="img"

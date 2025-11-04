@@ -2,18 +2,35 @@ import { useEffect, useRef, useState } from "react";
 import { stagger } from "../animations";
 import { useIsomorphicLayoutEffect } from "../utils";
 import { getAssetPath } from "../utils/getAssetPath";
-import { SectionHeading, BodyText, ExternalLink } from "../components/typography";
+import {
+  SectionHeading,
+  BodyText,
+  ExternalLink,
+} from "../components/typography";
 import HotelCard from "../components/HotelCard";
 
-import {
-  Typography,
-  Box,
-  Stack,
-  Divider,
-  Grid,
-} from "@mui/material";
+import { Typography, Box, Stack, Divider, Grid } from "@mui/material";
 import PageContainer from "../components/PageContainer";
 import data from "../data/portfolio.json";
+
+const SEISENSI_IMAGES = [
+  {
+    img: "/images/montenegro/seisensi1.jpg",
+    title: "Overhead view of the hotel",
+  },
+  {
+    img: "/images/montenegro/seisensi2.jpg",
+    title: "Overhead view of the hotel",
+  },
+  {
+    img: "/images/montenegro/seisensei3.jpg",
+    title: "Overhead view of the hotel",
+  },
+  {
+    img: "/images/montenegro/sensei4.jpg",
+    title: "Overhead view of the hotel",
+  },
+];
 
 export default function WhereToStay() {
   const textRef = useRef();
@@ -58,7 +75,7 @@ export default function WhereToStay() {
 
         <Stack spacing={4} sx={{ marginTop: "1rem" }}>
           <Box>
-            <BodyText >
+            <BodyText>
               Talići Hill sits above the small village of{" "}
               <strong>Vrelo Brca</strong>, surrounded by the Adriatic
               coast&apos;s hills and sea views. There are plenty of hotels and
@@ -232,7 +249,7 @@ export default function WhereToStay() {
 
           <Box>
             <SectionHeading>
-              Bar (7.5 km / 15 minutes from the venue)
+              Bar (7.5 km / 10-15 minutes from the venue)
             </SectionHeading>
             <BodyText sx={{ marginBottom: "2rem" }}>
               Bar is a larger seaside city with more accommodation variety,
@@ -243,6 +260,23 @@ export default function WhereToStay() {
             </BodyText>
 
             <Grid container spacing={3}>
+              <HotelCard
+                isLarge={true}
+                images={SEISENSI_IMAGES}
+                name="Sei Sensi"
+                stars="Luxury Private Villa"
+                description="This private villa is a great choice for a group of you. Guests can take a dip in the seasonal outdoor pool and access the beach just outside the property. The property features a terrace, a private pool, and a kitchen. Sleeps up to 14 people with 4 bedrooms, 4 bathrooms. Through our wedding planners, you can book this villa for the weekend at 10% off. Please note that the minimum stay is 3 nights. Reach out to us or our wedding planners for more information. €800 for the villa per night."
+                links={[
+                  {
+                    label: "Google Maps",
+                    url: "https://maps.app.goo.gl/cWKKBQRnpNuAx5zp6",
+                  },
+                  {
+                    label: "Booking.com",
+                    url: "https://www.booking.com/hotel/me/seisensi-luxury-beach-villa.en-gb.html?aid=318615&label=New_English_EN_SE_26638796185-HsoX3XKdk0TROh9xtr0UXQS634117827546%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atidsa-64415224945%3Alp1012228%3Ali%3Adec%3Adm%3Aag26638796185%3Acmp393949825&sid=db89e1d00bcbad5ad1ad649cf7b51a1b&dest_id=440840&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1762287534&srpvid=ce3f8ed4da57088a&type=total&ucfs=1&",
+                  },
+                ]}
+              />
               <HotelCard
                 name="Hotel Princess"
                 src={
