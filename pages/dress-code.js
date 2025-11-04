@@ -92,6 +92,7 @@ export default function DressCode() {
             variant="body1"
             sx={{ fontSize: "1.125rem", lineHeight: 1.8, marginBottom: "1rem" }}
           >
+            (Updates to come in this section soon!)
             We&apos;ve put together a Pinterest board to give you inspiration
             for what to wear to our wedding. The dress code is{" "}
             <strong>cocktail attire</strong>, think elegant but comfortable for
