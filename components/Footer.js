@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <Box
       sx={{
-        marginTop: { xs: 2, lg: 2 },
+        marginTop: { xs: 6, lg: 2 },
         paddingX: { xs: 3, lg: 0 },
       }}
     >
