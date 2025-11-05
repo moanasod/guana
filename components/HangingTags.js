@@ -28,7 +28,6 @@ const HangingTags = () => {
         overflow: "visible",
       }}
     >
-      {/* Curved string line - sagging downward, full screen width */}
       <Box
         component="svg"
         viewBox="0 0 100 20"
@@ -42,7 +41,6 @@ const HangingTags = () => {
           height: { xs: 100, md: 140 },
         }}
       >
-        {/* Main curved line (sagging down like a hanging string) */}
         <path
           d="M0,2 Q50,16 100,2"
           stroke="#333"
@@ -51,7 +49,6 @@ const HangingTags = () => {
         />
       </Box>
 
-      {/* Tags */}
       <Box
         sx={{
           display: "flex",
@@ -87,7 +84,6 @@ const HangingTags = () => {
               },
             }}
           >
-            {/* Tag hole */}
             <Box
               sx={{
                 position: "absolute",
@@ -100,7 +96,6 @@ const HangingTags = () => {
                 borderRadius: "50%",
               }}
             />
-            {/* Tag content */}
             <SvgIcon
               sx={{ fontSize: { xs: 20, md: 30 }, mt: 1.5, color: "black" }}
             >

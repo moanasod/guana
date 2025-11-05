@@ -1,10 +1,5 @@
 import { Box } from "@mui/material";
 
-/**
- * Reusable list (ul) wrapper component
- * @param {ReactNode} children - List items to render
- * @param {object} sx - Additional MUI sx styles
- */
 export default function List({ children, sx = {} }) {
   return (
     <Box

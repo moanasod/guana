@@ -17,17 +17,16 @@ function CheckboxItem({ label, defaultChecked }) {
     <FormControlLabel
       sx={{
         "& .MuiFormControlLabel-label": {
-          fontSize: "1.1rem",
           fontWeight: 500,
-          color: "white",
           paddingY: 2,
         },
       }}
       control={
         <Checkbox
+          color={"white"}
           defaultChecked={defaultChecked}
-          icon={<FavoriteBorder sx={{ color: "white" }} />}
-          checkedIcon={<Favorite sx={{ color: "white" }} />}
+          icon={<FavoriteBorder />}
+          checkedIcon={<Favorite />}
           sx={{ color: "white" }}
         />
       }
@@ -43,21 +42,20 @@ export default function About({ aboutRef }) {
     <Box ref={aboutRef}>
       <Paper
         sx={{
-          padding: "16px",
-          marginX: "1rem",
-          marginY: "1rem",
+          padding: "1rem",
+          margin: "1rem",
           backgroundColor: isDarkMode ? "secondary.dark" : "primary.main",
           paddingBottom: "40px",
         }}
       >
-        <SectionHeading sx={{ margin: "1rem", color: "white" }}>Checklist.</SectionHeading>
+        <SectionHeading sx={{ margin: "1rem", color: "white" }}>
+          Checklist.
+        </SectionHeading>
         <Typography
           variant="h6"
           sx={{
             margin: { xs: "8px 0", md: "40px" },
-            marginTop: "8px",
             color: "white",
-            width: { xs: "100%", lg: "90%" },
           }}
         >
           Wheeew, there&apos;s a lot of information to digest here. We&apos;ve
@@ -65,7 +63,7 @@ export default function About({ aboutRef }) {
           wedding.
         </Typography>
         <Box sx={{ paddingX: { xs: "1rem", md: "2rem" } }}>
-          <FormGroup sx={{ color: "white" }} gap={2}>
+          <FormGroup sx={{ color: "white" }}>
             <CheckboxItem label="Get an invite to the wedding" defaultChecked />
             <CheckboxItem label="RSVP: Let us know you're coming so we can plan food and transport." />
             <CheckboxItem label="Book your flights: See Travel Information for our recommended flights to Podgorica or Tivat." />

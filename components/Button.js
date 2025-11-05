@@ -46,7 +46,6 @@ const StyledButton = styled(MuiButton, {
     },
   }),
 
-  // Responsive styles
   '@media (min-width: 768px)': {
     fontSize: '1rem',
     padding: '0.5rem',

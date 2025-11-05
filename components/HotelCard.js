@@ -12,6 +12,7 @@ export default function HotelCard({
   src,
   isLarge = false,
   images,
+  priceLevel,
 }) {
   return (
     <Grid item size={{ md: isLarge ? 12 : 6, xs: 12 }} sx={{ display: "flex" }}>
@@ -39,10 +40,7 @@ export default function HotelCard({
             }}
           />
         )}
-        <Typography
-          variant="h6"
-          sx={{ fontWeight: 600, marginBottom: "0.5rem" }}
-        >
+        <Typography variant="h6" sx={{ marginBottom: "0.5rem" }}>
           {name} {stars && `(${stars})`}
         </Typography>
         {distance && (
@@ -55,7 +53,7 @@ export default function HotelCard({
               opacity: 0.7,
             }}
           >
-            {distance}
+            {distance} {priceLevel ? `- ${priceLevel}` : ""}
           </Typography>
         )}
         <BodyText sx={{ marginBottom: "0.75rem", flexGrow: 1 }}>

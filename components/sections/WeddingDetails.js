@@ -11,7 +11,7 @@ export default function WeddingDetails({ workRef, data }) {
     <Box
       ref={workRef}
       sx={{
-        padding: { xs: "8px", lg: 0 },
+        padding: { xs: 1, lg: 0 },
       }}
     >
       <SectionHeading>{data.weddingDetails.title}</SectionHeading>

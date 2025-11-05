@@ -8,11 +8,9 @@ import { getAssetPath } from "../utils/getAssetPath";
 
 function PinterestBoard({ boardUrl }) {
   useEffect(() => {
-    // Check if Pinterest script already exists
     if (window.PinUtils) {
       window.PinUtils.build();
     } else {
-      // Load Pinterest script if not already loaded
       const script = document.createElement("script");
       script.src = "//assets.pinterest.com/js/pinit.js";
       script.async = true;
@@ -20,9 +18,7 @@ function PinterestBoard({ boardUrl }) {
       script.setAttribute("data-pin-build", "doBuild");
       document.body.appendChild(script);
 
-      // Clean up function
       return () => {
-        // Remove script when component unmounts
         if (document.body.contains(script)) {
           document.body.removeChild(script);
         }

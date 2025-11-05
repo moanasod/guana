@@ -7,14 +7,13 @@ export default function Footer() {
   return (
     <Box
       sx={{
-        marginTop: { xs: "20px", lg: "160px" },
-        padding: { xs: "8px", lg: 0 },
+        marginTop: { xs: 2, lg: 2 },
+        paddingX: { xs: 3, lg: 0 },
       }}
     >
-      <SectionHeading sx={{ fontSize: "1.5rem", fontWeight: 700 }}>
+      <SectionHeading>
         Contact.
       </SectionHeading>
-
       <Contact />
     </Box>
   );

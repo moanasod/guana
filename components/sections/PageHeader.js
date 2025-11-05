@@ -25,34 +25,19 @@ export default function PageHeader({ textRefs, data }) {
             justifyContent: "center",
           }}
         >
-          <Typography
-            sx={{ fontSize: { xs: "2.25rem", md: "2.75rem" } }}
-            ref={textRefs.textOne}
-          >
+          <Typography variant="h3" ref={textRefs.textOne}>
             {data.headerTaglineOne}
           </Typography>
-          <Typography
-            sx={{ fontSize: { xs: "2rem", md: "2.3rem" } }}
-                      ref={textRefs.textTwo}
-          >
+          <Typography variant="h4" ref={textRefs.textTwo}>
             {data.headerTaglineTwo}
           </Typography>
-          <Typography
-            sx={{ fontSize: { xs: "2rem", md: "2.3rem" } }}
-            ref={textRefs.textThree}
-          >
+          <Typography variant="h4" ref={textRefs.textThree}>
             {data.headerTaglineThree}
           </Typography>
-          <Typography
-            sx={{ fontSize: { xs: "2rem", md: "2.3rem" } }}
-            ref={textRefs.textFour}
-          >
+          <Typography variant="h4" ref={textRefs.textFour}>
             {data.headerTaglineFour}
           </Typography>
         </Stack>
-
-        {/* <Socials className="mt-2 laptop:mt-5" /> */}
-        {/* <Button variant="h4"> RSVP</Button> */}
         <Box
           component="img"
           src={getAssetPath("/images/dancing.svg")}

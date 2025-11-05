@@ -22,9 +22,7 @@ export default function Contact() {
           gap={{ xs: 0.5, sm: 2 }}
           sx={{ mb: { xs: 1, sm: 0 } }}
         >
-          <Typography
-            sx={{ fontWeight: 700, minWidth: { xs: "auto", sm: "200px" } }}
-          >
+          <Typography sx={{ fontWeight: 700, minWidth: { xs: "auto", sm: "200px" } }} >
             {contact.title}
           </Typography>
           <Typography sx={{ wordBreak: "break-word" }}>

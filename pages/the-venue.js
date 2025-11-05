@@ -52,14 +52,14 @@ export default function TheVenue() {
         sx={{
           fontSize: { xs: "2rem", md: "3rem" },
           fontWeight: 600,
-          marginY: "2rem",
+          marginTop: "2rem",
 
         }}
       >
         The Venue
       </Typography>
 
-      <Stack spacing={4} sx={{ marginTop: "2rem" }}>
+      <Stack spacing={4} sx={{ marginTop: "1rem" }}>
         <ContentSection>
  
           <BodyText>
@@ -74,14 +74,14 @@ export default function TheVenue() {
 
         <ContentSection>
           <SectionHeading>Where</SectionHeading>
-          <BodyText sx={{ marginBottom: "0.5rem", fontWeight: 500 }}>
+          <BodyText sx={{ fontWeight: 500 }}>
             Talici Hill - Rustic Villas
           </BodyText>
-          <BodyText sx={{ marginBottom: "1rem" }}>
+          <BodyText >
             Talići (Kod Čakalovića), Brca 85355 Sutomore, Bar Municipality,
             Montenegro
           </BodyText>
-          <BodyText sx={{ marginBottom: "1rem" }}>
+          <BodyText>
             <ExternalLink href="https://maps.app.goo.gl/zKpjJsVbuiBifxHi6">
               View on Google Maps
             </ExternalLink>
@@ -95,12 +95,12 @@ export default function TheVenue() {
 
         <ContentSection>
           <SectionHeading>How to get there</SectionHeading>
-          <BodyText sx={{ marginBottom: "1rem" }}>
+          <BodyText >
             If you&apos;re arriving on the 8th or 9th of May, we&apos;ll have a
             shuttle from Podgorica Airport to the venue. Look for a sign that
             says <strong>&quot;Moana and Gustav Wedding Shuttle&quot;</strong>.
           </BodyText>
-          <BodyText sx={{ marginBottom: "1rem" }}>
+          <BodyText >
             If you&apos;re arriving on other days or different flights, taxis
             and car rentals are available. See Travel information for details.
           </BodyText>
@@ -168,11 +168,11 @@ export default function TheVenue() {
         <Divider />
 
         <Box>
-          <SectionHeading variant="h4" sx={{ marginBottom: "2rem" }}>
+          <SectionHeading variant="h4" sx={{ marginBottom: "1rem" }}>
             Practical tips
           </SectionHeading>
 
-          <Stack spacing={3}>
+          <Stack>
             <SubSection title="Currency">
               <BodyText>
                 Montenegro uses the Euro (€). Most hotels and restaurants accept

@@ -10,7 +10,7 @@ export default function FAQ({ posts, FAQRef }) {
 
   return (
     <Box ref={FAQRef} sx={{ paddingX: { xs: "1rem", lg: 0 } }}>
-      <SectionHeading >FAQ.</SectionHeading>
+      <SectionHeading>FAQ.</SectionHeading>
 
       <Box sx={{ flexGrow: 1, marginTop: "2rem" }}>
         <Grid
@@ -41,9 +41,7 @@ export default function FAQ({ posts, FAQRef }) {
               </Grid>
             ))}
           <Button onClick={() => router.push("/faq")} type={"outline"}>
-            <Typography variant="h4" color="secondary.dark">
-              View All FAQs
-            </Typography>
+            <Typography variant="h4">View All FAQs</Typography>
           </Button>
         </Grid>
       </Box>

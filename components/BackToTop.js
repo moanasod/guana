@@ -36,8 +36,8 @@ export default function BackToTop() {
           aria-label="Back to top"
           sx={{
             position: "fixed",
-            bottom: { xs: "20px", md: "32px" },
-            right: { xs: "20px", md: "32px" },
+            bottom: { xs: 20, md: 32 },
+            right: { xs: 20, md: 32 },
             zIndex: 1000,
           }}
         >

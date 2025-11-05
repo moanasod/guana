@@ -20,7 +20,7 @@ export default function FAQCard({
       disabled={disabled}
       sx={{
         position: "relative",
-        padding: "16px",
+        padding: 2,
         backgroundColor: isDarkMode ? "secondary.dark" : "white",
         width: "100%",
         height: "100%",
@@ -40,8 +40,8 @@ export default function FAQCard({
           sx={{
             position: "relative",
             width: "100%",
-            height: "200px",
-            marginBottom: "16px",
+            height: 200,
+            marginBottom: 2,
             borderRadius: "0.5rem",
             overflow: "hidden",
             alignItems: "center",
@@ -64,14 +64,14 @@ export default function FAQCard({
       )}
       <Typography
         variant="h4"
-        sx={{ fontSize: "1.875rem", marginBottom: "12px" }}
+        sx={{ marginBottom: 1 }}
       >
         {exampleQuestion}
       </Typography>
       <Typography
         variant="body1"
         sx={{
-          marginTop: "8px",
+          marginTop: 1,
           opacity: 0.8,
           fontSize: "1.25rem",
           flexGrow: 1,

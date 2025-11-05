@@ -108,6 +108,27 @@ export default function WhereToStay() {
             </BodyText>
           </Box>
 
+          <Box
+              sx={{
+                padding: 2,
+                borderRadius: "12px",
+                border: "2px solid",
+                opacity: 0.6,
+                marginBottom: '1rem',
+              }}
+            >
+              <Typography
+                variant="body2"
+                sx={{
+                  fontStyle: "italic",
+                }}
+              >
+                <strong>€</strong> - Less than 750 kr per night{" "}
+                <strong>€€</strong> - Between 750 kr and 1250 kr per night{" "}
+                <strong>€€€</strong> - More than 1250 kr per night{" "}
+              </Typography>
+            </Box>
+
           <Divider />
 
           <Box>
@@ -120,6 +141,7 @@ export default function WhereToStay() {
               and bus. We will be able to organize transportation or shuttle
               services for guests staying in Sutomore.
             </BodyText>
+      
 
             <Grid container spacing={3}>
               <HotelCard
@@ -128,6 +150,8 @@ export default function WhereToStay() {
                 }
                 name="Love Live Hotel"
                 stars="4★"
+                distance="2 km"
+                priceLevel="€"
                 description="A small seaside hotel with seven suites and one double room, most with sea views. Guests can enjoy a private beach, sunbeds, and a pool."
                 links={[
                   {
@@ -144,7 +168,9 @@ export default function WhereToStay() {
                 src={
                   "https://cf.bstatic.com/xdata/images/hotel/max500/32935476.jpg?k=84410f9893cbc0f840fee663f75cc61b25cb87fc5ae525ed2ace3d2d893a7880&o=&hp=1"
                 }
+                distance="2.6km"
                 stars="4★"
+                priceLevel="€€"
                 description="Modern beachfront aparthotel offering bright apartments with kitchenettes, balconies, and sea views, ideal for guests wanting independence and proximity to cafés and beaches."
                 links={[
                   {
@@ -161,6 +187,8 @@ export default function WhereToStay() {
               <HotelCard
                 name="Hotel Del Medio"
                 stars="4★"
+                distance="3 km"
+                priceLeve="€€"
                 src={
                   "https://static.tildacdn.com/tild3837-6630-4635-a366-666131393734/IMG_4783.jpeg"
                 }
@@ -177,6 +205,7 @@ export default function WhereToStay() {
 
               <HotelCard
                 name="Hotel Kaligrosh"
+                distance="3.1 km"
                 stars="3★"
                 src={
                   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/690445033.jpg?k=7737f0ba77b701e77ba427e8f40242879e0bb6690861298e6c269eebe7ac742c&o="
@@ -193,6 +222,8 @@ export default function WhereToStay() {
                 src={
                   "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/63/24/aa/porto-sole.jpg?w=900&h=500&s=1"
                 }
+                distance="3.4 km"
+                priceLeve="€"
                 stars="3★"
                 description="Comfortable stay close to the seafront promenade, with a pool and breakfast service."
                 links={[
@@ -207,6 +238,8 @@ export default function WhereToStay() {
 
               <HotelCard
                 name="Hotel G-Star"
+                distance="2 km"
+                priceLevel="€"
                 stars="3★"
                 src={"https://gstarhotel.com/media/home2.jpg"}
                 description="Modern and recently renovated hotel near the center of Sutomore."
@@ -225,6 +258,7 @@ export default function WhereToStay() {
 
               <HotelCard
                 name="Hotel Sirena Marta"
+                distance="2.7 km"
                 src={
                   "https://sirenamarta.me/wp-content/uploads/2019/06/sutomore01-400x400.jpg"
                 }
@@ -265,6 +299,8 @@ export default function WhereToStay() {
                 images={SEISENSI_IMAGES}
                 name="Sei Sensi"
                 stars="Luxury Private Villa"
+                distance="3.6 km"
+                priceLevel="€€€"
                 description="This private villa is a great choice for a group of you. Guests can take a dip in the seasonal outdoor pool and access the beach just outside the property. The property features a terrace, a private pool, and a kitchen. Sleeps up to 14 people with 4 bedrooms, 4 bathrooms. Through our wedding planners, you can book this villa for the weekend at 10% off. Please note that the minimum stay is 3 nights. Reach out to us or our wedding planners for more information. €800 for the villa per night."
                 links={[
                   {
@@ -279,8 +315,10 @@ export default function WhereToStay() {
               />
               <HotelCard
                 name="Hotel Princess"
+                distance="6 km"
+                priceLevel="€€€"
                 src={
-                  "https://tripx-images.imgix.net/TSPRO/hotelimages/c888f536cb0a483889fdffca4c03e5ae.jpg"
+                  "https://cf.bstatic.com/xdata/images/hotel/max1024x768/413224108.jpg?k=75f21c7a698baf653dacd25a0015ce1280e99268d62d237e78d0e4120f37705c&o=&hp=1"
                 }
                 stars="4★"
                 description="Elegant seafront hotel with a pool, spa, and direct access to Bar's promenade."
@@ -296,6 +334,8 @@ export default function WhereToStay() {
 
               <HotelCard
                 name="Hotel Agape"
+                distance="6.6 km"
+                priceLevel="€€"
                 stars="4★"
                 src={
                   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/481272451.jpg?k=e0b70fdc8b43203df69644940a3e4657a54bf0305c62c86e867227ad5985b83c&o="
@@ -316,6 +356,7 @@ export default function WhereToStay() {
 
               <HotelCard
                 name="Hotel Pharos"
+                distance="6 km"
                 stars="3★"
                 src={
                   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/374157846.jpg?k=facf714d65003cb6c1afaadbbc556901c382f1c70d3cc58787e4dbd1eafead7c&o=&hp=1"

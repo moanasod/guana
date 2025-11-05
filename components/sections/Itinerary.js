@@ -25,7 +25,7 @@ export default function Itinerary({ itineraryRef }) {
       }}
     >
       <Box sx={{ maxWidth: "1200px", marginX: "auto" }}>
-        <SectionHeading sx={{ marginBottom: "2rem" }}>Itinerary</SectionHeading>
+        <SectionHeading>Itinerary</SectionHeading>
         <SubHeading sx={{ marginBottom: "2rem" }}>
           More to come... Here is a quick overview
         </SubHeading>
