@@ -10,6 +10,35 @@ import AppBar from "@mui/material/AppBar";
 import DarkModeToggle from "./Buttons/DarkModeToggle";
 import { getAssetPath } from "../utils/getAssetPath";
 
+const styles = {
+  mobileAppBar: {
+    display: { xs: "flex", md: "none" },
+    backgroundColor: "transparent",
+    backdropFilter: "blur(10px)",
+    padding: "0.5rem 1rem",
+    mask: "linear-gradient(black, black, black, transparent)",
+    overflow: "visible",
+  },
+  popOverPanel: {
+    position: "fixed",
+    right: "1rem",
+    top: "3rem",
+    zIndex: 9999,
+    width: "90%",
+    maxWidth: "320px",
+  },
+  desktopAppBar: {
+    display: { xs: "none", md: "flex" },
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: "transparent",
+    backdropFilter: "blur(5px)",
+    mask: "linear-gradient(black, black, black, transparent)",
+    padding: "1rem 2rem",
+  },
+};
+
 export default function TopBar({
   handleWorkScroll,
   handleFAQScroll,
@@ -49,21 +78,11 @@ export default function TopBar({
 
   return (
     <>
-      {/* Mobile Navigation */}
+      {/* Mobile*/}
       <Popover>
         {({ open }) => (
           <>
-            <AppBar
-              position="fixed"
-              sx={{
-                display: { xs: "flex", md: "none" },
-                backgroundColor: "transparent",
-                backdropFilter: "blur(10px)",
-                padding: "0.5rem 1rem",
-                mask: "linear-gradient(black, black, black, transparent)",
-                overflow: "visible",
-              }}
-            >
+            <AppBar position="fixed" sx={styles.mobileAppBar}>
               <Stack
                 direction="row"
                 alignItems="center"
@@ -105,14 +124,7 @@ export default function TopBar({
             </AppBar>
 
             <Popover.Panel
-              style={{
-                position: "fixed",
-                right: "1rem",
-                top: "5rem",
-                zIndex: 9999,
-                width: "90%",
-                maxWidth: "320px",
-              }}
+              style={styles.popOverPanel}
               className={`p-4 ${
                 theme === "dark" ? "bg-slate-800" : "bg-white"
               } shadow-md rounded-md`}
@@ -137,19 +149,7 @@ export default function TopBar({
       </Popover>
 
       {/* Desktop Navigation */}
-      <AppBar
-        position="fixed"
-        sx={{
-          display: { xs: "none", md: "flex" },
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          backgroundColor: "transparent",
-          backdropFilter: "blur(5px)",
-          mask: "linear-gradient(black, black, black, transparent)",
-          padding: "1rem 2rem",
-        }}
-      >
+      <AppBar position="fixed" sx={styles.desktopAppBar}>
         <Typography
           variant="h6"
           onClick={() => router.push("/")}

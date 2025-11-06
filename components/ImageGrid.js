@@ -2,6 +2,33 @@ import * as React from "react";
 import { Box, ImageList, ImageListItem } from "@mui/material";
 import { getAssetPath } from "../utils/getAssetPath";
 
+const styles = {
+  imageGridBox: {
+    width: "100%",
+    overflowX: "auto",
+    overflowY: "hidden",
+    marginBottom: 0,
+    "&::-webkit-scrollbar": {
+      height: "10px",
+    },
+    "&::-webkit-scrollbar-track": {
+      backgroundColor: "rgba(0, 0, 0, 0.1)",
+      borderRadius: "4px",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "primary.main",
+      borderRadius: "4px",
+      "&:hover": {
+        backgroundColor: "primary.dark",
+      },
+    },
+  },
+  imageListItem: {
+    width: "auto",
+    minWidth: "350px",
+  },
+};
+
 export default function ImageGrid({
   images = [],
   maxHeight = 450,
@@ -10,28 +37,7 @@ export default function ImageGrid({
 }) {
   const height = Math.min(maxHeight, 450);
   return (
-    <Box
-      sx={{
-        width: "100%",
-        overflowX: "auto",
-        overflowY: "hidden",
-        marginBottom: 0,
-        "&::-webkit-scrollbar": {
-          height: "10px",
-        },
-        "&::-webkit-scrollbar-track": {
-          backgroundColor: "rgba(0, 0, 0, 0.1)",
-          borderRadius: "4px",
-        },
-        "&::-webkit-scrollbar-thumb": {
-          backgroundColor: "primary.main",
-          borderRadius: "4px",
-          "&:hover": {
-            backgroundColor: "primary.dark",
-          },
-        },
-      }}
-    >
+    <Box sx={styles.imageGridBox}>
       <ImageList
         sx={{
           height: `${rowHeight}px`,
@@ -45,13 +51,7 @@ export default function ImageGrid({
         gap={12}
       >
         {images.map((item, index) => (
-          <ImageListItem
-            key={item.img || index}
-            sx={{
-              width: "auto",
-              minWidth: "350px",
-            }}
-          >
+          <ImageListItem key={item.img || index} sx={styles.imageListItem}>
             <img
               srcSet={`${getAssetPath(
                 item.img

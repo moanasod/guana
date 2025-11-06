@@ -1,6 +1,11 @@
 import { Box, CircularProgress } from "@mui/material";
 
-export default function Spinner({ size = 60, overlay = true, sx = {}, ...props }) {
+export default function Spinner({
+  size = 60,
+  overlay = true,
+  sx = {},
+  ...props
+}) {
   if (!overlay) {
     return (
       <Box
@@ -19,7 +24,6 @@ export default function Spinner({ size = 60, overlay = true, sx = {}, ...props }
     );
   }
 
-  // Overlay version (default)
   return (
     <Box
       sx={{
@@ -42,4 +46,3 @@ export default function Spinner({ size = 60, overlay = true, sx = {}, ...props }
     </Box>
   );
 }
-

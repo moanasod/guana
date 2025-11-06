@@ -13,7 +13,6 @@ export default function Itinerary({ itineraryRef }) {
     <Box
       ref={itineraryRef}
       sx={{
-        // Full-width background that extends beyond parent container
         position: "relative",
         left: "50%",
         right: "50%",

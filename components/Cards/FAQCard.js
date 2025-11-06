@@ -4,6 +4,42 @@ import { useState } from "react";
 import { useTheme } from "next-themes";
 import { getAssetPath } from "../../utils/getAssetPath";
 
+const styles = {
+  imgBox: {
+    position: "relative",
+    width: "100%",
+    height: 200,
+    marginBottom: 2,
+    borderRadius: "0.5rem",
+    overflow: "hidden",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  img: {
+    width: "auto",
+    height: "100%",
+    objectFit: "cover",
+    justifySelf: "center",
+    alignItems: "center",
+  },
+  typoDescription: {
+    marginTop: 1,
+    opacity: 0.8,
+    fontSize: "1.25rem",
+    flexGrow: 1,
+  },
+  viewMoreBox: {
+    position: "absolute",
+    top: 16,
+    right: 16,
+    animation: "fadeIn 0.3s ease",
+    "@keyframes fadeIn": {
+      from: { opacity: 0, transform: "scale(0.9)" },
+      to: { opacity: 1, transform: "scale(1)" },
+    },
+  },
+};
+
 export default function FAQCard({
   name,
   description,
@@ -36,76 +72,24 @@ export default function FAQCard({
       onMouseLeave={() => setIsHovered(false)}
     >
       {image && (
-        <Box
-          sx={{
-            position: "relative",
-            width: "100%",
-            height: 200,
-            marginBottom: 2,
-            borderRadius: "0.5rem",
-            overflow: "hidden",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <Box sx={styles.imgBox}>
           <Box
             component="img"
             src={getAssetPath(image)}
             alt={name}
-            sx={{
-              width: "auto",
-              height: "100%",
-              objectFit: "cover",
-              justifySelf: "center",
-              alignItems: "center",
-            }}
+            sx={styles.img}
           />
         </Box>
       )}
-      <Typography
-        variant="h4"
-        sx={{ marginBottom: 1 }}
-      >
+      <Typography variant="h4" sx={{ marginBottom: 1 }}>
         {exampleQuestion}
       </Typography>
-      <Typography
-        variant="body1"
-        sx={{
-          marginTop: 1,
-          opacity: 0.8,
-          fontSize: "1.25rem",
-          flexGrow: 1,
-        }}
-      >
+      <Typography variant="body1" sx={styles.typoDescription}>
         {description}
       </Typography>
       {isHovered && (
-        <Box
-          sx={{
-            position: "absolute",
-            top: 16,
-            right: 16,
-            animation: "fadeIn 0.3s ease",
-            "@keyframes fadeIn": {
-              from: { opacity: 0, transform: "scale(0.9)" },
-              to: { opacity: 1, transform: "scale(1)" },
-            },
-          }}
-        >
-          <Button
-            variant="contained"
-            sx={{
-              textTransform: "none",
-              fontSize: "0.875rem",
-              padding: "8px 16px",
-              backgroundColor: "primary.main",
-              "&:hover": {
-                backgroundColor: "primary.dark",
-              },
-            }}
-          >
-            View More FAQs
-          </Button>
+        <Box sx={styles.viewMoreBox}>
+          <Button variant="contained">View More FAQs</Button>
         </Box>
       )}
     </Card>

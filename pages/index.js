@@ -13,6 +13,7 @@ import data from "../data/portfolio.json";
 import TopBar from "../components/TopBar";
 import BackToTop from "../components/Buttons/BackToTop";
 import { getAllPosts } from "../utils/api";
+import SpotifySection from "../components/sections/SpotifySection";
 
 const HEADER_OFFSET = 100;
 
@@ -21,11 +22,11 @@ export default function Home({ posts }) {
   const itineraryRef = useRef();
   const FAQRef = useRef();
   const aboutRef = useRef();
+  const spotifyRef = useRef();
   const textOne = useRef();
   const textTwo = useRef();
   const textThree = useRef();
   const textFour = useRef();
-
 
   const handleItineraryScroll = () => {
     window.scrollTo({
@@ -77,7 +78,7 @@ export default function Home({ posts }) {
       <Box className="gradient-circle-bottom"></Box>
 
       <Stack
-        sx={{ maxWidth: "1200px", marginX: "auto", marginBottom: "40px" }}
+        sx={{ maxWidth: "1200px", marginX: "auto", marginBottom: 5 }}
         gap={2}
       >
         <TopBar
@@ -85,30 +86,34 @@ export default function Home({ posts }) {
           handleItineraryScroll={handleItineraryScroll}
           handleFAQScroll={handleFAQScroll}
         />
-
         <PageHeader
           textRefs={{ textOne, textTwo, textThree, textFour }}
           data={data}
         />
         <Stack gap={4}>
           <Itinerary itineraryRef={itineraryRef} />
-
           <WeddingDetails workRef={workRef} data={data} />
-
           <FAQ posts={posts} FAQRef={FAQRef} />
           <About aboutRef={aboutRef} data={data} />
+          <SpotifySection spotifyRef={spotifyRef} />
         </Stack>
-
         <Footer />
       </Stack>
-      
+
       <BackToTop />
     </Box>
   );
 }
 
 export async function getStaticProps() {
-  const posts = getAllPosts(["slug", "title", "image", "preview", "exampleQuestion", "date"]);
+  const posts = getAllPosts([
+    "slug",
+    "title",
+    "image",
+    "preview",
+    "exampleQuestion",
+    "date",
+  ]);
 
   return {
     props: {

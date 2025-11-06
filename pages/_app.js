@@ -9,7 +9,6 @@ import theme, { darkTheme } from "../styles/theme";
 import LoadingPage from "../components/LoadingPage";
 import Spinner from "../components/Spinner";
 
-// Wrapper to sync next-themes with MUI theme
 function MuiThemeWrapper({ children }) {
   const { theme: nextTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -18,12 +17,12 @@ function MuiThemeWrapper({ children }) {
     setMounted(true);
   }, []);
 
-  // Prevent flash of unstyled content
   if (!mounted) {
     return <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>;
   }
 
-  const currentTheme = resolvedTheme === 'dark' || nextTheme === 'dark' ? darkTheme : theme;
+  const currentTheme =
+    resolvedTheme === "dark" || nextTheme === "dark" ? darkTheme : theme;
 
   return (
     <MuiThemeProvider theme={currentTheme}>
@@ -40,9 +39,9 @@ const App = ({ Component, pageProps }) => {
   useEffect(() => {
     const handleStart = (url) => {
       // Extract pathname without hash for comparison
-      const currentPath = router.asPath.split('#')[0];
-      const newPath = url.split('#')[0];
-      
+      const currentPath = router.asPath.split("#")[0];
+      const newPath = url.split("#")[0];
+
       // Only show loading if we're actually changing pages (not just hash)
       if (newPath !== currentPath) {
         setLoading(true);

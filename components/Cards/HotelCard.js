@@ -3,6 +3,29 @@ import { getAssetPath } from "../../utils/getAssetPath";
 import { BodyText, ExternalLink } from "../typography";
 import ImageGrid from "../ImageGrid";
 
+const styles = {
+  card: {
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "white",
+    padding: "1rem",
+  },
+  imgBox: {
+    width: "100%",
+    height: "200px",
+    objectFit: "cover",
+    borderRadius: "8px",
+    marginBottom: "1rem",
+  },
+  distance: {
+    fontSize: "0.9rem",
+    fontStyle: "italic",
+    marginBottom: "0.5rem",
+    opacity: 0.8,
+  },
+};
+
 export default function HotelCard({
   name,
   stars,
@@ -16,43 +39,21 @@ export default function HotelCard({
 }) {
   return (
     <Grid item size={{ md: isLarge ? 12 : 6, xs: 12 }} sx={{ display: "flex" }}>
-      <Card
-        sx={{
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          backgroundColor: "white",
-          padding: "1rem",
-        }}
-      >
+      <Card sx={styles.card}>
         {images && <ImageGrid images={images} maxHeight={350} />}
         {src && (
           <Box
             component="img"
             src={getAssetPath(src)}
             alt={name}
-            sx={{
-              width: "100%",
-              height: "200px",
-              objectFit: "cover",
-              borderRadius: "8px",
-              marginBottom: "1rem",
-            }}
+            sx={styles.imgBox}
           />
         )}
         <Typography variant="h6" sx={{ marginBottom: "0.5rem" }}>
           {name} {stars && `(${stars})`}
         </Typography>
         {distance && (
-          <Typography
-            variant="body2"
-            sx={{
-              fontSize: "0.9rem",
-              fontStyle: "italic",
-              marginBottom: "0.75rem",
-              opacity: 0.7,
-            }}
-          >
+          <Typography variant="body2" sx={styles.distance}>
             {distance} {priceLevel ? `- ${priceLevel}` : ""}
           </Typography>
         )}
