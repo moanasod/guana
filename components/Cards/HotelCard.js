@@ -1,7 +1,7 @@
 import { Box, Card, Grid, Typography } from "@mui/material";
-import { getAssetPath } from "../utils/getAssetPath";
-import { BodyText, ExternalLink } from "./typography";
-import ImageGrid from "./ImageGrid";
+import { getAssetPath } from "../../utils/getAssetPath";
+import { BodyText, ExternalLink } from "../typography";
+import ImageGrid from "../ImageGrid";
 
 export default function HotelCard({
   name,

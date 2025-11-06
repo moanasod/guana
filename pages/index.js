@@ -4,21 +4,19 @@ import { stagger } from "../animations";
 import Footer from "../components/Footer";
 import Head from "next/head";
 import { Box, Stack } from "@mui/material";
-
-// Section Components
 import PageHeader from "../components/sections/PageHeader";
 import WeddingDetails from "../components/sections/WeddingDetails";
 import FAQ from "../components/sections/FAQ";
 import About from "../components/sections/About";
 import Itinerary from "../components/sections/Itinerary";
-// Local Data
 import data from "../data/portfolio.json";
 import TopBar from "../components/TopBar";
-import BackToTop from "../components/BackToTop";
+import BackToTop from "../components/Buttons/BackToTop";
 import { getAllPosts } from "../utils/api";
 
+const HEADER_OFFSET = 100;
+
 export default function Home({ posts }) {
-  // Ref
   const workRef = useRef();
   const itineraryRef = useRef();
   const FAQRef = useRef();
@@ -28,8 +26,6 @@ export default function Home({ posts }) {
   const textThree = useRef();
   const textFour = useRef();
 
-  // Handling Scroll
-  const HEADER_OFFSET = 100;
 
   const handleItineraryScroll = () => {
     window.scrollTo({
@@ -55,7 +51,7 @@ export default function Home({ posts }) {
     });
   };
 
-  const handleAboutScroll = () => {
+  const handleChecklistScroll = () => {
     window.scrollTo({
       top: aboutRef.current.offsetTop - HEADER_OFFSET,
       left: 0,

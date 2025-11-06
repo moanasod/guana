@@ -5,9 +5,9 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Typography, Box, Stack } from "@mui/material";
 import data from "../data/portfolio.json";
-import Button from "./Button";
+import Button from "./Buttons/Button";
 import AppBar from "@mui/material/AppBar";
-import DarkModeToggle from "./DarkModeToggle";
+import DarkModeToggle from "./Buttons/DarkModeToggle";
 import { getAssetPath } from "../utils/getAssetPath";
 
 export default function TopBar({
@@ -45,10 +45,6 @@ export default function TopBar({
       label: "FAQ",
       onClick: () => router.push("/faq"),
     },
-    // {
-    //   label: "Contact",
-    //   onClick: () => window.open("mailto:moana@moana.com"),
-    // },
   ];
 
   return (
@@ -78,8 +74,7 @@ export default function TopBar({
                   onClick={() => router.push("/")}
                   sx={{
                     cursor: "pointer",
-                    fontWeight: 500,
-                    color: isDarkMode ? "white" : "secondary.dark",
+                    color: isDarkMode ? "white" : "text.primary",
                   }}
                 >
                   {name}.
@@ -160,8 +155,7 @@ export default function TopBar({
           onClick={() => router.push("/")}
           sx={{
             cursor: "pointer",
-            fontWeight: 500,
-            color: isDarkMode ? "primary.main" : "secondary.dark",
+            color: isDarkMode ? "primary.main" : "text.primary",
           }}
         >
           {name}.

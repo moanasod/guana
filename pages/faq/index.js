@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import { stagger } from "../../animations";
-import Button from "../../components/Button";
+import Button from "../../components/Buttons/Button";
 import data from "../../data/portfolio.json";
 import { useIsomorphicLayoutEffect } from "../../utils";
 import { getAllPosts } from "../../utils/api";

@@ -3,7 +3,7 @@ import Router, { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { stagger } from "../../animations";
-import Button from "../../components/Button";
+import Button from "../../components/Buttons/Button";
 import TopBar from "../../components/TopBar";
 import data from "../../data/portfolio.json";
 import { ISOToDate, useIsomorphicLayoutEffect } from "../../utils";

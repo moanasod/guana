@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Box, Stack } from "@mui/material";
-import { getAssetPath } from "../utils/getAssetPath";
+import { getAssetPath } from "../../utils/getAssetPath";
 
 export default function WorkCard({ img, name, description, onClick }) {
   return (

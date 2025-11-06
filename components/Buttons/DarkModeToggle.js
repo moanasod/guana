@@ -2,7 +2,7 @@ import React from "react";
 import { useTheme } from "next-themes";
 import { Box } from "@mui/material";
 import Button from "./Button";
-import { getAssetPath } from "../utils/getAssetPath";
+import { getAssetPath } from "../../utils/getAssetPath";
 
 export default function DarkModeToggle() {
   const { theme, setTheme } = useTheme();

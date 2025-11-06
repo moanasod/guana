@@ -3,7 +3,7 @@ title: Planning & Expectations
 tagline: Everything you need to know about confirming your attendance
 preview: >-
    No, the gift is you being there and celebrating with us. RSVP as soon as you can so we can plan food, transport and accommodation. Don't forget to book your flights and hotel after confirming.
-image: /images/gifts.png
+image: /images/gift.png
 exampleQuestion: "Am I expected to bring a gift?"
 ---
 

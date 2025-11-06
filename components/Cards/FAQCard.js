@@ -1,8 +1,8 @@
 import { Box, Card, Typography } from "@mui/material";
-import Button from "./Button";
+import Button from "../Buttons/Button";
 import { useState } from "react";
 import { useTheme } from "next-themes";
-import { getAssetPath } from "../utils/getAssetPath";
+import { getAssetPath } from "../../utils/getAssetPath";
 
 export default function FAQCard({
   name,

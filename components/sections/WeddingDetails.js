@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { Box, Stack } from "@mui/material";
-import WorkCard from "../WorkCard";
+import WorkCard from "../Cards/WorkCard";
 import { SectionHeading } from "../typography";
 
 export default function WeddingDetails({ workRef, data }) {
@@ -14,7 +14,7 @@ export default function WeddingDetails({ workRef, data }) {
         padding: { xs: 1, lg: 0 },
       }}
     >
-      <SectionHeading>{data.weddingDetails.title}</SectionHeading>
+      <SectionHeading>Wedding Details.</SectionHeading>
       <Stack direction="column" gap={2}>
         {data.projects.map((project) => (
           <WorkCard

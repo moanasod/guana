@@ -7,7 +7,7 @@ import {
   BodyText,
   ExternalLink,
 } from "../components/typography";
-import HotelCard from "../components/HotelCard";
+import HotelCard from "../components/Cards/HotelCard";
 
 import { Typography, Box, Stack, Divider, Grid } from "@mui/material";
 import PageContainer from "../components/PageContainer";

@@ -19,7 +19,7 @@ const theme = createTheme({
       paper: '#A5A47B',       // Sage Green - paper/card backgrounds
     },
     text: {
-      primary: '#6E7052',     // Dark Olive Green - body text
+      primary: '#55573F',     // Dark Olive Green - body text
       secondary: '#474747',   // Charcoal Gray - secondary text
     },
   },
@@ -72,7 +72,6 @@ const theme = createTheme({
           transition: 'all 0.3s ease-out',
           '&:hover': {
             transform: 'scale(1.05)',
-            // backgroundColor: lighten('#cba979', 0.1),
           },
           '&:active': {
             transform: 'scale(1)',

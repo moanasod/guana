@@ -1,8 +1,8 @@
 import React from "react";
 import { Typography, Box, Grid } from "@mui/material";
-import FAQCard from "../FAQCard";
+import FAQCard from "../Cards/FAQCard";
 import { useRouter } from "next/router";
-import Button from "../Button";
+import Button from "../Buttons/Button";
 import { SectionHeading } from "../typography";
 
 export default function FAQ({ posts, FAQRef }) {

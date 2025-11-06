@@ -1,11 +1,5 @@
 import { Box, CircularProgress } from "@mui/material";
 
-/**
- * Reusable loading spinner component as overlay
- * @param {string} size - Size of the spinner (default: 60)
- * @param {boolean} overlay - Whether to show as overlay (default: true)
- * @param {object} sx - Additional MUI sx styles
- */
 export default function Spinner({ size = 60, overlay = true, sx = {}, ...props }) {
   if (!overlay) {
     return (
