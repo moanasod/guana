@@ -3,7 +3,6 @@ import { getPostBySlug, getAllPosts } from "../../utils/api";
 import ContentSection from "../../components/ContentSection";
 import { useIsomorphicLayoutEffect } from "../../utils";
 import { stagger } from "../../animations";
-import FAQEditor from "../../components/FAQEditor";
 import { useRouter } from "next/router";
 import { Typography, Box, Stack } from "@mui/material";
 import PageContainer from "../../components/PageContainer";
@@ -65,14 +64,6 @@ const FAQPost = ({ post }) => {
         </Typography>
       </Stack>
       <ContentSection content={post.content}></ContentSection>
-
-      {showEditor && (
-        <FAQEditor
-          post={post}
-          close={() => setShowEditor(false)}
-          refresh={() => router.reload(window.location.pathname)}
-        />
-      )}
     </PageContainer>
   );
 };

@@ -7,8 +7,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useIsomorphicLayoutEffect } from "../../utils";
 import { stagger } from "../../animations";
-import Button from "../../components/Button";
-import FAQEditor from "../../components/FAQEditor";
+
 import { useRouter } from "next/router";
 import { Typography, Box, Stack } from "@mui/material";
 import { getAssetPath } from "../../utils/getAssetPath";
@@ -84,13 +83,7 @@ const FAQPost = ({ post }) => {
         <Footer />
       </Box>
 
-      {showEditor && (
-        <FAQEditor
-          post={post}
-          close={() => setShowEditor(false)}
-          refresh={() => router.reload(window.location.pathname)}
-        />
-      )}
+    
     </>
   );
 };
