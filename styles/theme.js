@@ -27,20 +27,20 @@ const theme = createTheme({
   typography: {
     fontFamily: '"Playfair Display", "Georgia", "Times New Roman", serif',
     h1: {
-      fontFamily: '"Classy Brune", sans-serif',
+      fontFamily: '"Classy Brune", "Playfair Display","sans-serif"',
       fontWeight: 400,
 
     },
     h2: {
-      fontFamily: '"Classy Brune", sans-serif',
+      fontFamily: '"Classy Brune", "Playfair Display","sans-serif"',
       fontWeight: 400,
     },
     h3: {
-      fontFamily: '"Classy Brune", sans-serif',
+      fontFamily: '"Classy Brune", "Playfair Display","sans-serif"',
       fontWeight: 400,
     },
     h4: {
-      fontFamily: '"Classy Brune", sans-serif',
+      fontFamily: '"Classy Brune", "Playfair Display","sans-serif"',
       fontWeight: 600,
     },
   },
