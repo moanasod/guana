@@ -13,7 +13,7 @@ import data from "../data/portfolio.json";
 import TopBar from "../components/TopBar";
 import BackToTop from "../components/Buttons/BackToTop";
 import { getAllPosts } from "../utils/api";
-import SpotifySection from "../components/sections/SpotifySection";
+// import SpotifySection from "../components/sections/SpotifySection";
 
 const HEADER_OFFSET = 100;
 
@@ -95,7 +95,7 @@ export default function Home({ posts }) {
           <WeddingDetails workRef={workRef} data={data} />
           <FAQ posts={posts} FAQRef={FAQRef} />
           <About aboutRef={aboutRef} data={data} />
-          <SpotifySection spotifyRef={spotifyRef} />
+          {/* <SpotifySection spotifyRef={spotifyRef} /> */}
         </Stack>
         <Footer />
       </Stack>
