@@ -2,13 +2,14 @@ import { Box, Card, Grid, Typography } from "@mui/material";
 import { getAssetPath } from "../../utils/getAssetPath";
 import { BodyText, ExternalLink } from "../typography";
 import ImageGrid from "../ImageGrid";
+import {useTheme} from "next-themes"
+import mergeStyles from "../../utils/mergeStyles";
 
 const styles = {
   card: {
     height: "100%",
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "white",
     padding: "1rem",
   },
   imgBox: {
@@ -37,9 +38,11 @@ export default function HotelCard({
   images,
   priceLevel,
 }) {
+  const { theme } = useTheme();
+
   return (
     <Grid item size={{ md: isLarge ? 12 : 6, xs: 12 }} sx={{ display: "flex" }}>
-      <Card sx={styles.card}>
+      <Card sx={mergeStyles(styles.card, { backgroundColor: theme ==='dark' ? "secondary.dark" : "white" })}>
         {images && <ImageGrid images={images} maxHeight={350} />}
         {src && (
           <Box

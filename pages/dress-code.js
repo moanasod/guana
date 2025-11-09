@@ -5,6 +5,13 @@ import { Typography, Box, Stack } from "@mui/material";
 import PageContainer from "../components/PageContainer";
 import data from "../data/portfolio.json";
 import { getAssetPath } from "../utils/getAssetPath";
+import {
+  BodyText,
+  List,
+  SectionHeading,
+  SubHeading,
+  ListItem,
+} from "../components/typography";
 
 function PinterestBoard({ boardUrl }) {
   useEffect(() => {
@@ -82,43 +89,43 @@ export default function DressCode() {
         Dress Code
       </Typography>
 
-      <Stack spacing={4} sx={{ marginTop: "1rem" }}>
+      <Stack spacing={4} sx={{ marginTop: "1rem" }} gap={4}>
         <Box>
-          <Typography
-            variant="body1"
-            sx={{ fontSize: "1.125rem", lineHeight: 1.8, marginBottom: "1rem" }}
-          >
-            (Updates to come in this section soon!)
+          <BodyText sx={{ marginBottom: "1rem" }}>
             We&apos;ve put together a Pinterest board to give you inspiration
             for what to wear to our wedding. The dress code is{" "}
-            <strong>cocktail attire</strong>, think elegant but comfortable for
-            an outdoor celebration in Montenegro.
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{ fontSize: "1.125rem", lineHeight: 1.8, marginBottom: "1rem" }}
-          >
-            Since the ceremony will take place outdoors, we recommend
-            comfortable shoes (wedges or block heels work great!). Bring a light
-            wrap or jacket for cooler evening temperatures.
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{ fontSize: "1.125rem", lineHeight: 1.8, marginBottom: "2rem" }}
-          >
-            Browse our board below for outfit ideas and color palette
-            inspiration! 👇 This will be updated as we get closer to the
-            wedding. <strong>Colors are encouraged!</strong>
-          </Typography>
+            <strong>cocktail attire</strong> — elegant yet comfortable for an
+            outdoor celebration in Montenegro.
+          </BodyText>
+
+          <BodyText sx={{ marginBottom: "1rem" }}>
+            For <strong>men</strong>, a matching suit in a breathable fabric
+            such as linen or cotton is ideal. Shades of light grey, beige, sand,
+            blue, or brown fit the setting perfectly. Ties are appreciated but
+            not required.
+          </BodyText>
+
+          <BodyText sx={{ marginBottom: "1rem" }}>
+            For <strong>women</strong>, cocktail dresses, jumpsuits, or dressy
+            outfits in bright or pastel tones are ideal.
+          </BodyText>
+
+          <BodyText sx={{ marginBottom: "1rem" }}>
+            The ceremony and dinner will take place outdoors, so we recommend
+            shoes suited for stone and grass surfaces (wedges or block heels
+            work great!) and a light jacket or wrap for cooler evening
+            temperatures.
+          </BodyText>
+
+          <BodyText sx={{ marginBottom: "1rem" }}>
+            Colors are encouraged — just avoid all-white looks. Browse our board
+            below for outfit ideas and color palette inspiration! 👇 This will
+            be updated as we get closer to the wedding.
+          </BodyText>
         </Box>
 
         <Box>
-          <Typography
-            variant="h4"
-            sx={{ marginBottom: "2rem", fontWeight: 500 }}
-          >
-            Style Inspiration
-          </Typography>
+          <SectionHeading> Style Inspiration</SectionHeading>
 
           {mounted && (
             <PinterestBoard boardUrl="https://se.pinterest.com/moanasodergren/wedding-dress-code/" />
@@ -126,71 +133,40 @@ export default function DressCode() {
         </Box>
 
         <Box>
-          <Typography
-            variant="h5"
-            sx={{ marginBottom: "1rem", fontWeight: 500 }}
-          >
-            💡 What to Keep in Mind
-          </Typography>
-          <Box
-            component="ul"
-            sx={{ marginLeft: "1.5rem", paddingLeft: "1rem" }}
-          >
-            <Typography
-              component="li"
-              variant="body1"
-              sx={{ fontSize: "1rem", lineHeight: 1.8, display: "list-item" }}
-            >
-              <strong>Weather:</strong> Expect warm, sunny days (22–26°C) and cooler evenings (15–18°C)
-            </Typography>
-            <Typography
-              component="li"
-              variant="body1"
-              sx={{ fontSize: "1rem", lineHeight: 1.8, display: "list-item" }}
-            >
+          <SubHeading> 💡 What to Keep in Mind</SubHeading>
+          <List>
+            <ListItem>
+              <strong>Weather:</strong> Expect warm, sunny days (22–26°C) and
+              cooler evenings (15–18°C)
+            </ListItem>
+            <ListItem>
               <strong>Footwear:</strong> The venue has pebbles, grass, and stone
               paths — choose comfortable shoes + you need them for dancing!
-            </Typography>
-            <Typography
-              component="li"
-              variant="body1"
-              sx={{ fontSize: "1rem", lineHeight: 1.8, display: "list-item" }}
-            >
+            </ListItem>
+            <ListItem>
               <strong>Colors:</strong> Feel free to wear any colors you love!
-              We&apos;d only ask to avoid all-white
-            </Typography>
-            <Typography
-              component="li"
-              variant="body1"
-              sx={{ fontSize: "1rem", lineHeight: 1.8, display: "list-item" }}
-            >
+              We&apos;d only ask to avoid all-white.
+            </ListItem>
+            <ListItem>
               <strong>Evening Layer:</strong> A light shawl, jacket, or pashmina
-              for when the sun sets
-            </Typography>
-          </Box>
+              for when the sun sets.
+            </ListItem>
+          </List>
         </Box>
 
         <Box
           sx={{
-            padding: "24px",
-            borderRadius: "12px",
+            padding: 4,
+            borderRadius: 2,
             border: "2px solid",
           }}
         >
-          <Typography
-            variant="h6"
-            sx={{ marginBottom: "1rem", fontWeight: 600 }}
-          >
-            Questions about attire?
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{ fontSize: "1rem", lineHeight: 1.8 }}
-          >
+          <SubHeading> Questions about attire?</SubHeading>
+          <BodyText>
             If you&apos;re unsure about what to wear or have specific questions,
             feel free to reach out! We want you to feel comfortable and look
             amazing at our celebration. 💕
-          </Typography>
+          </BodyText>{" "}
         </Box>
       </Stack>
     </PageContainer>

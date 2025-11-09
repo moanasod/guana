@@ -1,21 +1,25 @@
 import { Link } from "@mui/material";
+import {useTheme,Theme, SxProps } from "next-themes";
+import mergeStyles from "../../utils/mergeStyles";
 
-export default function ExternalLink({ href, children, sx = {}, ...props }) {
-  const defaultSx = {
+const styles = {
     color: "primary.dark",
     textDecoration: "underline",
     "&:hover": {
       opacity: 0.8,
     },
-    ...sx,
-  };
+};
+
+export default function ExternalLink({ href, children, sx = {}, ...props }) {
+  const {theme} = useTheme();
+  const isDarkMode = theme === "dark";
 
   return (
     <Link
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      sx={defaultSx}
+      sx={mergeStyles(styles, sx, {color: isDarkMode ? "white" : 'inherit'})}
       {...props}
     >
       {children}
