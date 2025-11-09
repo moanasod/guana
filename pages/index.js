@@ -13,6 +13,7 @@ import data from "../data/portfolio.json";
 import TopBar from "../components/TopBar";
 import BackToTop from "../components/Buttons/BackToTop";
 import { getAllPosts } from "../utils/api";
+import { getAssetPath } from "../utils/getAssetPath";
 // import SpotifySection from "../components/sections/SpotifySection";
 
 const HEADER_OFFSET = 100;
@@ -94,6 +95,18 @@ export default function Home({ posts }) {
           <Itinerary itineraryRef={itineraryRef} />
           <WeddingDetails workRef={workRef} data={data} />
           <FAQ posts={posts} FAQRef={FAQRef} />
+          <Box
+            component="img"
+            src={getAssetPath("/images/coupleJump.svg")}
+            alt="couple jumping between glasses"
+            sx={{
+              width: { xs: "100%", md: "60%" },
+              marginY: {xs: '-80px', md: '-140px'},
+              height: "auto",
+              alignSelf: "center",
+            }}
+          />
+
           <About aboutRef={aboutRef} data={data} />
           {/* <SpotifySection spotifyRef={spotifyRef} /> */}
         </Stack>

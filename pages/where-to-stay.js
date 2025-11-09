@@ -103,31 +103,30 @@ export default function WhereToStay() {
               through{" "}
               <ExternalLink href="https://www.booking.com">
                 Booking.com
-              </ExternalLink>
-              , though some are also available directly on their websites.
+              </ExternalLink> or similar booking platforms. Some are also available directly on their websites.
             </BodyText>
           </Box>
 
           <Box
+            sx={{
+              padding: 2,
+              borderRadius: "12px",
+              border: "2px solid",
+              opacity: 0.6,
+              marginBottom: "1rem",
+            }}
+          >
+            <Typography
+              variant="body2"
               sx={{
-                padding: 2,
-                borderRadius: "12px",
-                border: "2px solid",
-                opacity: 0.6,
-                marginBottom: '1rem',
+                fontStyle: "italic",
               }}
             >
-              <Typography
-                variant="body2"
-                sx={{
-                  fontStyle: "italic",
-                }}
-              >
-                <strong>€</strong> - Less than 750 kr per night{" "}
-                <strong>€€</strong> - Between 750 kr and 1250 kr per night{" "}
-                <strong>€€€</strong> - More than 1250 kr per night{" "}
-              </Typography>
-            </Box>
+              <strong>€</strong> - Less than 750 kr per night{" "}
+              <strong>€€</strong> - Between 750 kr and 1250 kr per night{" "}
+              <strong>€€€</strong> - More than 1250 kr per night{" "}
+            </Typography>
+          </Box>
 
           <Divider />
 
@@ -141,7 +140,6 @@ export default function WhereToStay() {
               and bus. We will be able to organize transportation or shuttle
               services for guests staying in Sutomore.
             </BodyText>
-      
 
             <Grid container spacing={3}>
               <HotelCard
@@ -151,7 +149,7 @@ export default function WhereToStay() {
                 name="Love Live Hotel"
                 stars="4★"
                 distance="2 km"
-                priceLevel="€"
+                priceLevel="€-€€"
                 description="A small seaside hotel with seven suites and one double room, most with sea views. Guests can enjoy a private beach, sunbeds, and a pool."
                 links={[
                   {
@@ -159,7 +157,6 @@ export default function WhereToStay() {
                     url: "https://maps.app.goo.gl/YrQeU4qqJp1Nor1YA",
                   },
                   { label: "Website", url: "https://lovelivehotel.com/" },
-                  { label: "Booking.com", url: "#" },
                 ]}
               />
 
@@ -194,8 +191,11 @@ export default function WhereToStay() {
                 }
                 description="Stylish hotel combining comfort with convenient beach access and a rooftop terrace."
                 links={[
-                  { label: "Google Maps", url: "#" },
-                  { label: "Website", url: "#" },
+                  {
+                    label: "Google Maps",
+                    url: "https://maps.app.goo.gl/hwURAUxVGfkYmayG7",
+                  },
+                  { label: "Website", url: "https://hoteldelmedio.com/en" },
                   {
                     label: "Booking.com",
                     url: "https://www.booking.com/hotel/me/porto-sole.en-gb.html",
@@ -207,13 +207,20 @@ export default function WhereToStay() {
                 name="Hotel Kaligrosh"
                 distance="3.1 km"
                 stars="3★"
+                priceLevel="€"
                 src={
                   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/690445033.jpg?k=7737f0ba77b701e77ba427e8f40242879e0bb6690861298e6c269eebe7ac742c&o="
                 }
                 description="A simple, clean option with friendly service and good access to Sutomore Beach."
                 links={[
-                  { label: "Google Maps", url: "#" },
-                  { label: "Booking.com", url: "#" },
+                  {
+                    label: "Google Maps",
+                    url: "https://maps.app.goo.gl/UE7HoYkasvhtT3Nr5",
+                  },
+                  {
+                    label: "Booking.com",
+                    url: "https://www.booking.com/hotel/me/kaligrosh.sv.html?chal_t=1762725395327&force_referer=https%3A%2F%2Fwww.google.com%2F",
+                  },
                 ]}
               />
 
@@ -227,8 +234,10 @@ export default function WhereToStay() {
                 stars="3★"
                 description="Comfortable stay close to the seafront promenade, with a pool and breakfast service."
                 links={[
-                  { label: "Google Maps", url: "#" },
-                  { label: "Website", url: "#" },
+                  {
+                    label: "Google Maps",
+                    url: "https://maps.app.goo.gl/J5TPjVkPvFTfDuAz7",
+                  },
                   {
                     label: "Booking.com",
                     url: "https://www.booking.com/hotel/me/porto-sole.en-gb.html",
@@ -249,27 +258,6 @@ export default function WhereToStay() {
                     url: "https://maps.app.goo.gl/KHxLceRLDDTqoZ549",
                   },
                   { label: "Website", url: "https://gstarhotel.com/" },
-                  {
-                    label: "Booking.com",
-                    url: "https://www.booking.com/hotel/me/sirena-marta.en-gb.html",
-                  },
-                ]}
-              />
-
-              <HotelCard
-                name="Hotel Sirena Marta"
-                distance="2.7 km"
-                src={
-                  "https://sirenamarta.me/wp-content/uploads/2019/06/sutomore01-400x400.jpg"
-                }
-                stars="3★"
-                description="Cozy family-run hotel near the beach, with a garden terrace and restaurant."
-                links={[
-                  {
-                    label: "Google Maps",
-                    url: "https://maps.app.goo.gl/BDrNRsqJSkJV5kV3A",
-                  },
-                  { label: "Website", url: "https://sirenamarta.me/" },
                   {
                     label: "Booking.com",
                     url: "https://www.booking.com/hotel/me/sirena-marta.en-gb.html",
@@ -328,7 +316,6 @@ export default function WhereToStay() {
                     url: "https://maps.app.goo.gl/P7WgjhQ4BnmmjEcy8",
                   },
                   { label: "Website", url: "https://www.hotelprincess.me/" },
-                  { label: "Booking.com", url: "#" },
                 ]}
               />
 
@@ -344,7 +331,7 @@ export default function WhereToStay() {
                 links={[
                   {
                     label: "Google Maps",
-                    url: "https://maps.app.goo.gl/P7WgjhQ4BnmmjEcy8",
+                    url: "https://maps.app.goo.gl/N8fr9XdtT1bZkz4z7",
                   },
                   { label: "Website", url: "https://hotelagape.me/" },
                   {
@@ -358,6 +345,7 @@ export default function WhereToStay() {
                 name="Hotel Pharos"
                 distance="6 km"
                 stars="3★"
+                priceLevel="€€"
                 src={
                   "https://cf.bstatic.com/xdata/images/hotel/max1024x768/374157846.jpg?k=facf714d65003cb6c1afaadbbc556901c382f1c70d3cc58787e4dbd1eafead7c&o=&hp=1"
                 }

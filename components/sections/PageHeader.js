@@ -3,6 +3,7 @@ import { Typography, Box, Stack } from "@mui/material";
 import Button from "../Buttons/Button";
 import HangingTags from "../HangingTags";
 import { getAssetPath } from "../../utils/getAssetPath";
+import RsvpButton from "../Buttons/RsvpButton";
 
 export default function PageHeader({ textRefs, data }) {
   return (
@@ -46,6 +47,7 @@ export default function PageHeader({ textRefs, data }) {
         />
       </Stack>
       <HangingTags />
+      {/* <RsvpButton /> */}
     </>
   );
 }

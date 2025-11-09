@@ -74,6 +74,13 @@ export default function TopBar({
       label: "FAQ",
       onClick: () => router.push("/faq"),
     },
+    // {
+    //   label: "RSVP",
+    //   onClick: () =>
+    //     window.open(
+    //       "https://docs.google.com/forms/d/e/1FAIpQLSfpAdkh6dO_8jLksPz14Vaia30HxyALseKrAU8kFPl0BkLIvQ/viewform?usp=header"
+    //     ),
+    // },
   ];
 
   return (
@@ -173,6 +180,15 @@ export default function TopBar({
           <Stack direction="row" spacing={1}>
             <Button onClick={() => router.push("/")}>Home</Button>
             <Button onClick={() => router.push("/faq")}>FAQ</Button>
+            {/* <Button
+              onClick={() =>
+                window.open(
+                  "https://docs.google.com/forms/d/e/1FAIpQLSfpAdkh6dO_8jLksPz14Vaia30HxyALseKrAU8kFPl0BkLIvQ/viewform?usp=header"
+                )
+              }
+            >
+              RSVP
+            </Button> */}
             {mounted && theme && data.darkMode && <DarkModeToggle />}
           </Stack>
         )}
