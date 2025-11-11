@@ -46,8 +46,10 @@ export default function PageHeader({ textRefs, data }) {
           sx={{ width: "50%", height: "auto" }}
         />
       </Stack>
+
       <HangingTags />
-      {/* <RsvpButton /> */}
+      <RsvpButton />
+
     </>
   );
 }
