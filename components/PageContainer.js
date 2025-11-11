@@ -28,7 +28,7 @@ export default function PageContainer({
           marginX: "auto",
           marginTop: '4rem',
           paddingTop: paddingTop,
-          padding: { xs: '1rem', md: '2rem' },
+          padding: { xs: '1rem', sm: '1.5rem', md: '2rem' },
         }}
       >
         {children}

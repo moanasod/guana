@@ -6,9 +6,17 @@
 
 @font-face {
   font-family: 'Classy Brune';
-  src: url('/fonts/classy_brune.ttf') format('truetype');
+  src: url('/fonts/fonts/classy_brune.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Classy Brune';
+  src: url('/fonts/fonts/Classy Brune Italic Free.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
   font-display: swap;
 }
 
