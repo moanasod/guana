@@ -119,9 +119,9 @@ export default function TravelInfo() {
 
         <ContentSection>
           <SectionHeading>Transfer to the location</SectionHeading>
-          
+
           <Grid container direction="row" spacing={2} alignItems="center">
-            <Grid item size={{ xs: 12, md: 6 }}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <BodyText sx={{ marginBottom: "1rem" }}>
                 If you arrive on the 8th of May, we will arrange shuttle
                 transportation from Podgorica Airport to the venue. Look for a
@@ -129,13 +129,13 @@ export default function TravelInfo() {
                 <strong>&quot;Moana and Gustav Wedding Shuttle&quot;</strong>.
               </BodyText>
               <BodyText>
-                If you arrive at Podgorica Airport on the 9th, we will also arrange
-                shuttle transportation for hotel-guests - please provide your flight
-                details as soon as you&apos;ve booked them so we can coordinate
-                pickups.
+                If you arrive at Podgorica Airport on the 9th, we will also
+                arrange shuttle transportation for hotel-guests - please provide
+                your flight details as soon as you&apos;ve booked them so we can
+                coordinate pickups.
               </BodyText>
             </Grid>
-            <Grid item size={{ xs: 12, md: 6 }}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <Box
                 component="img"
                 src={getAssetPath("/images/montenegro/transfer.png")}
@@ -193,9 +193,9 @@ export default function TravelInfo() {
 
         <ContentSection>
           <SectionHeading>Book a taxi?</SectionHeading>
-          
+
           <Grid container direction="row" spacing={2} alignItems="center">
-            <Grid item size={{ xs: 12, md: 6 }}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <BodyText sx={{ marginBottom: "1.5rem" }}>
                 If you prefer to travel independently, please use one of the
                 official taxi companies listed below.
@@ -204,28 +204,36 @@ export default function TravelInfo() {
               <SubHeading>From Podgorica Airport (≈ 40 minutes)</SubHeading>
               <BodyText sx={{ marginBottom: "0.5rem" }}>
                 <strong>Tesla Taxi</strong>{" "}
-                <ExternalLink href="tel:+38269057073">+382 69 057 073</ExternalLink>{" "}
+                <ExternalLink href="tel:+38269057073">
+                  +382 69 057 073
+                </ExternalLink>{" "}
                 – approx. €40–50
               </BodyText>
               <BodyText sx={{ marginBottom: "1.5rem" }}>
                 <strong>E Taxi</strong>{" "}
-                <ExternalLink href="tel:+38267197890">+382 67 197 890</ExternalLink>{" "}
+                <ExternalLink href="tel:+38267197890">
+                  +382 67 197 890
+                </ExternalLink>{" "}
                 – approx. €40–50
               </BodyText>
 
               <SubHeading>From Tivat Airport (≈ 1 hour 15 minutes)</SubHeading>
               <BodyText sx={{ marginBottom: "0.5rem" }}>
                 <strong>Lider Taxi</strong>{" "}
-                <ExternalLink href="tel:+38268119775">+382 68 119 775</ExternalLink>{" "}
+                <ExternalLink href="tel:+38268119775">
+                  +382 68 119 775
+                </ExternalLink>{" "}
                 – approx. €55–70
               </BodyText>
               <BodyText>
                 <strong>City Taxi Tivat</strong>{" "}
-                <ExternalLink href="tel:+38269019711">+382 69 019 711</ExternalLink>{" "}
+                <ExternalLink href="tel:+38269019711">
+                  +382 69 019 711
+                </ExternalLink>{" "}
                 – approx. €55–70
               </BodyText>
             </Grid>
-            <Grid item size={{ xs: 12, md: 6 }}>
+            <Grid size={{ xs: 12, md: 6 }}>
               <Box
                 component="img"
                 src={getAssetPath("/images/montenegro/taxi.png")}

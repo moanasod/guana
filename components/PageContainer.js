@@ -10,6 +10,7 @@ export default function PageContainer({
   title,
   isFAQ = false,
   paddingTop = "100px",
+  pageTitle,
 }) {
   return (
     <Box sx={{ position: "relative", cursor: "default", minHeight: "100vh" }}>
@@ -17,18 +18,18 @@ export default function PageContainer({
         <title>{title || data.name}</title>
       </Head>
 
-      <TopBar isFAQ={isFAQ} />
+      <TopBar isFAQ={isFAQ} pageTitle={pageTitle} />
 
-      <Box className="gradient-circle"/>
-      <Box className="gradient-circle-bottom"/>
+      <Box className="gradient-circle" />
+      <Box className="gradient-circle-bottom" />
 
       <Stack
         sx={{
           maxWidth: "1200px",
           marginX: "auto",
-          marginTop: '4rem',
+          marginTop: "4rem",
           paddingTop: paddingTop,
-          padding: { xs: '1rem', sm: '1.5rem', md: '2rem' },
+          padding: { xs: "1rem", sm: "1.5rem", md: "2rem" },
         }}
       >
         {children}

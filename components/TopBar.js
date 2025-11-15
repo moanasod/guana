@@ -44,6 +44,7 @@ export default function TopBar({
   handleFAQScroll,
   handleItineraryScroll,
   isFAQ,
+  pageTitle,
 }) {
   const router = useRouter();
   const { theme } = useTheme();
@@ -103,7 +104,7 @@ export default function TopBar({
                     color: isDarkMode ? "white" : "text.primary",
                   }}
                 >
-                  {name}.
+                  {pageTitle ? `${name} - ${pageTitle}` : `${name}.`}
                 </Typography>
 
                 <Stack direction="row" alignItems="center">

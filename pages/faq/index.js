@@ -1,19 +1,21 @@
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
 import { stagger } from "../../animations";
-import Button from "../../components/Buttons/Button";
 import data from "../../data/portfolio.json";
 import { useIsomorphicLayoutEffect } from "../../utils";
 import { getAllPosts } from "../../utils/api";
 import { Typography, Box, Stack, Divider } from "@mui/material";
 import PageContainer from "../../components/PageContainer";
 import ContentSection from "../../components/ContentSection";
+import SideNav from "../../components/SideNav";
+import FaqHeader from "../../components/FaqHeader";
 
 const FAQ = ({ posts }) => {
   const showFAQ = useRef(data.showFAQ);
   const text = useRef();
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
+  const [currentSection, setCurrentSection] = useState("");
 
   useIsomorphicLayoutEffect(() => {
     if (text.current) {
@@ -32,6 +34,7 @@ const FAQ = ({ posts }) => {
 
     if (window.location.hash) {
       const id = window.location.hash.substring(1);
+      setCurrentSection(id);
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
@@ -47,67 +50,85 @@ const FAQ = ({ posts }) => {
     }
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!posts) return;
+
+      const scrollPosition = window.scrollY + 150;
+
+      for (let i = posts.length - 1; i >= 0; i--) {
+        const element = document.getElementById(posts[i].slug);
+        if (element && element.offsetTop <= scrollPosition) {
+          setCurrentSection(posts[i].slug);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [posts]);
+
   return (
     showFAQ.current && (
-      <PageContainer title="FAQs" isFAQ={true} paddingTop={"300px"}>
-        <Typography
-          variant="h1"
-          ref={text}
-          sx={{
-            marginX: "auto",
-            padding: { xs: "8px", sm: 0 },
-            fontWeight: 700,
-            fontSize: { xs: "3.75rem", lg: "6rem" },
-            width: "100%",
-            marginBottom: "3rem",
-          }}
-        >
-          FAQs.
-        </Typography>
+      <PageContainer title="FAQs" isFAQ={true} paddingTop={"300px"} pageTitle="FAQs">
+        <FaqHeader textRef={text} posts={posts} currentSection={currentSection} />
 
-        <Stack spacing={6}>
-          {posts &&
-            posts.map((post, index) => (
-              <Box
-                key={post.slug}
-                id={post.slug}
-                sx={{
-                  scrollMarginTop: "120px",
-                  paddingTop: "2rem",
-                }}
-              >
-                <Typography
-                  variant="h3"
-                  sx={{
-                    fontWeight: 600,
-                    marginBottom: "1.5rem",
-                    fontSize: { xs: "1.75rem", md: "2.5rem" },
-                  }}
-                >
-                  {post.title}
-                </Typography>
-
-                {post.tagline && (
-                  <Typography
-                    variant="h6"
+        <Box sx={{ position: "relative" }}>
+          <SideNav sections={posts} currentSection={currentSection} />
+          
+          <Box
+            sx={{
+              marginLeft: { xs: 0, lg: "220px" },
+            }}
+          >
+            <Stack spacing={6}>
+              {posts &&
+                posts.map((post, index) => (
+                  <Box
+                    key={post.slug}
+                    id={post.slug}
                     sx={{
-                      marginBottom: "1.5rem",
-                      opacity: 0.7,
-                      fontStyle: "italic",
+                      scrollMarginTop: "120px",
+                      paddingTop: "2rem",
                     }}
                   >
-                    {post.tagline}
-                  </Typography>
-                )}
+                    <Typography
+                      variant="h3"
+                      sx={{
+                        fontWeight: 600,
+                        marginBottom: "1.5rem",
+                        fontSize: { xs: "1.75rem", md: "2.5rem" },
+                      }}
+                    >
+                      {post.title}
+                    </Typography>
 
-                <ContentSection content={post.content} />
+                    {post.tagline && (
+                      <Typography
+                        variant="h6"
+                        sx={{
+                          marginBottom: "1.5rem",
+                          opacity: 0.7,
+                          fontStyle: "italic",
+                        }}
+                      >
+                        {post.tagline}
+                      </Typography>
+                    )}
 
-                {index < posts.length - 1 && (
-                  <Divider sx={{ marginTop: "3rem" }} />
-                )}
-              </Box>
-            ))}
-        </Stack>
+                    <ContentSection content={post.content} />
+
+                    {index < posts.length - 1 && (
+                      <Divider sx={{ marginTop: "3rem" }} />
+                    )}
+                  </Box>
+                ))}
+            </Stack>
+          </Box>
+        </Box>
       </PageContainer>
     )
   );

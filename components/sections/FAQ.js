@@ -11,7 +11,6 @@ export default function FAQ({ posts, FAQRef }) {
   return (
     <Box ref={FAQRef} sx={{ paddingX: { xs: "1rem", lg: 0 } }}>
       <SectionHeading>FAQ.</SectionHeading>
-
       <Box sx={{ flexGrow: 1, marginTop: "2rem" }}>
         <Grid
           container
@@ -26,7 +25,6 @@ export default function FAQ({ posts, FAQRef }) {
           {posts &&
             posts.map((post, index) => (
               <Grid
-                item
                 size={{ md: 6, xs: 12 }}
                 key={post.slug || index}
                 sx={{ display: "flex", cursor: "pointer" }}

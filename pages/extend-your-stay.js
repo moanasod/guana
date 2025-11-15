@@ -71,7 +71,7 @@ export default function ExtendYourStay() {
         <Divider />
 
         <Grid container direction="row" spacing={2} alignItems="center">
-          <Grid item size={{ xs: 12, md: 6 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <SectionHeading variant="h4">How to get around</SectionHeading>
             <BodyText>
               Car rentals are available in the nearby town of Bar and at both
@@ -81,7 +81,7 @@ export default function ExtendYourStay() {
               wherever the view demands it.
             </BodyText>
           </Grid>
-          <Grid item size={{ xs: 12, md: 6 }}>
+          <Grid size={{ xs: 12, md: 6 }}>
             <Box
               component="img"
               src={getAssetPath("/images/map.png")}
