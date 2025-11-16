@@ -47,12 +47,12 @@ export default function Itinerary({ itineraryRef }) {
       </Box>
       <Box
         component="img"
-        src={getAssetPath("/images/photoStrip.png")}
-        alt="couple jumping between glasses"
+        src={getAssetPath("/images/photostrip.png")}
+        alt="Photo strip of Moana and Gustav"
         sx={{
           width: { xs: "100%", md: "50%" },
-          marginTop: { xs: "-6rem", md: "-15rem" },
-          marginBottom: { xs: "-5rem", md: "-10rem" },
+          marginTop: { xs: "-6rem", md: "-12rem" },
+          marginBottom: { xs: "-5rem", md: "-8rem" },
           height: "auto",
           alignSelf: "center",
           justifySelf: "center",

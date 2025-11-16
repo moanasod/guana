@@ -44,7 +44,6 @@ export default function TopBar({
   handleFAQScroll,
   handleItineraryScroll,
   isFAQ,
-  pageTitle,
 }) {
   const router = useRouter();
   const { theme } = useTheme();
@@ -104,7 +103,7 @@ export default function TopBar({
                     color: isDarkMode ? "white" : "text.primary",
                   }}
                 >
-                  {pageTitle ? `${name} - ${pageTitle}` : `${name}.`}
+                  {name}.
                 </Typography>
                 <Stack direction="row" alignItems="center">
                   {data.darkMode && <DarkModeToggle />}
@@ -149,11 +148,21 @@ export default function TopBar({
                   <Button onClick={() => router.push("/")}>Home</Button>
                   <Button onClick={() => router.push("/faq")}>FAQ</Button>
                   <Divider />
-                  <Button onClick={() => router.push("/where-to-stay")}>Where to Stay</Button>
-                  <Button onClick={() => router.push("/travel-info")}>Travel Information</Button>
-                  <Button onClick={() => router.push("/the-venue")}>The Venue</Button>
-                  <Button onClick={() => router.push("/dress-code")}>Dress Code</Button>
-                  <Button onClick={() => router.push("/extend-your-stay")}>Extend Your Stay</Button>
+                  <Button onClick={() => router.push("/where-to-stay")}>
+                    Where to Stay
+                  </Button>
+                  <Button onClick={() => router.push("/travel-info")}>
+                    Travel Information
+                  </Button>
+                  <Button onClick={() => router.push("/the-venue")}>
+                    The Venue
+                  </Button>
+                  <Button onClick={() => router.push("/dress-code")}>
+                    Dress Code
+                  </Button>
+                  <Button onClick={() => router.push("/extend-your-stay")}>
+                    Extend Your Stay
+                  </Button>
                 </Stack>
               )}
             </Popover.Panel>
