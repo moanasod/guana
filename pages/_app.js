@@ -15,17 +15,15 @@ function MuiThemeWrapper({ children }) {
 
   useEffect(() => {
     setMounted(true);
+    // Force enable pointer events after mount
+    document.body.style.pointerEvents = 'auto';
   }, []);
-
-  if (!mounted) {
-    return <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>;
-  }
 
   const currentTheme =
     resolvedTheme === "dark" || nextTheme === "dark" ? darkTheme : theme;
 
   return (
-    <MuiThemeProvider theme={currentTheme}>
+    <MuiThemeProvider theme={mounted ? currentTheme : theme}>
       <CssBaseline />
       {children}
     </MuiThemeProvider>

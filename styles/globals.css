@@ -5,16 +5,16 @@
 @import "./markdown.css";
 
 @font-face {
-  font-family: 'Classy Brune';
-  src: url('/fonts/fonts/classy_brune.ttf') format('truetype');
+  font-family: "Classy Brune";
+  src: url("/fonts/fonts/classy_brune.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Classy Brune';
-  src: url('/fonts/fonts/Classy Brune Italic Free.ttf') format('truetype');
+  font-family: "Classy Brune";
+  src: url("/fonts/fonts/Classy Brune Italic Free.ttf") format("truetype");
   font-weight: normal;
   font-style: italic;
   font-display: swap;
@@ -24,6 +24,20 @@ html,
 body {
   overflow-x: hidden;
   @apply dark:bg-black dark:text-white;
+  /* Ensure scrolling works during hydration */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
+}
+
+/* Prevent scroll blocking during React hydration */
+html {
+  touch-action: manipulation;
+}
+
+body {
+  /* Allow scrolling immediately, even during hydration */
+  overflow-y: auto !important;
+  pointer-events: auto !important;
 }
 
 .gradient-circle {
@@ -39,7 +53,7 @@ body {
     circle,
     rgb(231, 112, 57) 0%,
     rgba(247, 209, 19, 0.8) 100%
-     );
+  );
 }
 .gradient-circle-bottom {
   position: absolute;
