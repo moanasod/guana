@@ -2,13 +2,13 @@ import { Popover } from "@headlessui/react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { Typography, Box, Stack } from "@mui/material";
+import { Typography, Box, Stack, Breadcrumbs } from "@mui/material";
 import data from "../data/portfolio.json";
 import Button from "./Buttons/Button";
 import AppBar from "@mui/material/AppBar";
 import DarkModeToggle from "./Buttons/DarkModeToggle";
 import { getAssetPath } from "../utils/getAssetPath";
+import { Divider } from "@mui/material";
 
 const styles = {
   mobileAppBar: {
@@ -106,7 +106,6 @@ export default function TopBar({
                 >
                   {pageTitle ? `${name} - ${pageTitle}` : `${name}.`}
                 </Typography>
-
                 <Stack direction="row" alignItems="center">
                   {data.darkMode && <DarkModeToggle />}
 
@@ -149,6 +148,12 @@ export default function TopBar({
                 <Stack spacing={1}>
                   <Button onClick={() => router.push("/")}>Home</Button>
                   <Button onClick={() => router.push("/faq")}>FAQ</Button>
+                  <Divider />
+                  <Button onClick={() => router.push("/where-to-stay")}>Where to Stay</Button>
+                  <Button onClick={() => router.push("/travel-info")}>Travel Information</Button>
+                  <Button onClick={() => router.push("/the-venue")}>The Venue</Button>
+                  <Button onClick={() => router.push("/dress-code")}>Dress Code</Button>
+                  <Button onClick={() => router.push("/extend-your-stay")}>Extend Your Stay</Button>
                 </Stack>
               )}
             </Popover.Panel>
