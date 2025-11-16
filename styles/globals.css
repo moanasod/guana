@@ -24,20 +24,17 @@ html,
 body {
   overflow-x: hidden;
   @apply dark:bg-black dark:text-white;
-  /* Ensure scrolling works during hydration */
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: none;
 }
 
-/* Prevent scroll blocking during React hydration */
+/* Optimize touch scrolling for mobile */
 html {
-  touch-action: manipulation;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y pinch-zoom;
 }
 
 body {
-  /* Allow scrolling immediately, even during hydration */
-  overflow-y: auto !important;
-  pointer-events: auto !important;
+  /* Ensure momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
 .gradient-circle {
