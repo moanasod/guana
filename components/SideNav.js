@@ -71,7 +71,7 @@ export default function SideNav({ sections = [], currentSection = "" }) {
                   fontWeight: currentSection === section.slug ? 600 : 400,
                   color:
                     currentSection === section.slug
-                      ? "primary.main"
+                      ? "secondary.main"
                       : "text.primary",
                 }}
               />

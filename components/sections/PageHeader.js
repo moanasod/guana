@@ -4,8 +4,10 @@ import Button from "../Buttons/Button";
 import HangingTags from "../HangingTags";
 import { getAssetPath } from "../../utils/getAssetPath";
 import RsvpButton from "../Buttons/RsvpButton";
+import { useTheme } from "next-themes";
 
 export default function PageHeader({ textRefs, data }) {
+  const { theme } = useTheme();
   return (
     <>
       <Stack
@@ -41,9 +43,13 @@ export default function PageHeader({ textRefs, data }) {
         </Stack>
         <Box
           component="img"
-          src={getAssetPath("/images/dancing.svg")}
+          src={
+            theme === "dark"
+              ? getAssetPath("/images/guana_dark.png")
+              : getAssetPath("/images/guana_light.png")
+          }
           alt="Toggle theme"
-          sx={{ width: "50%", height: "auto" }}
+          sx={{ width: { xs: "90%", md: "50%" }, height: "auto" }}
         />
       </Stack>
       <HangingTags />

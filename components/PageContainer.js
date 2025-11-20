@@ -27,7 +27,7 @@ export default function PageContainer({
         sx={{
           maxWidth: "1200px",
           marginX: "auto",
-          marginTop: "4rem",
+          marginTop: "6rem",
           paddingTop: paddingTop,
           padding: { xs: "1rem", sm: "1.5rem", md: "2rem" },
         }}

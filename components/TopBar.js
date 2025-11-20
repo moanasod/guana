@@ -76,6 +76,7 @@ export default function TopBar({
     },
     {
       label: "RSVP",
+      type: "secondary",
       onClick: () =>
         window.open(
           "https://docs.google.com/forms/d/e/1FAIpQLSfpAdkh6dO_8jLksPz14Vaia30HxyALseKrAU8kFPl0BkLIvQ/viewform?usp=header"
@@ -138,7 +139,11 @@ export default function TopBar({
               {!isFAQ ? (
                 <Stack spacing={1}>
                   {menuItems.map((item) => (
-                    <Button key={item.label} onClick={item.onClick}>
+                    <Button
+                      key={item.label}
+                      onClick={item.onClick}
+                      type={item.type}
+                    >
                       {item.label}
                     </Button>
                   ))}
@@ -147,6 +152,16 @@ export default function TopBar({
                 <Stack spacing={1}>
                   <Button onClick={() => router.push("/")}>Home</Button>
                   <Button onClick={() => router.push("/faq")}>FAQ</Button>
+                  <Button
+                    type="secondary"
+                    onClick={() =>
+                      window.open(
+                        "https://docs.google.com/forms/d/e/1FAIpQLSfpAdkh6dO_8jLksPz14Vaia30HxyALseKrAU8kFPl0BkLIvQ/viewform?usp=header"
+                      )
+                    }
+                  >
+                    RSVP
+                  </Button>
                   <Divider />
                   <Button onClick={() => router.push("/where-to-stay")}>
                     Where to Stay
