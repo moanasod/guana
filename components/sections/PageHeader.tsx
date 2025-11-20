@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSX, RefObject } from "react";
 import { Typography, Box, Stack } from "@mui/material";
 import Button from "../Buttons/Button";
 import HangingTags from "../HangingTags";
@@ -6,7 +6,22 @@ import { getAssetPath } from "../../utils/getAssetPath";
 import RsvpButton from "../Buttons/RsvpButton";
 import { useTheme } from "next-themes";
 
-export default function PageHeader({ textRefs, data }) {
+interface PageHeaderProps {
+  textRefs: {
+    textOne: RefObject<HTMLDivElement>;
+    textTwo: RefObject<HTMLDivElement>;
+    textThree: RefObject<HTMLDivElement>;
+    textFour: RefObject<HTMLDivElement>;
+  };
+  data: {
+    headerTaglineOne: string,
+    headerTaglineTwo: string,
+    headerTaglineThree: string,
+    headerTaglineFour: string,
+  }
+}
+
+export default function PageHeader({ textRefs, data }: PageHeaderProps): JSX.Element {
   const { theme } = useTheme();
   return (
     <>

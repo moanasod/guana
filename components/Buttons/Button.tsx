@@ -1,11 +1,11 @@
-import React from "react";
+import React, { JSX } from "react";
 import { useTheme } from "next-themes";
-import { Button as MuiButton } from "@mui/material";
+import { ButtonBase, Button as MuiButton } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
-const StyledButton = styled(MuiButton, {
-  shouldForwardProp: (prop) => prop !== 'isPrimary' && prop !== 'darkMode'
-})(({ theme, isPrimary, darkMode }) => ({
+const StyledButton = styled(ButtonBase, {
+  shouldForwardProp: (prop) => prop !== 'isPrimary' && prop !== 'isDarkMode'
+})(({  isPrimary, isDarkMode }: {isPrimary: boolean, isDarkMode: boolean}) => ({
   fontSize: '0.875rem',
   padding: '0.25rem 0.5rem',
   margin: '0.25rem',
@@ -28,19 +28,19 @@ const StyledButton = styled(MuiButton, {
   },
 
   ...(isPrimary && {
-    backgroundColor: darkMode === 'dark' ? '#ffffff' : '#000000',
-    color: darkMode === 'dark' ? '#000000' : '#ffffff',
+    backgroundColor: isDarkMode ? '#ffffff' : '#000000',
+    color: isDarkMode  ? '#000000' : '#ffffff',
     '&:hover': {
-      backgroundColor: darkMode === 'dark' ? '#e5e5e5' : '#1a1a1a',
+      backgroundColor: isDarkMode ? '#e5e5e5' : '#1a1a1a',
       transform: 'scale(1.05)',
     },
   }),
 
   ...(!isPrimary && {
     backgroundColor: 'transparent',
-    color: darkMode === 'dark' ? '#ffffff' : '#000000',
+    color: isDarkMode ? '#ffffff' : '#000000',
     '&:hover': {
-      backgroundColor: darkMode === 'dark' ? 'rgba(71, 85, 105, 0.6)' : '#BCB4A3',
+      backgroundColor: isDarkMode ? 'rgba(71, 85, 105, 0.6)' : '#BCB4A3',
       transform: 'scale(1.05)',
     },
   }),
@@ -52,15 +52,23 @@ const StyledButton = styled(MuiButton, {
   },
 }));
 
-export default function Button({ children, type, onClick, classes }) {
+interface ButtonProps {
+  children: React.ReactNode;
+  onClick: () => void | undefined;
+  type?: 'primary' | 'secondary'
+  classes?: string;
+}
+
+export default function Button({ children, type, onClick, classes }: ButtonProps): JSX.Element {
   const { theme } = useTheme();
+  const isDarkMode = theme === 'dark';
   
   return (
     <StyledButton
       onClick={onClick}
       type="button"
       isPrimary={type === "primary"}
-      darkMode={theme}
+      isDarkMode={isDarkMode}
       className={`link ${classes || ''}`}
       disableRipple
     >

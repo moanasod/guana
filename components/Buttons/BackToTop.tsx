@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, JSX } from "react";
 import { Box, Fab, Zoom } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Tooltip from "@mui/material/Tooltip";
+import React from "react";
 
 const styles = {
   backBox: {
@@ -21,7 +22,7 @@ const styles = {
   },
 };
 
-export default function BackToTop() {
+export default function BackToTop(): JSX.Element {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
@@ -46,12 +47,12 @@ export default function BackToTop() {
   };
 
   return (
-    <Zoom in={showButton}>
+    <Zoom in={showButton} >
       <Tooltip title="Back to top">
         <Box
           onClick={scrollToTop}
           role="button"
-          aria-label="Back to top"
+          aria-label="Back to top" 
           sx={styles.backBox}
         >
           <Fab

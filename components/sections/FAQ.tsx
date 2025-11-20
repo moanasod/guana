@@ -1,11 +1,24 @@
-import React from "react";
+import React, { JSX } from "react";
 import { Typography, Box, Grid } from "@mui/material";
 import FAQCard from "../Cards/FAQCard";
 import { useRouter } from "next/router";
 import Button from "../Buttons/Button";
 import { SectionHeading } from "../typography";
 
-export default function FAQ({ posts, FAQRef }) {
+type Post = {
+  slug: string;
+  title: string;
+  image: string;
+  preview: string;
+  exampleQuestion: string;
+  date: string;
+};
+interface FAQProps {
+  posts: Post[];
+  FAQRef: React.RefObject<HTMLDivElement>;
+}
+
+export default function FAQ({ posts, FAQRef }: FAQProps): JSX.Element {
   const router = useRouter();
 
   return (
@@ -38,7 +51,7 @@ export default function FAQ({ posts, FAQRef }) {
                 />
               </Grid>
             ))}
-          <Button onClick={() => router.push("/faq")} type={"outline"}>
+          <Button onClick={() => router.push("/faq")}>
             <Typography variant="h4">View All FAQs</Typography>
           </Button>
         </Grid>

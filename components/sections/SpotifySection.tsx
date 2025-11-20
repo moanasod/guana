@@ -1,11 +1,15 @@
 import { Box } from "@mui/material";
-import React from "react";
+import React, { JSX, RefObject } from "react";
 import { SectionHeading, SubHeading } from "../typography";
 
 const playlistUrl =
   "https://open.spotify.com/embed/playlist/2j5aLQU2VeBgchP5MGGSdJ?utm_source=generator";
 
-export default function SpotifySection({ spotifyRef }) {
+  interface SpotifySectionProps {
+    spotifyRef: RefObject<HTMLDivElement>;
+  }
+
+export default function SpotifySection({ spotifyRef }: SpotifySectionProps): JSX.Element {
   return (
     <Box
       ref={spotifyRef}
@@ -21,7 +25,7 @@ export default function SpotifySection({ spotifyRef }) {
         src={playlistUrl}
         width="100%"
         height="352"
-        sx={{ border: 0, borderRadius: 12 }}
+        style={{ border: 0, borderRadius: 12 }}
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy"
       />

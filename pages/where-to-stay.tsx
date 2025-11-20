@@ -12,6 +12,7 @@ import HotelCard from "../components/Cards/HotelCard";
 import { Typography, Box, Stack, Divider, Grid } from "@mui/material";
 import PageContainer from "../components/PageContainer";
 import data from "../data/portfolio.json";
+import React from "react";
 
 const SEISENSI_IMAGES = [
   {
@@ -32,8 +33,10 @@ const SEISENSI_IMAGES = [
   },
 ];
 
-export default function WhereToStay() {
-  const textRef = useRef();
+
+
+export default function WhereToStay(): React.JSX.Element {
+  const textRef = useRef<HTMLTextAreaElement | null>(null);
   const [mounted, setMounted] = useState(false);
 
   useIsomorphicLayoutEffect(() => {
@@ -49,7 +52,7 @@ export default function WhereToStay() {
   }, []);
 
   return (
-    <PageContainer title={`Where to Stay - ${data.name}`} isFAQ={true}>
+    <PageContainer title={`Where to Stay - ${data.name}`} isFAQ={true} >
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Box
           component="img"
@@ -185,7 +188,7 @@ export default function WhereToStay() {
                 name="Hotel Del Medio"
                 stars="4★"
                 distance="3 km"
-                priceLeve="€€"
+                priceLevel="€€"
                 src={
                   "https://static.tildacdn.com/tild3837-6630-4635-a366-666131393734/IMG_4783.jpeg"
                 }
@@ -230,7 +233,7 @@ export default function WhereToStay() {
                   "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/63/24/aa/porto-sole.jpg?w=900&h=500&s=1"
                 }
                 distance="3.4 km"
-                priceLeve="€"
+                priceLevel="€"
                 stars="3★"
                 description="Comfortable stay close to the seafront promenade, with a pool and breakfast service."
                 links={[

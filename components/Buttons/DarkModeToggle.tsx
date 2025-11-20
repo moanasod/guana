@@ -1,14 +1,15 @@
-import React from "react";
+import React, { JSX } from "react";
 import { useTheme } from "next-themes";
 import { Box } from "@mui/material";
 import Button from "./Button";
 import { getAssetPath } from "../../utils/getAssetPath";
 
-export default function DarkModeToggle() {
+export default function DarkModeToggle(): JSX.Element {
   const { theme, setTheme } = useTheme();
+  const isDarkMode = theme === 'dark';
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(isDarkMode? "light" : "dark");
   };
 
   return (
@@ -16,7 +17,7 @@ export default function DarkModeToggle() {
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Box
           component="img"
-          src={getAssetPath(`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`)}
+          src={getAssetPath(`/images/${isDarkMode ? "moon.svg" : "sun.svg"}`)}
           alt="Toggle theme"
           sx={{ width: 24, height: 24 }}
         />

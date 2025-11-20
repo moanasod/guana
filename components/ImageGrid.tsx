@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Box, ImageList, ImageListItem } from "@mui/material";
 import { getAssetPath } from "../utils/getAssetPath";
+import {type Image } from './Cards/HotelCard'
 
 const styles = {
   imageGridBox: {
@@ -29,12 +30,19 @@ const styles = {
   },
 };
 
+interface ImageGridProps {
+  images: Image[],
+  maxHeight?: number,
+  cols?: number,
+  rowHeight?: number,
+}
+
 export default function ImageGrid({
   images = [],
   maxHeight = 450,
   cols = 4,
   rowHeight = 250,
-}) {
+}: ImageGridProps): React.JSX.Element {
   const height = Math.min(maxHeight, 450);
   return (
     <Box sx={styles.imageGridBox}>

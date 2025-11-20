@@ -101,7 +101,7 @@ export default function Home({ posts }) {
             alt="couple jumping between glasses"
             sx={{
               width: { xs: "100%", md: "60%" },
-              marginY: {xs: '-80px', md: '-140px'},
+              marginY: { xs: "-80px", md: "-140px" },
               height: "auto",
               alignSelf: "center",
             }}

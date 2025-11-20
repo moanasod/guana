@@ -1,14 +1,16 @@
+
 import { Popover } from "@headlessui/react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-import { Typography, Box, Stack, Breadcrumbs } from "@mui/material";
+import React, { JSX, useEffect, useState } from "react";
+import { Typography, Box, Stack, Breadcrumbs, ButtonBase } from "@mui/material";
 import data from "../data/portfolio.json";
 import Button from "./Buttons/Button";
 import AppBar from "@mui/material/AppBar";
 import DarkModeToggle from "./Buttons/DarkModeToggle";
 import { getAssetPath } from "../utils/getAssetPath";
 import { Divider } from "@mui/material";
+
 
 const styles = {
   mobileAppBar: {
@@ -38,6 +40,8 @@ const styles = {
     padding: "1rem 2rem",
   },
 };
+
+
 
 export default function TopBar({
   handleWorkScroll,
@@ -115,6 +119,7 @@ export default function TopBar({
                       src={getAssetPath(
                         `/images/${
                           !open
+
                             ? isDarkMode
                               ? "menu-white.svg"
                               : "menu.svg"

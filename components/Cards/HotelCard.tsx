@@ -2,8 +2,11 @@ import { Box, Card, Grid, Typography } from "@mui/material";
 import { getAssetPath } from "../../utils/getAssetPath";
 import { BodyText, ExternalLink } from "../typography";
 import ImageGrid from "../ImageGrid";
-import {useTheme} from "next-themes"
+import { useTheme } from "next-themes";
 import mergeStyles from "../../utils/mergeStyles";
+import { JSX } from "react";
+import React from "react";
+import { StringMappingType } from "typescript";
 
 const styles = {
   card: {
@@ -27,6 +30,28 @@ const styles = {
   },
 };
 
+ type Link = {
+  label: string;
+  url: string;
+}
+
+export type Image ={
+  img: string;
+  title: string;
+}
+
+interface HotelCardProps {
+  name: string;
+  stars: string;
+  description: string;
+  links: Link[];
+  distance: string;
+  src?: string;
+  isLarge?: boolean;
+  images?: Image[];
+  priceLevel: string;
+}
+
 export default function HotelCard({
   name,
   stars,
@@ -37,12 +62,16 @@ export default function HotelCard({
   isLarge = false,
   images,
   priceLevel,
-}) {
+}: HotelCardProps): JSX.Element {
   const { theme } = useTheme();
 
   return (
-    <Grid item size={{ md: isLarge ? 12 : 6, xs: 12 }} sx={{ display: "flex" }}>
-      <Card sx={mergeStyles(styles.card, { backgroundColor: theme ==='dark' ? "secondary.dark" : "white" })}>
+    <Grid size={{ md: isLarge ? 12 : 6, xs: 12 }} sx={{ display: "flex" }}>
+      <Card
+        sx={mergeStyles(styles.card, {
+          backgroundColor: theme === "dark" ? "secondary.dark" : "white",
+        })}
+      >
         {images && <ImageGrid images={images} maxHeight={350} />}
         {src && (
           <Box

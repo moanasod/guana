@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSX } from "react";
 import { Typography, Box, Stack } from "@mui/material";
 import { getAssetPath } from "../../utils/getAssetPath";
 
@@ -67,7 +67,19 @@ const styles = {
   },
 };
 
-export default function WorkCard({ img, name, description, onClick }) {
+interface WorkCardProps {
+  img: string;
+  name: string;
+  description: string;
+  onClick: () => void;
+}
+
+export default function WorkCard({
+  img,
+  name,
+  description,
+  onClick,
+}: WorkCardProps): JSX.Element {
   return (
     <Stack onClick={onClick} className="link" sx={styles.container}>
       <Box sx={styles.box}>

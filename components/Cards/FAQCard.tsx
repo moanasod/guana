@@ -1,8 +1,9 @@
 import { Box, Card, Typography } from "@mui/material";
 import Button from "../Buttons/Button";
-import { useState } from "react";
+import { JSX, useState } from "react";
 import { useTheme } from "next-themes";
 import { getAssetPath } from "../../utils/getAssetPath";
+import React from "react";
 
 const styles = {
   imgBox: {
@@ -40,20 +41,25 @@ const styles = {
   },
 };
 
+interface FAQCardProps {
+  name: string;
+  description: string;
+  image: string;
+  exampleQuestion: string;
+}
+
 export default function FAQCard({
   name,
   description,
   image,
   exampleQuestion,
-  disabled,
-}) {
+}: FAQCardProps): JSX.Element {
   const [isHovered, setIsHovered] = useState(false);
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
 
   return (
     <Card
-      disabled={disabled}
       sx={{
         position: "relative",
         padding: 2,
@@ -89,7 +95,7 @@ export default function FAQCard({
       </Typography>
       {isHovered && (
         <Box sx={styles.viewMoreBox}>
-          <Button variant="contained">View More FAQs</Button>
+          <Button onClick={() => {}}>View More FAQs</Button>
         </Box>
       )}
     </Card>

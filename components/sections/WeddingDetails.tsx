@@ -1,10 +1,28 @@
-import React from "react";
+import React, { JSX, RefObject } from "react";
 import { useRouter } from "next/router";
 import { Box, Stack } from "@mui/material";
 import WorkCard from "../Cards/WorkCard";
 import { SectionHeading } from "../typography";
 
-export default function WeddingDetails({ workRef, data }) {
+ type Project ={
+  id: string;
+  title: string;
+  description: string;
+  imageSrc: string;
+  url: string;
+}
+
+interface WeddingDetailsProps {
+  workRef: RefObject<HTMLDivElement>;
+  data: {
+    projects: Project[];
+  };
+}
+
+export default function WeddingDetails({
+  workRef,
+  data,
+}: WeddingDetailsProps): JSX.Element {
   const router = useRouter();
 
   return (

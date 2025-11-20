@@ -1,4 +1,4 @@
-import React from "react";
+import React, { JSX, RefObject } from "react";
 import {
   Typography,
   Box,
@@ -12,7 +12,12 @@ import Favorite from "@mui/icons-material/Favorite";
 import { useTheme } from "next-themes";
 import { SectionHeading } from "../typography";
 
-function CheckboxItem({ label, defaultChecked }) {
+interface CheckboxItemProps {
+  label: string,
+  defaultChecked?: boolean,
+}
+
+function CheckboxItem({ label, defaultChecked }: CheckboxItemProps): JSX.Element {
   return (
     <FormControlLabel
       sx={{
@@ -23,7 +28,7 @@ function CheckboxItem({ label, defaultChecked }) {
       }}
       control={
         <Checkbox
-          color={"white"}
+          color='default'
           defaultChecked={defaultChecked}
           icon={<FavoriteBorder />}
           checkedIcon={<Favorite />}
@@ -35,7 +40,7 @@ function CheckboxItem({ label, defaultChecked }) {
   );
 }
 
-export default function About({ aboutRef }) {
+export default function About({ aboutRef }: { aboutRef: RefObject<HTMLDivElement>}): JSX.Element {
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
   return (
@@ -65,7 +70,7 @@ export default function About({ aboutRef }) {
         <Box sx={{ paddingX: { xs: "1rem", md: "2rem" } }}>
           <FormGroup sx={{ color: "white" }}>
             <CheckboxItem label="Get an invite to the wedding" defaultChecked />
-            <CheckboxItem label="RSVP: Let us know you're coming so we can plan food and transport." />
+            <CheckboxItem label="RSVP: Let us know you're coming so we can plan food and transport."  />
             <CheckboxItem label="Book your flights: See Travel Information for our recommended flights to Podgorica or Tivat." />
             <CheckboxItem label="Send us your flight details. So we can arrange your shuttle." />
             <CheckboxItem label="Book your accommodation. See Where to Stay for nearby hotel options close to the venue." />

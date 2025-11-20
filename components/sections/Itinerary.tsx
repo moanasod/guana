@@ -1,10 +1,14 @@
-import React from "react";
+import React, { JSX, RefObject } from "react";
 import { useTheme } from "next-themes";
 import { Box } from "@mui/material";
 import { SectionHeading, SubHeading } from "../typography";
 import { getAssetPath } from "../../utils/getAssetPath";
 
-export default function Itinerary({ itineraryRef }) {
+export default function Itinerary({
+  itineraryRef,
+}: {
+  itineraryRef: RefObject<HTMLDivElement>;
+}): JSX.Element {
   const { theme } = useTheme();
 
   const isDarkMode = theme === "dark";
