@@ -3,7 +3,7 @@ title: The Venue
 tagline: About Talići Hill
 preview: >-
    Talići Hill is a restored over 300-year-old stone estate above Vrelo Brca, with olive trees and sea views. The celebration is outdoors on pebbles, grass and old stone, so comfortable shoes are recommended.
-image: /images/taliciDoodle.svg
+image: /images/talici3.svg
 exampleQuestion: "Where is the wedding taking place?"
 ---
 
