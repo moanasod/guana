@@ -54,7 +54,7 @@ const StyledButton = styled(ButtonBase, {
 
 interface ButtonProps {
   children: React.ReactNode;
-  onClick: () => void | undefined;
+  onClick: (() => void) | (() => Window | null) | undefined;
   type?: 'primary' | 'secondary'
   classes?: string;
 }

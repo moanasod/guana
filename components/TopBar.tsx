@@ -12,6 +12,10 @@ import { getAssetPath } from "../utils/getAssetPath";
 import { Divider } from "@mui/material";
 
 
+const PopoverComponent = Popover as any;
+const PopoverButton = Popover.Button as any;
+const PopoverPanel = Popover.Panel as any;
+
 const styles = {
   mobileAppBar: {
     display: { xs: "flex", md: "none" },
@@ -41,14 +45,19 @@ const styles = {
   },
 };
 
-
+interface TopBarProps {
+  handleWorkScroll?: () => void; 
+  handleFAQScroll?: () => void;
+  handleItineraryScroll?: () => void;
+  isFAQ?: boolean;
+}
 
 export default function TopBar({
   handleWorkScroll,
   handleFAQScroll,
   handleItineraryScroll,
   isFAQ,
-}) {
+}: TopBarProps): JSX.Element {
   const router = useRouter();
   const { theme } = useTheme();
   const isDarkMode = theme === "dark";
@@ -91,8 +100,8 @@ export default function TopBar({
   return (
     <>
       {/* Mobile*/}
-      <Popover>
-        {({ open }) => (
+      <PopoverComponent>
+      {({ open }: { open: boolean }) => (
           <>
             <AppBar position="fixed" sx={styles.mobileAppBar}>
               <Stack
@@ -113,7 +122,7 @@ export default function TopBar({
                 <Stack direction="row" alignItems="center">
                   {data.darkMode && <DarkModeToggle />}
 
-                  <Popover.Button>
+                  <PopoverButton>
                     <Box
                       component="img"
                       src={getAssetPath(
@@ -130,12 +139,12 @@ export default function TopBar({
                       )}
                       sx={{ width: 24, height: 24 }}
                     />
-                  </Popover.Button>
+                  </PopoverButton>
                 </Stack>
               </Stack>
             </AppBar>
 
-            <Popover.Panel
+            <PopoverPanel
               style={styles.popOverPanel}
               className={`p-4 ${
                 theme === "dark" ? "bg-slate-800" : "bg-white"
@@ -147,7 +156,6 @@ export default function TopBar({
                     <Button
                       key={item.label}
                       onClick={item.onClick}
-                      type={item.type}
                     >
                       {item.label}
                     </Button>
@@ -155,40 +163,40 @@ export default function TopBar({
                 </Stack>
               ) : (
                 <Stack spacing={1}>
-                  <Button onClick={() => router.push("/")}>Home</Button>
-                  <Button onClick={() => router.push("/faq")}>FAQ</Button>
+                  <Button onClick={() => {router.push("/")}}>Home</Button>
+                  <Button onClick={() => {router.push("/faq")}}>FAQ</Button>
                   <Button
                     type="secondary"
-                    onClick={() =>
+                    onClick={() =>{
                       window.open(
                         "https://docs.google.com/forms/d/e/1FAIpQLSfpAdkh6dO_8jLksPz14Vaia30HxyALseKrAU8kFPl0BkLIvQ/viewform?usp=header"
-                      )
+                      )}
                     }
                   >
                     RSVP
                   </Button>
                   <Divider />
-                  <Button onClick={() => router.push("/where-to-stay")}>
+                  <Button onClick={() => {router.push("/where-to-stay")}}>
                     Where to Stay
                   </Button>
-                  <Button onClick={() => router.push("/travel-info")}>
+                  <Button onClick={() => {router.push("/travel-info")}}>
                     Travel Information
                   </Button>
-                  <Button onClick={() => router.push("/the-venue")}>
+                  <Button onClick={() => {router.push("/the-venue")}}>
                     The Venue
                   </Button>
-                  <Button onClick={() => router.push("/dress-code")}>
+                  <Button onClick={() => {router.push("/dress-code")}}>
                     Dress Code
                   </Button>
-                  <Button onClick={() => router.push("/extend-your-stay")}>
+                  <Button onClick={() => {router.push("/extend-your-stay")}}>
                     Extend Your Stay
                   </Button>
                 </Stack>
               )}
-            </Popover.Panel>
+            </PopoverPanel>
           </>
         )}
-      </Popover>
+      </PopoverComponent>
 
       {/* Desktop Navigation */}
       <AppBar position="fixed" sx={styles.desktopAppBar}>
@@ -213,13 +221,13 @@ export default function TopBar({
           </Stack>
         ) : (
           <Stack direction="row" spacing={1}>
-            <Button onClick={() => router.push("/")}>Home</Button>
-            <Button onClick={() => router.push("/faq")}>FAQ</Button>
+            <Button onClick={() => {router.push("/")}}>Home</Button>
+            <Button onClick={() => {router.push("/faq")}}>FAQ</Button>
             <Button
-              onClick={() =>
+              onClick={() =>{
                 window.open(
                   "https://docs.google.com/forms/d/e/1FAIpQLSfpAdkh6dO_8jLksPz14Vaia30HxyALseKrAU8kFPl0BkLIvQ/viewform?usp=header"
-                )
+                )}
               }
             >
               RSVP
