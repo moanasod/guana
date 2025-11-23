@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { JSX, useEffect, useRef, useState } from "react";
 import { stagger } from "../animations";
 import { useIsomorphicLayoutEffect } from "../utils";
 import { Typography, Stack, Box, Grid } from "@mui/material";
@@ -12,9 +12,10 @@ import {
   ContentSection,
 } from "../components/typography";
 import data from "../data/portfolio.json";
+import React from "react";
 
-export default function TravelInfo() {
-  const textRef = useRef();
+export default function TravelInfo(): JSX.Element {
+  const textRef = useRef<HTMLDivElement | null>(null);
   const [mounted, setMounted] = useState(false);
 
   useIsomorphicLayoutEffect(() => {

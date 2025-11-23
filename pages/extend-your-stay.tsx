@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { JSX, useEffect, useRef, useState } from "react";
 import { stagger } from "../animations";
 import { useIsomorphicLayoutEffect } from "../utils";
 import { Typography, Box, Stack, Divider } from "@mui/material";
@@ -15,6 +15,7 @@ import {
   ContentSection,
   SubSection,
 } from "../components/typography";
+import React from "react";
 
 const montenegroImages = [
   { img: "/images/montenegro/image1.png", title: "Old Town Kotor" },
@@ -27,9 +28,8 @@ const montenegroImages = [
   { img: "/images/montenegro/image9.png", title: "Ostrog Monastery" },
 ];
 
-export default function ExtendYourStay() {
-  const textRef = useRef();
-  const [mounted, setMounted] = useState(false);
+export default function ExtendYourStay(): JSX.Element {
+  const textRef = useRef<HTMLDivElement | null>(null);  const [mounted, setMounted] = useState(false);
 
   useIsomorphicLayoutEffect(() => {
     stagger(

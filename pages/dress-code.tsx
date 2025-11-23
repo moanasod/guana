@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { JSX, useEffect, useRef, useState } from "react";
 import { stagger } from "../animations";
 import { useIsomorphicLayoutEffect } from "../utils";
 import { Typography, Box, Stack } from "@mui/material";
@@ -12,11 +12,13 @@ import {
   SubHeading,
   ListItem,
 } from "../components/typography";
+import React from "react";
 
-function PinterestBoard({ boardUrl }) {
+function PinterestBoard({ boardUrl }: { boardUrl: string }): JSX.Element {
   useEffect(() => {
-    if (window.PinUtils) {
-      window.PinUtils.build();
+    const w = window as any;
+    if (w.PinUtils) {
+      w.PinUtils.build();
     } else {
       const script = document.createElement("script");
       script.src = "//assets.pinterest.com/js/pinit.js";
@@ -45,8 +47,7 @@ function PinterestBoard({ boardUrl }) {
 }
 
 export default function DressCode() {
-  const textRef = useRef();
-  const [mounted, setMounted] = useState(false);
+  const textRef = useRef<HTMLDivElement | null>(null);  const [mounted, setMounted] = useState(false);
 
   useIsomorphicLayoutEffect(() => {
     if (textRef.current) {

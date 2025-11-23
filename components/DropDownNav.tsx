@@ -1,6 +1,7 @@
 import { Box, Select, MenuItem, FormControl } from "@mui/material";
+import React, { JSX } from "react";
 
-const handleNavigation = (slug) => {
+const handleNavigation = (slug: any) => {
   const element = document.getElementById(slug);
   if (element) {
     const offset = 120;
@@ -14,11 +15,17 @@ const handleNavigation = (slug) => {
   }
 };
 
+interface SideNavDropdownProps {
+  sections?: { slug: any; title: string }[];
+  currentSection?: string;
+  compact?: boolean;
+}
+
 export default function SideNavDropdown({
   sections = [],
   currentSection = "",
   compact,
-}) {
+}: SideNavDropdownProps): JSX.Element | null {
   if (!sections || sections.length === 0) {
     return null;
   }

@@ -1,11 +1,18 @@
-import { Box, CircularProgress } from "@mui/material";
+import { Box, CircularProgress, SxProps } from "@mui/material";
+import React, { JSX } from "react";
+
+interface SpinnerProps {
+  size?: number;
+  overlay?: boolean;
+  sx?: SxProps;
+}
 
 export default function Spinner({
   size = 60,
   overlay = true,
   sx = {},
   ...props
-}) {
+}: SpinnerProps): JSX.Element {
   if (!overlay) {
     return (
       <Box

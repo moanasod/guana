@@ -1,7 +1,31 @@
 import { Typography, Box, useScrollTrigger } from "@mui/material";
 import SideNavDropdown from "./DropDownNav";
+import { JSX, useRef } from "react";
+import React from "react";
+import { useIsomorphicLayoutEffect } from "@/utils";
+import { stagger } from "@/animations";
 
-export default function FaqHeader({ textRef, posts, currentSection }) {
+interface FAQHeaderProps {
+  posts: { slug: any; title: string }[];
+  currentSection: string;
+}
+
+export default function FaqHeader({
+  posts,
+  currentSection,
+}: FAQHeaderProps): JSX.Element {
+  const textRef = useRef<HTMLDivElement | null>(null);
+
+  useIsomorphicLayoutEffect(() => {
+    if (textRef.current) {
+      stagger(
+        [textRef.current],
+        { y: 40, x: -10, transform: "scale(0.95) skew(10deg)" },
+        { y: 0, x: 0, transform: "scale(1)" }
+      );
+      stagger([textRef.current], { y: 30 }, { y: 0 });
+    }
+  }, []);
   // Trigger specifically for the dropdown behavior
   const dropdownFixed = useScrollTrigger({
     threshold: 140, // adjust to when you want it to "lock" into fixed

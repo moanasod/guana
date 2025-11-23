@@ -4,12 +4,11 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
-  Select,
-  MenuItem,
-  FormControl,
 } from "@mui/material";
+import React from "react";
+import { JSX } from "react";
 
-const handleNavigation = (slug) => {
+const handleNavigation = (slug: any) => {
   const element = document.getElementById(slug);
   if (element) {
     const offset = 120;
@@ -23,7 +22,12 @@ const handleNavigation = (slug) => {
   }
 };
 
-export default function SideNav({ sections = [], currentSection = "" }) {
+interface SideNavProps {
+  sections?: { slug: any; title: string }[];
+  currentSection?: string
+}
+
+export default function SideNav({ sections = [], currentSection = "" }: SideNavProps): JSX.Element | null {
   if (!sections || sections.length === 0) {
     return null;
   }
@@ -66,13 +70,15 @@ export default function SideNav({ sections = [], currentSection = "" }) {
             >
               <ListItemText
                 primary={section.title}
-                primaryTypographyProps={{
-                  fontSize: "0.9rem",
-                  fontWeight: currentSection === section.slug ? 600 : 400,
-                  color:
-                    currentSection === section.slug
-                      ? "secondary.main"
-                      : "text.primary",
+                slotProps={{
+                  primary:{
+                    fontSize: "0.9rem",
+                    fontWeight: currentSection === section.slug ? 600 : 400,
+                    color:
+                      currentSection === section.slug
+                        ? "secondary.main"
+                        : "text.primary",
+                  }
                 }}
               />
             </ListItemButton>

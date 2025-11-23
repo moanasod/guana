@@ -1,9 +1,9 @@
-import React from "react";
+import React, { JSX } from "react";
 import Contact from "./Contact";
 import { Box } from "@mui/material";
 import { SectionHeading } from "./typography";
 
-export default function Footer() {
+export default function Footer(): JSX.Element {
   return (
     <Box
       sx={{

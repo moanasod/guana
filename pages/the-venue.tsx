@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { JSX, useEffect, useRef, useState } from "react";
 import { stagger } from "../animations";
 import { useIsomorphicLayoutEffect } from "../utils";
 import { Typography, Box, Stack, Divider } from "@mui/material";
@@ -15,6 +15,7 @@ import {
   ContentSection,
   SubSection,
 } from "../components/typography";
+import React from "react";
 
 const montenegroImages = [
   { img: 'https://www.wedinspire.com/wp-content/uploads/2022/11/2022.talici-hill-montenegro-wedding-venue-events-mice-14-1400x934-1.jpg', title: 'Old Town Kotor' },
@@ -27,8 +28,8 @@ const montenegroImages = [
   { img: 'https://www.wedinspire.com/wp-content/uploads/2024/12/Talici-Hill-Rustic-Villas-Montenegro.-Luxury-Events-Space-Weddings-Tourist-Rental-5-1400x1050.jpg', title: 'Ostrog Monastery' },
 ];
 
-export default function TheVenue() {
-  const textRef = useRef();
+export default function TheVenue(): JSX.Element {
+  const textRef = useRef<HTMLDivElement | null>(null);
   const [mounted, setMounted] = useState(false);
 
   useIsomorphicLayoutEffect(() => {
