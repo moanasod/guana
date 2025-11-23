@@ -33,6 +33,25 @@ const SEISENSI_IMAGES = [
   },
 ];
 
+const IBEROSTAR_IMAGES = [
+  {
+    img: "/images/montenegro/ibero1.png",
+    title: "Overhead view of the hotel",
+  },
+  {
+    img: "/images/montenegro/ibero2.png",
+    title: "Room view",
+  },
+  {
+    img: "/images/montenegro/ibero3.png",
+    title: "Spa section of the hotel",
+  },
+  {
+    img: "/images/montenegro/ibero4.png",
+    title: "Restaurant view of the hotel",
+  },
+];
+
 
 
 export default function WhereToStay(): React.JSX.Element {
@@ -145,6 +164,25 @@ export default function WhereToStay(): React.JSX.Element {
             </BodyText>
 
             <Grid container spacing={3}>
+            <HotelCard
+                isLarge={true}
+                images={IBEROSTAR_IMAGES}
+                name="Iberostar"
+                stars="5★"
+                distance="1.6 km"
+                priceLevel="€€€"
+                description="This 5 star hotel will open its doors a week before the wedding. The hotel is located right on the beachfront, with access to a private cove of crystal-clear waters. It is a 5 minute car ride from the venue and offers all inclusive deals. If you book before December 2nd, you can partake in their discounted rates."
+                links={[
+                  {
+                    label: "Google Maps",
+                    url: "https://maps.app.goo.gl/s3PQcT1wwYipHzg89",
+                  },
+                  {
+                    label: "Book on their website",
+                    url: "https://www.iberostar.com/eu/hotels/bar/iberostar-selection-montenegro/?utm_source=google&utm_source_platform=Google+Ads&utm_medium=cpc&utm_campaign=IBSVOL_EMEA_SEA_SEABRA_ROW_EN_MTN_NA_NA_NA_PULL_NA_NA_NA_AO_NA&utm_campaignid=10016637490&gclsrc=aw.ds&gad_source=1&gad_campaignid=10016637490&gbraid=0AAAAACxzKd94zXiGQuaUKKntHi8FfPiAP&gclid=EAIaIQobChMI8a7K4qiIkQMVwBCiAx1HOBuvEAAYASAAEgJR1vD_BwE",
+                  },
+                ]}
+              />
               <HotelCard
                 src={
                   "https://lovelivehotel.com/wp-content/uploads/2015/05/lovelivehotel_slider_image_2_dark.jpg"
