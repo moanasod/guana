@@ -3,7 +3,7 @@ title: Practical Details
 tagline: Visa, currency, and useful information
 preview: >-
    Montenegro uses the Euro (€). Most places accept cards, but it's handy to carry some cash. EU and New Zealand citizens don't need a visa. English is widely spoken in tourist areas.
-image: /images/olivesv2.svg
+image: /images/doodles/olivesv2.svg
 exampleQuestion: "What currency is used and can I pay by card?"
 ---
 

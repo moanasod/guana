@@ -84,7 +84,7 @@ export default function ExtendYourStay(): JSX.Element {
           <Grid size={{ xs: 12, md: 6 }}>
             <Box
               component="img"
-              src={getAssetPath("/images/map.png")}
+              src={getAssetPath("/images/montenegro/map.png")}
               sx={{
                 width: "100%",
                 objectFit: "cover",

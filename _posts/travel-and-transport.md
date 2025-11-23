@@ -3,7 +3,7 @@ title: Travel & Transport
 tagline: Getting to Montenegro and the venue
 preview: >-
    Fly into Podgorica (40 min) or Tivat (1h 15min). We'll arrange shuttles from Podgorica on May 8th and 9th. Look for the "Moana and Gustav Wedding Shuttle" sign and tell the driver your hotel.
-image: /images/airplane.png
+image: /images/doodles/airplane.png
 exampleQuestion: "Which airport should I fly into?"
 ---
 

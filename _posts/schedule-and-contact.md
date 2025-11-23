@@ -3,7 +3,7 @@ title: Schedule & Contact Information
 tagline: Weekend schedule and who to contact
 preview: >-
    The weekend starts Friday May 8th at the villa, with the wedding ceremony on the afternoon/evening of Saturday May 9th and brunch on Sunday May 10th. Contact our wedding planners at ESBI Group or reach out to Moana & Gustav directly.
-image: /images/tabledoodle.png
+image: /images/doodles/tabledoodle.png
 exampleQuestion: "When does everything start?"
 ---
 

@@ -3,7 +3,7 @@ title: Accommodation
 tagline: Where to stay during the wedding weekend
 preview: >-
   Stay nearby in Sutomore or Bar. Most hotels are 5–15 minutes from the venue. Book through Booking.com for flexibility and find recommended options on our Where to Stay page.
-image: /images/house.svg
+image: /images/doodles/house.svg
 exampleQuestion: "How do I book my accommodation?"
 ---
 

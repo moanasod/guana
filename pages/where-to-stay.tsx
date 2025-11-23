@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { JSX, useEffect, useRef, useState } from "react";
 import { stagger } from "../animations";
 import { useIsomorphicLayoutEffect } from "../utils";
 import { getAssetPath } from "../utils/getAssetPath";
@@ -13,48 +13,9 @@ import { Typography, Box, Stack, Divider, Grid } from "@mui/material";
 import PageContainer from "../components/PageContainer";
 import data from "../data/portfolio.json";
 import React from "react";
+import { IBEROSTAR_IMAGES, SEISENSI_IMAGES } from "@/data/hotelImage";
 
-const SEISENSI_IMAGES = [
-  {
-    img: "/images/montenegro/seisensi1.jpg",
-    title: "Overhead view of the hotel",
-  },
-  {
-    img: "/images/montenegro/seisensi2.jpg",
-    title: "Overhead view of the hotel",
-  },
-  {
-    img: "/images/montenegro/seisensei3.jpg",
-    title: "Overhead view of the hotel",
-  },
-  {
-    img: "/images/montenegro/sensei4.jpg",
-    title: "Overhead view of the hotel",
-  },
-];
-
-const IBEROSTAR_IMAGES = [
-  {
-    img: "/images/montenegro/ibero1.png",
-    title: "Overhead view of the hotel",
-  },
-  {
-    img: "/images/montenegro/ibero2.png",
-    title: "Room view",
-  },
-  {
-    img: "/images/montenegro/ibero3.png",
-    title: "Spa section of the hotel",
-  },
-  {
-    img: "/images/montenegro/ibero4.png",
-    title: "Restaurant view of the hotel",
-  },
-];
-
-
-
-export default function WhereToStay(): React.JSX.Element {
+export default function WhereToStay(): JSX.Element {
   const textRef = useRef<HTMLTextAreaElement | null>(null);
   const [mounted, setMounted] = useState(false);
 
@@ -75,7 +36,7 @@ export default function WhereToStay(): React.JSX.Element {
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Box
           component="img"
-          src={getAssetPath("/images/taliciDoodle.svg")}
+          src={getAssetPath("/images/doodles/taliciDoodle.svg")}
           alt="Toggle theme"
           sx={{
             width: { xs: "100%", md: "70%" },
