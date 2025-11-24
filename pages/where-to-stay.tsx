@@ -131,7 +131,7 @@ export default function WhereToStay(): JSX.Element {
                 name="Iberostar"
                 stars="5★"
                 distance="1.6 km"
-                priceLevel="€€€"
+                priceLevel="€€-€€€ (has an ongoing promotion until December 2nd)"
                 description="This 5 star hotel will open its doors a week before the wedding. The hotel is located right on the beachfront, with access to a private cove of crystal-clear waters. It is a 5 minute car ride from the venue and offers all inclusive deals. If you book before December 2nd, you can partake in their discounted rates."
                 links={[
                   {
